@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import About from './pages/About';
 import TeamPage from './pages/TeamPage';
 import ContactPage from './pages/ContactPage';
+import Gallery from './pages/Gallery';
 
 function App() {
  
@@ -20,6 +21,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/team' element={<TeamPage />} />
         <Route path='/contact' element={<ContactPage />} />
+        <Route path='/gallery' element={<Gallery />} />
       </Routes>
     </ Router>
   

@@ -11,8 +11,9 @@ const Navbar = () => {
            <li className="hover:bg-green-400 rounded-sm  p-3 my-auto   hover:duration-700 py-auto  cursor-pointer "><Link to="/" > Home</Link></li>
            <li className="hover:bg-green-400 rounded-sm  p-3 my-auto   hover:duration-700 py-auto  cursor-pointer"><Link to="/about" > About</Link></li>
            <li className="hover:bg-green-400 rounded-sm  p-3 my-auto   hover:duration-700 py-auto  cursor-pointer"><Link to="/team" > Team</Link></li>
+           <li className="hover:bg-green-400 rounded-sm  p-3 my-auto   hover:duration-700 py-auto  cursor-pointer"><Link to="/gallery" >Gallery</Link></li>
            <li className="hover:bg-green-400 rounded-sm  p-3 my-auto   hover:duration-700 py-auto  cursor-pointer"><Link to="/contact" > Contact</Link></li>
-           
+
           </nav>
       
       </div>
