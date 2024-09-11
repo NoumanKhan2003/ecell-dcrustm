@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
-import Card from "../components/card";
+import Card from "../components/Card";
 
 const Homepage = () => {
   const [text]=useTypewriter(
