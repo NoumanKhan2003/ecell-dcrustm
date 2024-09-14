@@ -21,7 +21,7 @@ const Homepage = () => {
       {/*header section*/}
       <div className=" flex justify-center flex-wrap lg:flex  lg:w-full h-100% md:h-[700px] ">
         <div className=" w-[100vw] text-center md:text-left md:w-1/2 pt-10  ">
-            <h1 className="text-black font-bold text-5xl md:text-6xl pb-14">E-Cell IIT Murthal</h1>
+            <h1 className="text-black font-bold tracking-tighter text-5xl md:text-6xl pb-14">E-Cell IIT Murthal</h1>
             <h2 className="text-gray-600 text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle=">" /></span>
               <br />Journey</h2>
@@ -37,7 +37,7 @@ const Homepage = () => {
 
       <div className="   w-full flex flex-col md:flex-row md:items-center  h-[700px]">
         <div className="flex-grow  md:w-1/2 bg-white">
-          <h1 className="text-6xl text-center md:text-left  font-bold py-10">Who are we?</h1>
+          <h1 className="text-6xl text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
           <p className=" md:text-xl text-justify text-gray-800 pb-14 mb-6 px-6 md:px-0 md:pr-16 md:pt-5">E-Cell DCRUSTM is an institute body run by the students of DCRUST, Murthal devoted to acting as a symbiotic link between the entrepreneurs of E-Cell and the existing startup ecosystem as well as acting as a hub where all the startups can meet ,collaborate and innovate!</p>
           <button className="bg-black  md:text-xl mx-36 md:mx-0 text-white py-5 px-10 md:px-20 rounded-md hover:bg-blue-600 hover:shadow-lg"><Link to='/about'>Know more!</Link></button>
 
@@ -50,7 +50,7 @@ const Homepage = () => {
 
       <div className="w-full flex flex-col items-center md:h-[700px] ">
         <div className="bg-white w-full flex flex-col items-center">
-        <h1 className="text-6xl font-bold py-10">What we do?</h1>
+        <h1 className="text-6xl font-bold tracking-tighter py-10">What we do?</h1>
         <p className="text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">Through our vision of "Learn, Build and Scale" we implement various initiatives and events in DCRUSTM to foster the entrepreneurial minds and create a culture of enthralling startups bound for success!</p>
           </div>
         <div className="flex flex-col md:flex-row flex-wrap gap-10">
