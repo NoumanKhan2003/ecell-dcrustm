@@ -1,11 +1,14 @@
 import React from 'react'
 
-const Card = () => {
+const Card = ({imgURL,title,content}) => {
+  
   return (
-    <div className="bg-green-300 w-[300px]  h-[400px] shadow-2xl flex flex-col items-center py-8 hover:scale-110 duration-300">
-      <div className='w-1/2'> <img src="" alt="" /></div>
-      <h1>Title</h1>
-      <p>content</p>
+    <div className="bg-white w-[250px] h-[350px] md:w-[300px]  md:h-[350px] md:shadow-xl flex flex-col items-center hover:scale-105 hover:shadow-xl border-4 rounded-2xl md:border-none  md:hover:scale-110 duration-300">
+     
+      <img className='w-[60%] pt-0' src={imgURL} alt="card-img" />
+        <h1 className="font-bold text-2xl ">{title}</h1>
+        <p className="text-center px-3 py-2">{content}</p>
+
     </div>
   )
 }
