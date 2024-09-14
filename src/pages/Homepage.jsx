@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Card from "../components/Card";
-import Testimonial from "../components/testimonial";
+// import Testimonial from "../components/testimonial";
 import Footer from "../components/Footer";
 
 const Homepage = () => {
