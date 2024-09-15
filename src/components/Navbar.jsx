@@ -16,19 +16,19 @@ const Navbar = () => {
         </div>
 
         <nav className=" hidden md:flex list-none  ml-auto font-bold text-[20px] ">
-          <li className="  hover:text-[#144c8b] p-3 px-7 my-auto   hover:duration-300 py-auto  cursor-pointer ">
+          <li className="  hover:text-white  hover:bg-[#144c8b] p-3 px-7 my-auto   hover:duration-300 py-auto  cursor-pointer ">
             <Link to="/"> Home</Link>
           </li>
-          <li className=" hover:text-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+          <li className=" hover:text-white  hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/about"> About</Link>
           </li>
-          <li className=" hover:text-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+          <li className=" hover:text-white  hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/team"> Team</Link>
           </li>
-          <li className=" hover:text-[#144c8b]  p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+          <li className=" hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/gallery">Gallery</Link>
           </li>
-          <li className="hover:text-[#144c8b]  p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+          <li className="hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/contact"> Contact</Link>
           </li>
         </nav>
