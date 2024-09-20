@@ -9,6 +9,8 @@ import About from './pages/About';
 import TeamPage from './pages/TeamPage';
 import ContactPage from './pages/ContactPage';
 import Gallery from './pages/Gallery';
+import EventsPage from './pages/EventsPage';
+
 
 function App() {
  
@@ -22,7 +24,9 @@ function App() {
         <Route path='/team' element={<TeamPage />} />
         <Route path='/contact' element={<ContactPage />} />
         <Route path='/gallery' element={<Gallery />} />
+        <Route path='/events' element={<EventsPage />} />
       </Routes>
+     
     </ Router>
   
   )

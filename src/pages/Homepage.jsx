@@ -22,7 +22,7 @@ const Homepage = () => {
       <div className=" flex justify-center flex-wrap lg:flex  lg:w-full h-100% md:h-[700px] ">
         <div className=" w-[100vw] text-center md:text-left md:w-1/2 pt-10  ">
             <h1 className=" text-[#144c8b] font-bold tracking-tighter text-5xl md:text-6xl pb-14">E-Cell IIT Murthal</h1>
-            <h2 className="text-gray-600 text-5xl pb-14">Accelerate Your <br />
+            <h2 className="text-gray-900 text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle=">" /></span>
               <br />Journey</h2>
             <p className="text-xl md:text-2xl text-gray-800 pb-14 mb-8  md:pr-4">Welcome to the entrepreneurship community of IIT Murthal where we ideate, integrate and elevate the future innovations of the century!</p>

@@ -9,7 +9,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               src="src\assets\ecell_logo.png"
-              className="w-full p-2"
+              className="w-full ml-4 md:ml-0 "
               alt="ecell_logo"
             />
           </Link>
@@ -28,8 +28,9 @@ const Navbar = () => {
           <li className=" hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/gallery">Gallery</Link>
           </li>
+         
           <li className="hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-            <Link to="/contact"> Contact</Link>
+            <Link to="/events"> Events</Link>
           </li>
         </nav>
       </div>
