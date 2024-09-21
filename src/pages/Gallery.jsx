@@ -2,7 +2,7 @@ import React from 'react'
 import GalleryImages from '../components/GalleryImages'
 const Gallery = () => {
   return (
-    <div className="w-full h-full bg-gradient-to-r from-black to-blue-900">
+    <div className="w-full h-full bg-gradient-to-r from-gray-800 to-blue-900">
     <div className="  max-w-[1240px] mx-auto mt-0">
     <h1 className="text-6xl text-[#ffffff] font-bold tracking-tighter pt-8 text-center">Event gallery</h1>
 

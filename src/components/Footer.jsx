@@ -4,7 +4,7 @@ import { FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-black w-screen h-[400px] md:h-[400px] text-white flex flex-col items-center  ">
+    <div className="bg-black max-w-screen h-[400px] md:h-[400px] text-white flex flex-col items-center  ">
       <div className=" text-center md:text-left md:w-[1200px] h-[300px] pt-4  grid md:grid-cols-3 grid-cols-1 w-[90%] ml-auto">
         <div className=" "><h1 className="font-semibold text-2xl text-blue-100 pt-16 ">Contact us</h1>
         <p className="text-gray-400 pr-10">Deenbandhu Chhotu Ram University of Science and Technology, Murthal-Haryana ,India</p>

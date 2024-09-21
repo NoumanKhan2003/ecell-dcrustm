@@ -48,7 +48,7 @@ const Homepage = () => {
 
       {/*what we do section*/}
 
-      <div className="w-full flex flex-col items-center md:h-[700px] ">
+      <div className="w-full flex flex-col items-center md:h-[700px]  ">
         <div className=" bg-[#ecf5ff] w-full flex flex-col items-center">
         <h1 className="text-6xl text-[#144c8b] font-bold tracking-tighter py-10">What we do?</h1>
         <p className="text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">Through our vision of "Learn, Build and Scale" we implement various initiatives and events in DCRUSTM to foster the entrepreneurial minds and create a culture of enthralling startups bound for success!</p>
