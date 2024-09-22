@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-
+import ecell_logo from '../assets/ecell_logo.png';
 const Navbar = () => {
   const [isopen ,setIsopen]=useState(false);
 
@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="w-[100px] my-4">
           <Link to="/">
             <img
-              src="src/assets/ecell_logo.png"
+              src={ecell_logo}
               className="w-full ml-4 md:ml-0 "
               alt="ecell_logo"
             />
