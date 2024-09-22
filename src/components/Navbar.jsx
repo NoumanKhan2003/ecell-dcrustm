@@ -18,7 +18,7 @@ const Navbar = () => {
         <div className="w-[100px] my-4">
           <Link to="/">
             <img
-              src="src\assets\ecell_logo.png"
+              src="src/assets/ecell_logo.png"
               className="w-full ml-4 md:ml-0 "
               alt="ecell_logo"
             />
