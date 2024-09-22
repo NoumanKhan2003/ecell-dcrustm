@@ -4,6 +4,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Card from "../components/Card";
 // import Testimonial from "../components/testimonial";
 import Footer from "../components/Footer";
+import hero_image from '../assets/hero_image.png';
 
 const Homepage = () => {
   const [text]=useTypewriter(
@@ -43,7 +44,7 @@ const Homepage = () => {
 
         </div>
         <div className="flex-grow w-1/2 ">
-        <div style={{ mixBlendMode: 'multiply' }} className=" w-[400px] mx-10 md:w-[90%]"><img src="src\assets\hero-image.png" alt="" /></div></div>
+        <div style={{ mixBlendMode: 'multiply' }} className=" w-[400px] mx-10 md:w-[90%]"><img src={hero_image} alt="" /></div></div>
       </div>
 
       {/*what we do section*/}
