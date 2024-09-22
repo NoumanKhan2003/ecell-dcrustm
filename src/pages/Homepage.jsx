@@ -43,7 +43,7 @@ const Homepage = () => {
 
         </div>
         <div className="flex-grow w-1/2 ">
-        <div style={{ mixBlendMode: 'multiply' }} className=" w-[400px] mx-10 md:w-[90%]"><img src="https://img.freepik.com/free-vector/hand-drawn-illustration-people-with-ideas_23-2149164331.jpg?t=st=1726088988~exp=1726092588~hmac=3aa5a4021e013623463bb90a7f5fe56ea93f599a90ed546b75289b3ca457e37e&w=1380" alt="" /></div></div>
+        <div style={{ mixBlendMode: 'multiply' }} className=" w-[400px] mx-10 md:w-[90%]"><img src="src\assets\hero-image.png" alt="" /></div></div>
       </div>
 
       {/*what we do section*/}
