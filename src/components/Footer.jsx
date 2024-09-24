@@ -4,10 +4,10 @@ import { FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-black max-w-screen h-[400px] md:h-[400px] text-white flex flex-col items-center  ">
-      <div className=" text-center md:text-left md:w-[1200px] h-[300px] pt-4  grid md:grid-cols-3 grid-cols-1 w-[90%] ml-auto">
-        <div className=" "><h1 className="font-semibold text-2xl text-blue-100 pt-16 ">Contact us</h1>
-        <p className="text-gray-400 pr-10">Deenbandhu Chhotu Ram University of Science and Technology, Murthal-Haryana ,India</p>
+    <div className="bg-black  max-w-screen h-[400px] md:h-[400px] text-white flex flex-col items-center  ">
+      <div className=" text-center w-full md:text-left md:max-w-[1200px] h-[300px] pt-4  grid md:grid-cols-3 grid-cols-1  ml-auto">
+        <div className=" mx-6 md:mx-auto"><h1 className="font-semibold text-2xl text-blue-100 pt-16 ">Contact us</h1>
+        <p className="text-gray-400 md:pr-14 ">Deenbandhu Chhotu Ram University of Science and Technology, Murthal-Haryana ,India</p>
         <p>PIN:131027</p><p>Email:<span className="text-gray-400"> ecell.dcrustm@gmail.com </span> </p> </div>
         
         <div className="hidden md:block"><h1 className="font-semibold text-2xl pt-5 md:pt-16 text-blue-100 ">Important</h1>
