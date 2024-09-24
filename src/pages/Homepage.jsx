@@ -5,6 +5,13 @@ import Card from "../components/Card";
 // import Testimonial from "../components/testimonial";
 import Footer from "../components/Footer";
 import hero_image from '../assets/hero_image.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init({
+  offset:250,
+  duration:1000,
+});
 
 const Homepage = () => {
   const [text]=useTypewriter(
@@ -18,9 +25,9 @@ const Homepage = () => {
 
   return (
     <>
-    <div className=" max-w-[1240px] mx-auto mt-0">
+    <div className="  max-w-[1240px] mx-auto mt-0">
       {/*header section*/}
-      <div className=" flex justify-center flex-wrap lg:flex  lg:w-full h-100% md:h-[700px] ">
+      <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-100% md:h-[700px] ">
         <div className=" w-[90%] text-center md:text-left md:w-1/2 pt-10  ">
             <h1 className=" text-[#144c8b] font-bold tracking-tighter text-5xl md:text-6xl pb-14">E-Cell IIT Murthal</h1>
             <h2 className="text-gray-900 text-5xl pb-14">Accelerate Your <br />
@@ -36,21 +43,21 @@ const Homepage = () => {
 
       {/*who are we  section*/}
 
-      <div className="   md:w-full flex  flex-wrap justify-center md:flex-row md:items-center h-screen">
-        <div className="flex-grow text-center md:text-left w-screen  md:w-1/2 bg-[#ecf5ff]">
+      <div data-aos="zoom-in" className="   md:w-full flex  flex-wrap justify-center md:flex-row md:items-center h-screen">
+        <div  className="flex-grow text-center md:text-left w-screen  md:w-1/2 bg-[#ecf5ff]">
           <h1 className="text-6xl text-[#144c8b] text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
           <p className=" md:text-xl text-center md:text-justify text-gray-800  pb-14 mb-6 px-6 md:px-0 md:pr-16 md:pt-5">E-Cell DCRUSTM is an institute body run by the students of DCRUST, Murthal devoted to acting as a symbiotic link between the entrepreneurs of E-Cell and the existing startup ecosystem as well as acting as a hub where all the startups can meet ,collaborate and innovate!</p>
-          <button className=" bg-[#0065fc] text-3xl text-white py-5 p-20 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><Link to='/contact'>Know more!</Link></button>
+          <button className=" bg-[#0065fc]  text-3xl text-white py-5 p-20 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><Link to='/contact'>Know more!</Link></button>
 
         </div>
-        <div className="w-[60%]  mx-auto  md:w-1/2 ">
+        <div  className="w-[60%]  mx-auto  md:w-1/2 ">
         <div style={{ mixBlendMode: 'multiply' }} className=""><img src={hero_image} alt="" /></div></div>
       </div>
 
       {/*what we do section*/}
 
-      <div className="w-full flex flex-col items-center  md:h-[700px]  ">
-        <div className=" bg-[#ecf5ff] w-full  flex flex-col items-center">
+      <div data-aos="zoom-in"  className="w-full  flex flex-col items-center  md:h-[700px]  ">
+        <div className=" bg-[#ecf5ff]  w-full  flex flex-col items-center">
         <h1 className="text-6xl text-[#144c8b] font-bold tracking-tighter py-10">What we do?</h1>
         <p className="text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">Through our vision of "Learn, Build and Scale" we implement various initiatives and events in DCRUSTM to foster the entrepreneurial minds and create a culture of enthralling startups bound for success!</p>
           </div>
