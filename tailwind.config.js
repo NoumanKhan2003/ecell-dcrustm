@@ -9,6 +9,10 @@ export default  withMT( {
     extend: { mixBlendMode: {
       multiply: 'multiply',
     },
+    fontFamily:{
+      grotesk:["Space Grotesk","sans-serif"],
+      poppins:["Poppins", "sans-serif"],
+    }
   },
 },
   plugins: [],

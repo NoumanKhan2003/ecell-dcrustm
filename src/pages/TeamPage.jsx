@@ -7,15 +7,15 @@ import TeamData from '../components/TeamData';
 const TeamPage = () => {
  
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen mt-20">
       {/* Main content container */}
       <div className="flex-grow  mx-auto mt-[80px] pb-10 flex flex-col justify-center">
         <div className="text-center">
-          <h1 className="text-[4rem] font-bold text-[#144c8b]">The Team</h1>
-          <h2 className="text-[1.5rem] mt-0">GET TO KNOW THE TEAM OF E-CELL</h2>
+          <h1 className="text-[4rem] font-bold font-grotesk text-[#144c8b]">The Team</h1>
+          <h2 className="text-[1.5rem] font-grotesk mt-0">GET TO KNOW THE TEAM OF E-CELL</h2>
         </div>
         <div className="my-32">
-          <h2 className="text-[1.8rem] font-bold text-center">UNDER THE GUIDANCE OF</h2>
+          <h2 className="text-[1.8rem] font-bold font text-center">UNDER THE GUIDANCE OF</h2>
           <div className="flex flex-row flex-wrap justify-center mt-4">
             <MemberCard name="DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=sUg9EhsAAAAJ&citpid=3" email="" linkedIn="" />
           </div>

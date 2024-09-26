@@ -1,31 +1,58 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import ecell_logo from '../assets/ecell_logo.png';
+import Announcement from "./Announcement";
+
 const Navbar = () => {
   const [isopen ,setIsopen]=useState(false);
 
   function toggleNavbar(){
      setIsopen(!isopen);
-     console.log("clicked toggle button!");
      
   }
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Function to detect scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { // You can adjust the scroll value
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Attach event listener for scroll
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="bg-white sticky z-[20] shadow-xl ">
-      <div className="flex flex-wrap justify-between items-center max-w-[1200px] mx-auto text-black">
-        <div className="w-[100px] my-4">
+     <>
+     
+     
+    <header  className={`fixed top-0  z-[20] w-full transition-all duration-300 ${
+      isScrolled ? "backdrop-blur-lg bg-white/50 shadow-md" : "bg-white"
+    }`}>
+      <Announcement />
+      <div className="flex flex-wrap  justify-between items-center max-w-[1240px] mx-auto text-black">
+        <div className="w-24 h-full px-4 py-2 my-2 ml-4 md:ml-0  rounded-3xl bg-white">
           <Link to="/">
             <img
               src={ecell_logo}
-              className="w-full ml-4 md:ml-0 "
+              className="w-full  md:ml-0  "
               alt="ecell_logo"
             />
           </Link>
         </div>
 
-        <nav className=" hidden md:flex list-none  ml-auto font-bold text-[20px] ">
+        <nav className=" hidden md:flex list-none  ml-auto font-medium font-grotesk text-[16px] ">
           <li className="  hover:text-white  hover:bg-[#144c8b] p-3 px-7 my-auto   hover:duration-300 py-auto  cursor-pointer ">
             <Link to="/"> Home</Link>
           </li>
@@ -58,7 +85,9 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      
     </header>
+    </>
   );
 };
 

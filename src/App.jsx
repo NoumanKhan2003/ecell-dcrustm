@@ -12,11 +12,13 @@ import Gallery from './pages/Gallery';
 import EventsPage from './pages/EventsPage';
 
 
+
 function App() {
  
 
   return (
     <Router>
+      
       <Navbar />
       <Routes>
         <Route path='/' element={<Homepage />} />
