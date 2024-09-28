@@ -2,7 +2,10 @@
 import React from 'react';
 import MemberCard from '../components/MemberCard';
 import Footer from "../components/Footer";
-import TeamData from '../components/TeamData';
+import TeamData24 from '../components/TeamData24';
+import TeamData22 from '../components/TeamData22';
+import TeamData23 from '../components/TeamData23';
+import Accordion from '../components/Accordion';
 
 const TeamPage = () => {
  
@@ -25,7 +28,7 @@ const TeamPage = () => {
           <div className="mx-20 md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-28">
             {/* List your team members here */}
             {
-              TeamData.map((item)=>{
+              TeamData24.map((item)=>{
 
               
                 return(
@@ -37,7 +40,13 @@ const TeamPage = () => {
             
            
             {/* Add more team members here */}
+           
           </div>
+          <div className='mt-14 mx-auto max-w-screen bg-red-400 gap-7'>
+            <Accordion title="TEAM 2023" teamData={TeamData23} />
+            <Accordion title="TEAM 2021 & 22 (Founders Batch)" teamData={TeamData22} />
+          </div>
+          
         </div>
       </div>
 

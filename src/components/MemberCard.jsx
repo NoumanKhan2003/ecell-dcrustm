@@ -10,9 +10,9 @@ const MemberCard = (props) => {
          <h1 className=" mt-2 text-2xl font-semibold">{props.name}</h1>
          <h2 className="text-xs ">{props.post} </h2>
          <div className="flex justify-center gap-2 mt-5 text-3xl"> 
-            <a href={props.email}><MdEmail className="hover:text-[#144c8b] hover:scale-150 duration-200" /></a>
+            <a target='_blank' href={`mailto:${props.email}`}><MdEmail className="hover:text-[#144c8b] hover:scale-150 duration-200" /></a>
               <span>
-                <a href={props.linkedIn}><FaLinkedin  className="hover:text-[#144c8b] hover:scale-150 duration-200" /></a>
+                <a target='_blank' href={props.linkedIn}><FaLinkedin  className="hover:text-[#144c8b] hover:scale-150 duration-200" /></a>
                 </span></div>
          
     </div>

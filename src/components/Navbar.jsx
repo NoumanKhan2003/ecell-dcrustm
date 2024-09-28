@@ -46,7 +46,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               src={ecell_logo}
-              className="w-full  md:ml-0  "
+              className="w-[100%]  md:ml-0  "
               alt="ecell_logo"
             />
           </Link>

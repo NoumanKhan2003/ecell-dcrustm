@@ -1,12 +1,16 @@
 const GalleryImages=[
-    "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/1164985/pexels-photo-1164985.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/2311713/pexels-photo-2311713.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/698907/pexels-photo-698907.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/1164985/pexels-photo-1164985.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/2311713/pexels-photo-2311713.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/698907/pexels-photo-698907.jpeg?auto=compress&cs=tinysrgb&w=600",
+    
+    "src/assets/gallery/1.jpg",
+    "src/assets/gallery/2.jpg",
+    "src/assets/gallery/3.jpg",
+    "src/assets/gallery/4.jpg",
+    "src/assets/gallery/5.jpg",
+    "src/assets/gallery/6.jpg",
+    "src/assets/gallery/7.jpg",
+    "src/assets/gallery/8.jpg",
+    "src/assets/gallery/9.jpg",
+    "src/assets/gallery/10.jpg",
+    
 
 
 ]

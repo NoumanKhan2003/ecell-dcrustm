@@ -1,53 +1,52 @@
 const EventsData=[
+    
+    
     {
-        title:"Bidder BaAZAr",
+        title:"Insta-Preneur",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/instapreneur.jpg"
     },
     {
-        title:"Bidder market",
+        title:"Elocution competition",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/elocution.jpg"
     },
     {
-        title:"Bidder BaAZAr",
+        title:"Webinar ft. Harsh Tageja",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/harsh_tageja.jpg"
     },
     {
-        title:"Bidder market",
+        title:"Dream Team",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/dream_team.png"
     },
     {
-        title:"Bidder BaAZAr",
+        title:"Ensight",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/ensight.jpg"
     },
     {
-        title:"Bidder market",
+        title:"Pitch Start",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/pitch_start.jpg"
     },
     {
-        title:"Bidder BaAZAr",
+        title:"Bidder's BAZAAR",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/Bidders_bazar.jpg"
     },
+    
     {
-        title:"Bidder market",
+        title:"Webinar ft. Gourav Goel",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/Webinar_GG.jpg"
     },
+   
     {
-        title:"Bidder BaAZAr",
+        title:"Webinar ft. Bhanu Pratap Singh",
         description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
-    },
-    {
-        title:"Bidder market",
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos voluptatibus nisi corporis?",
-        imgURL:"https://i.pinimg.com/736x/d6/d1/72/d6d172d1fc2a46d1c32579095fd0c88d.jpg"
+        imgURL:"src/assets/events_posters/Webinar_BPS.jpg"
     },
 
 ]

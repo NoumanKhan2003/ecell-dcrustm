@@ -11,6 +11,7 @@ import { FaArrowRight } from "react-icons/fa";
 import Announcement from "../components/Announcement";
 
 import MarqueeText from "../components/MarqueeText";
+import Testimonials from "../components/Testimonials";
 // ..
 AOS.init({
   offset:250,
@@ -33,13 +34,13 @@ const Homepage = () => {
     <div className="  max-w-[1240px] mx-auto mt-28 px-4 ">
    
       {/*header section*/}
-      <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] ">
+      <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
         <div className=" w-[90%] text-center md:text-left md:w-1/2 pt-10  ">
             <h1 className="  text-[#144c8b] font-bold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14">E-Cell DCRUSTM</h1>
             <h2 className="  text-gray-900 text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
-            <p className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">Welcome to the entrepreneurship community of IIT Murthal where we ideate, integrate and elevate the future innovations of the century!</p>
+            <p className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">WWelcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
            <button className=" bg-[#0065fc] text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link to='/'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
         </div>
         <div style={{ mixBlendMode: 'multiply' }} className=" w-[70%]   md:w-1/2 ">
@@ -49,7 +50,7 @@ const Homepage = () => {
      </div>
 
       {/* marqueee section */}
-      <div className="  py-[6rem] overflow-hidden   ">
+      <div className="  py-[6rem] overflow-hidden  ">
         <div className="">
           <MarqueeText  />
         </div>
@@ -62,8 +63,8 @@ const Homepage = () => {
       <div className="  max-w-[1240px] mx-auto mt-20 px-4    ">
       <div data-aos="zoom-in" className="   md:w-full flex   flex-wrap justify-center md:flex-row md:items-center py-10">
         <div  className="flex-grow text-center md:text-left w-screen  md:w-1/2 ">
-          <h1 className="text-6xl text-[#144c8b] text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
-          <p className=" md:text-xl text-center md:text-justify text-gray-800  pb-14 mb-6 px-6 md:px-0 md:pr-16 md:pt-5">E-Cell DCRUSTM is an institute body run by the students of DCRUST, Murthal devoted to acting as a symbiotic link between the entrepreneurs of E-Cell and the existing startup ecosystem as well as acting as a hub where all the startups can meet ,collaborate and innovate!</p>
+          <h1 className="text-6xl text-[#000000] text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
+          <p className=" md:text-xl text-center md:text-justify text-gray-800  pb-14 mb-6 px-6 md:px-0 md:pr-16 md:pt-5">E-Cell DCRUSTM is a student-led body at DCRUST, Murthal, dedicated to connecting entrepreneurs with the startup ecosystem and creating a hub for startups to meet, collaborate, and innovate. We aim to nurture entrepreneurial minds and drive impactful ventures forward.</p>
           <button className=" bg-[#0065fc]  text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><Link to='/about'>Know more!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
 
         </div>
@@ -74,27 +75,31 @@ const Homepage = () => {
 
       {/*what we do section*/}
       <div className="  max-w-[1240px] mx-auto mt-20 px-4   ">
-      <div data-aos="zoom-in"  className="w-full  flex flex-col items-center  md:h-[700px]  ">
+      <div data-aos="zoom-in"  className="w-full  flex flex-col items-center  md:min-h-[700px]  ">
         <div className=" bg-[#ecf5ff]  w-full  flex flex-col items-center">
-        <h1 className="text-6xl text-[#144c8b] font-bold tracking-tighter py-10">What we do?</h1>
-        <p className="text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">Through our vision of "Learn, Build and Scale" we implement various initiatives and events in DCRUSTM to foster the entrepreneurial minds and create a culture of enthralling startups bound for success!</p>
+        <h1 className="text-6xl text-[#000000] font-bold tracking-tighter py-10">What we do?</h1>
+        <p className="md:text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">At E-Cell DCRUSTM, we cultivate entrepreneurial spirit by providing a platform for innovation, collaboration, and growth. Through dynamic brainstorming, networking, and skill-enhancing workshops, we turn bold ideas into thriving startups. Our initiatives empower students to lead with creativity, teamwork, and resilience, shaping a future of endless possibilities.</p>
           </div>
-        <div className="flex flex-col h-full   overflow-hidden md:flex-row md:flex-wrap justify-center px-4  gap-10">
-          <Card imgURL="https://img.freepik.com/free-vector/business-management-vector_53876-44129.jpg?t=st=1726141342~exp=1726144942~hmac=f0127be5641b21665ca3c6462a6fa600ef72640d9e52c6612bd38943af030021&w=900" title="Learn" content="Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!" />
-          <Card imgURL="https://img.freepik.com/free-vector/business-management-vector_53876-44129.jpg?t=st=1726141342~exp=1726144942~hmac=f0127be5641b21665ca3c6462a6fa600ef72640d9e52c6612bd38943af030021&w=900" title="Learn" content="Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!" />
-          <Card imgURL="https://img.freepik.com/free-vector/business-management-vector_53876-44129.jpg?t=st=1726141342~exp=1726144942~hmac=f0127be5641b21665ca3c6462a6fa600ef72640d9e52c6612bd38943af030021&w=900" title="Learn" content="Network with alumni founders, Get incubated in our incubators and seize the opportunity to pitch in front of Angel Investors & VCs!" />
+        <div className="flex flex-col  pt-3 pb-5  overflow-hidden   md:flex-row md:flex-wrap justify-center px-4  gap-10">
+          <Card imgURL="src/assets/icons/brainstorming.png" title="Brainstorming" content="We foster innovation through collaborative brainstorming, where teamwork and communication drive the development of cutting-edge ideas." />
+          <Card imgURL="src/assets/icons/networking.png" title="Networking" content="Our E-Cell builds strong connections, leveraging teamwork and communication to unite entrepreneurs, industry leaders, and investors for growth opportunities." />
+          <Card imgURL="src/assets/icons/events.png" title="Events and Workshops" content="We host impactful events and workshops, promoting teamwork and effective communication to equip aspiring entrepreneurs with the skills to turn ideas into reality." />
         </div>
       </div>
       </div>
       
        {/*what people say*/}
+       <div className="">
 
-       {/* <div className="w-full h-screen md:h-[900px] bg-slate-400 mt-28">
-        <div className="flex justify-center"><h1 className="text-6xl font-bold py-10">What people think about us</h1></div>
-        <div >
-          <Testimonial />
+       
+       <div className="  max-w-[1240px] mx-auto mt-20 px-4  ">
+        <h1 className=" text-center text-4xl md:text-6xl font-bold  tracking-tighter py-10">What people think about us</h1>
+        
+        <div className="w-full  " >
+          <Testimonials />
         </div>
-       </div> */}
+       </div>
+      </div>
        
        
        
@@ -103,7 +108,7 @@ const Homepage = () => {
     
     
 
-    <div className="mt-10  ">
+    <div className="  ">
     <Footer />
     </div>
     
