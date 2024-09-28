@@ -1,3 +1,5 @@
+import aashish2 from "../assets/team/aashish2.png"
+
 const TeamData24=[
     {
         name:"ANUBHAV RAWAT",
@@ -9,7 +11,7 @@ const TeamData24=[
     {
         name:"AASHISH JOSHI",
         post:"VICE-PRESIDENT, ECELL",
-        imgURL:"src/assets/team/aashish2.png",
+        imgURL:aashish2,
         email:"aashihjoshilak@gmail.com",
         linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
     },
