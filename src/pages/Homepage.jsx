@@ -12,6 +12,10 @@ import Announcement from "../components/Announcement";
 
 import MarqueeText from "../components/MarqueeText";
 import Testimonials from "../components/Testimonials";
+
+import brainstormingIcon from '../assets/icons/brainstorming.png';
+import networkingIcon from '../assets/icons/networking.png';
+import eventsIcon from '../assets/icons/events.png';
 // ..
 AOS.init({
   offset:250,
@@ -81,9 +85,9 @@ const Homepage = () => {
         <p className="md:text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">At E-Cell DCRUSTM, we cultivate entrepreneurial spirit by providing a platform for innovation, collaboration, and growth. Through dynamic brainstorming, networking, and skill-enhancing workshops, we turn bold ideas into thriving startups. Our initiatives empower students to lead with creativity, teamwork, and resilience, shaping a future of endless possibilities.</p>
           </div>
         <div className="flex flex-col  pt-3 pb-5  overflow-hidden   md:flex-row md:flex-wrap justify-center px-4  gap-10">
-          <Card imgURL="../assets/icons/brainstorming.png" title="Brainstorming" content="We foster innovation through collaborative brainstorming, where teamwork and communication drive the development of cutting-edge ideas." />
-          <Card imgURL="../assets/icons/networking.png" title="Networking" content="Our E-Cell builds strong connections, leveraging teamwork and communication to unite entrepreneurs, industry leaders, and investors for growth opportunities." />
-          <Card imgURL="../assets/icons/events.png" title="Events and Workshops" content="We host impactful events and workshops, promoting teamwork and effective communication to equip aspiring entrepreneurs with the skills to turn ideas into reality." />
+          <Card imgURL={brainstormingIcon} title="Brainstorming" content="We foster innovation through collaborative brainstorming, where teamwork and communication drive the development of cutting-edge ideas." />
+          <Card imgURL={networkingIcon} title="Networking" content="Our E-Cell builds strong connections, leveraging teamwork and communication to unite entrepreneurs, industry leaders, and investors for growth opportunities." />
+          <Card imgURL={eventsIcon} title="Events and Workshops" content="We host impactful events and workshops, promoting teamwork and effective communication to equip aspiring entrepreneurs with the skills to turn ideas into reality." />
         </div>
       </div>
       </div>
