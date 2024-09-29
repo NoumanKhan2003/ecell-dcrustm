@@ -41,7 +41,7 @@ const Homepage = () => {
       <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
         <div className=" w-[90%] text-center md:text-left md:w-1/2 pt-10  ">
             <h1 className="  text-[#144c8b] font-bold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14">E-Cell DCRUSTM</h1>
-            <h2 className="  text-gray-900 text-5xl pb-14">Accelerate Your <br />
+            <h2 className="  text-gray-900 text-3xl md:text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
             <p className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">WWelcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
@@ -67,7 +67,7 @@ const Homepage = () => {
       <div className="  max-w-[1240px] mx-auto mt-20 px-4    ">
       <div data-aos="zoom-in" className="   md:w-full flex   flex-wrap justify-center md:flex-row md:items-center py-10">
         <div  className="flex-grow text-center md:text-left w-screen  md:w-1/2 ">
-          <h1 className="text-6xl text-[#000000] text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
+          <h1 className=" text-5xl  md:text-6xl text-[#000000] text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
           <p className=" md:text-xl text-center md:text-justify text-gray-800  pb-14 mb-6 px-6 md:px-0 md:pr-16 md:pt-5">E-Cell DCRUSTM is a student-led body at DCRUST, Murthal, dedicated to connecting entrepreneurs with the startup ecosystem and creating a hub for startups to meet, collaborate, and innovate. We aim to nurture entrepreneurial minds and drive impactful ventures forward.</p>
           <button className=" bg-[#0065fc]  text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><Link to='/about'>Know more!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
 
@@ -81,7 +81,7 @@ const Homepage = () => {
       <div className="  max-w-[1240px] mx-auto mt-20 px-4   ">
       <div data-aos="zoom-in"  className="w-full  flex flex-col items-center  md:min-h-[700px]  ">
         <div className=" bg-[#ecf5ff]  w-full  flex flex-col items-center">
-        <h1 className="text-6xl text-[#000000] font-bold tracking-tighter py-10">What we do?</h1>
+        <h1 className=" text-5xl md:text-6xl text-[#000000] font-bold tracking-tighter py-10">What we do?</h1>
         <p className="md:text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">At E-Cell DCRUSTM, we cultivate entrepreneurial spirit by providing a platform for innovation, collaboration, and growth. Through dynamic brainstorming, networking, and skill-enhancing workshops, we turn bold ideas into thriving startups. Our initiatives empower students to lead with creativity, teamwork, and resilience, shaping a future of endless possibilities.</p>
           </div>
         <div className="flex flex-col  pt-3 pb-5  overflow-hidden   md:flex-row md:flex-wrap justify-center px-4  gap-10">
