@@ -25,7 +25,7 @@ const TeamPage = () => {
         </div>
         <div className="mx-auto">
           <h2 className="text-[1.8rem] font-bold text-center mb-20 text-[#144c8b]">CORE TEAM MEMBERS</h2>
-          <div className="mx-20 md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-28">
+          <div className=" md:mx-auto  grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
             {/* List your team members here */}
             {
               TeamData24.map((item)=>{
@@ -44,7 +44,7 @@ const TeamPage = () => {
           </div>
           <div className='mt-14 mx-auto max-w-screen bg-red-400 gap-7'>
             <Accordion title="TEAM 2023" teamData={TeamData23} />
-            <Accordion title="TEAM 2021 & 22 (Founders Batch)" teamData={TeamData22} />
+            <Accordion title="TEAM 2022 (Founders Batch)" teamData={TeamData22} />
           </div>
           
         </div>

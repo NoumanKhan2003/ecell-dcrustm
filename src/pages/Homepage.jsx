@@ -44,7 +44,7 @@ const Homepage = () => {
             <h2 className="  text-gray-900 text-3xl md:text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
-            <p className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">WWelcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
+            <p className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">Welcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
            <button className=" bg-[#0065fc] text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link to='/'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
         </div>
         <div style={{ mixBlendMode: 'multiply' }} className=" w-[70%]   md:w-1/2 ">
