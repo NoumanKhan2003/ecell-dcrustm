@@ -51,6 +51,7 @@ const Navbar = () => {
             />
           </Link>
         </div>
+        
 
         <nav className=" hidden md:flex list-none  ml-auto font-medium font-grotesk text-[16px] ">
           <li className="  hover:text-white  hover:bg-[#144c8b] p-3 px-7 my-auto   hover:duration-300 py-auto  cursor-pointer ">
@@ -70,6 +71,7 @@ const Navbar = () => {
             <Link to="/events"> Events</Link>
           </li>
         </nav>
+        
 
         <div className="scale-150 flex  md:hidden mr-10">
           <button onClick={toggleNavbar}>{isopen?<RxCross2 />:<MdMenu />}</button>
