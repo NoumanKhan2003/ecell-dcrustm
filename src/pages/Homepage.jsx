@@ -65,7 +65,7 @@ const Homepage = () => {
       {/*who are we  section*/}
        <div className=" pt-5 pb-14">
       <div className="  max-w-[1240px] mx-auto mt-20 px-4    ">
-      <div data-aos="zoom-in" className="   md:w-full flex   flex-wrap justify-center md:flex-row md:items-center py-10">
+      <div data-aos="fade-right" className="   md:w-full flex   flex-wrap justify-center md:flex-row md:items-center py-10">
         <div  className="flex-grow text-center md:text-left w-screen  md:w-1/2 ">
           <h1 className=" text-5xl  md:text-6xl text-[#000000] text-center md:text-left  font-bold tracking-tighter py-10">Who are we?</h1>
           <p className=" md:text-xl text-center md:text-justify text-gray-800  pb-14 mb-6 px-6 md:px-0 md:pr-16 md:pt-5">E-Cell DCRUSTM is a student-led body at DCRUST, Murthal, dedicated to connecting entrepreneurs with the startup ecosystem and creating a hub for startups to meet, collaborate, and innovate. We aim to nurture entrepreneurial minds and drive impactful ventures forward.</p>
@@ -96,10 +96,10 @@ const Homepage = () => {
        <div className="">
 
        
-       <div className="  max-w-[1240px] mx-auto mt-20 px-4  ">
+       <div   className="  max-w-[1240px] mx-auto mt-20 px-4  ">
         <h1 className=" text-center text-4xl md:text-6xl font-bold  tracking-tighter py-10">What people think about us</h1>
         
-        <div className="w-full  " >
+        <div  className="w-full   " >
           <Testimonials />
         </div>
        </div>

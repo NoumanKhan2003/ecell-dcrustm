@@ -10,7 +10,7 @@ const EventCard = (props) => {
       <div className="from-transparent via-transparent to-black/50 bg-gradient-to-b absolute inset-0 group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70">
         <div className="absolute inset-0 px-9 flex flex-col items-center justify-center translate-y-[90%] group-hover:translate-y-0 transition-all">
         <h1 className=' text-white font-bold text-3xl pb-3 text-center'>{props.title}</h1>
-        <p className='text-white  text-center text-[16px]'>{props.description}</p></div>
+        <p className='text-white  text-center text-[14px]'>{props.description}</p></div>
         </div>
        
     </div>

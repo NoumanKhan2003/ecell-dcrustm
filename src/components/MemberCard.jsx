@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 const MemberCard = (props) => {
   return (
-    <div className="bg-red w-[240px] h-[350px] text-center mx-auto ">
+    <div className="bg-red w-[240px] h-[350px] text-center mx-auto  ">
          <img className='w-full h-[240px] object-cover  ' src={props.imgURL} alt="member-img" />
          <h1 className=" mt-2 text-2xl font-semibold">{props.name}</h1>
          <h2 className="text-xs ">{props.post} </h2>

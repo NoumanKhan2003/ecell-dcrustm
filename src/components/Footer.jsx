@@ -40,8 +40,9 @@ const Footer = () => {
             <a  href="https://www.instagram.com/ecell.dcrustm/" target='_blank'><FaInstagram className="h-full w-12 text-blue-400 hover:scale-150 px-2 duration-300 ease-in-out "  /></a>
             <a  href="https://youtube.com/@synergyentrepreneurshipcel6475?si=HjJfmJkESxwgqa5L" target='_blank'><FaYoutube   className="h-full w-12 text-blue-400 hover:scale-150 px-2 duration-300 ease-in-out " /></a>
         </div>
-    <div className='flex justify-center pt-4'>
-      <p className=' text-gray-600'>© {currentDate} ECELL.DCRUSTM, All rights reserved.</p>
+    <div className='flex text-[0.6rem] md:text-[0.85rem] flex-col justify-center items-center  py-4 bg-gray-900  mt-6 '>
+      <p className=' text-gray-500 mb-2'>© {currentDate} ECELL DCRUSTM. All rights reserved.</p>
+      <p className=' text-gray-500'> Designed & Developed by  <a target='_blank' className='text-white ' href="https://tbi-dev-profile.vercel.app/">Ecell DCRUSTM Web Team</a></p>
     </div>
     </div>
   )

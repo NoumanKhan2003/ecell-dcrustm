@@ -30,7 +30,7 @@ const EventsPage = () => {
             <h2 className='text-5xl tracking-tighter font-grotesk font-bold '>Auditions</h2>
              <p className=''>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita odio perferendis corporis eum alias odit aliquid itaque quia placeat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla omnis sequi ipsam sapiente obcaecati soluta voluptatem facere odio quaerat quos!</p>
              <p className='font-bold text-2xl '>Prize Worth : 13k</p>
-             <button className=" bg-[#0065fc] md:w-[40%] w-[80%]  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://forms.gle/KFDi73xKVnSJZWhP8">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
+             <button className=" bg-[#0065fc] md:w-[40%] w-[90%]  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://forms.gle/KFDi73xKVnSJZWhP8">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
           </div>
         </div>
       </div>

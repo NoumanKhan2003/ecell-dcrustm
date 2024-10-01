@@ -9,12 +9,13 @@ const About = () => {
         <div className="  md:flex flex-row m-4  ">
         <div className='flex hover:shadow-lg hover:scale-105 ease-in-out duration-300  md:w-[50%] flex-col p-5  bg-[#144c8b]  rounded-md m-4'>
         <h2 className="text-4xl mb-4 font-semibold text font text-[#8fe1c3] ">Our Vision</h2>
-        <p className =" text-justify  text-white">Entrepreneurship in India is yet to reveal its hidden potential. It will not only help India to frontier with the world leaders but also unlock the quality of brains that we are so proud of. With this idea, The Entrepreneurship Development Cell, IIT Delhi wishes to inculcate and Enrich the entrepreneurial environment in India by creating an easily accessible and exhaustive set of resources for the entrepreneurs, which including the students, the budding professionals, mentors, angel investors and the venture capitalists through various fun-filled yet educating sessions such as Startup Showcases, competitions, eTalks and so on and so forth.</p>
+        <p className =" text-justify  text-white">We envision DCRUST E-Cell as a beacon of innovation and entrepreneurship, where students are inspired to dream big and are equipped with the tools to bring those dreams to life. By creating a supportive and dynamic environment, we aim to become a leading hub for entrepreneurial excellence, bridging the gap between academia and industry, and nurturing the next generation of entrepreneurs who will shape the future. Our vision is to leave a lasting impact on both our campus and the broader startup ecosystem, driving positive change through entrepreneurial ventures.</p>
 
         </div>
         <div className=' flex hover:shadow-lg flex-col md:w-[50%] p-5 bg-[#144c8b]  rounded-md m-4 hover:scale-105 ease-in-out duration-300 '>
         <h2 className="text-4xl mb-4 font-semibold text text-[#8fe1c3] ">Our Mission</h2>
-        <p className =" text-justify text-white">To create a sustainable and diverse entrepreneurial ecosystem where the young and the elderly come together to take entrepreneurship a step ahead in India.</p>
+        <p className =" text-justify text-white">Our mission is to foster a vibrant entrepreneurial ecosystem at DCRUST by empowering students with the skills, resources, and platform they need to innovate and create impactful solutions. Through brainstorming sessions, networking opportunities, and hands-on workshops, we aim to ignite the entrepreneurial spirit in every student, enabling them to turn their ideas into reality. We strive to build a community where collaboration, creativity, and leadership thrive, helping students not only grow as entrepreneurs but also develop skills that prepare them for a successful future.
+        </p>
 
         </div>
 
