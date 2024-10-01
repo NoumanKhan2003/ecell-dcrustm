@@ -12,7 +12,7 @@ AOS.init({
 
 const EventsPage = () => {
   return (
-   
+    
 
     
     <div   className="  max-w-[1240px] mx-auto mt-28 mb-10">
