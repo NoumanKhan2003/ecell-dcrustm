@@ -11,6 +11,10 @@ const Navbar = () => {
   function toggleNavbar(){
      setIsopen(!isopen);
      
+     
+  }
+  function closeNavbar(){
+    setIsopen(false);
   }
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -78,12 +82,12 @@ const Navbar = () => {
         </div>
         {isopen &&(
           <div className="flex gap-4 basis-full flex-col items-center pb-6  ">
-              <Link className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/">Home</Link>
-            <Link className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/about">About</Link>
-            <Link className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/team">Team</Link>
-          
-            <Link className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/gallery">Gallery</Link>
-            <Link className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/events">Events</Link>
+            <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/">Home</Link>
+            <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/about">About</Link>
+            <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/team">Team</Link>
+            
+            <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/gallery">Gallery</Link>
+            <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/events">Events</Link>
           </div>
         )}
       </div>
