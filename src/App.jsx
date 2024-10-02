@@ -21,14 +21,7 @@ function App() {
   return (
     <Router>
       
-      <Cursor 
-	pulse
-	color="#144c8b"
-	duration={0.4}
-	size={10}
-  easing="	cubic-bezier(0.18, 0.89, 0.32, 1.28)"
-	
-  />
+      
       <Navbar />
       <Routes>
         <Route path='/' element={<Homepage />} />
