@@ -1,10 +1,14 @@
+import aman from "../assets/team/2022/aman.jpeg"
+
+
+
 const TeamData22=[
     {
         name:"AMAN SHARMA",
         post:"PRESIDENT & CO-FOUNDER, ECELL",
-        imgURL:"https://t3.ftcdn.net/jpg/03/22/53/38/360_F_322533850_Lz5JL2K0nVqL48gjCiRLSa2ssxpdfyer.jpg",
-        email:"aashihjoshilak@gmail.com",
-        linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
+        imgURL:aman,
+        email:"amansharma17dec@gmail.com",
+        linkedIn:"https://www.linkedin.com/in/aman-sharma-004a50ab",
     },
     {
         name:"HARSH JAIN",

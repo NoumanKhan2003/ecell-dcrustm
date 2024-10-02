@@ -7,7 +7,7 @@ import pitch_start from   "../assets/events_posters/pitch_start.jpg"
 import Bidders_bazar from   "../assets/events_posters/Bidders_bazar.jpg"
 import Webinar_GG from   "../assets/events_posters/Webinar_GG.jpg"
 import Webinar_BPS from   "../assets/events_posters/Webinar_BPS.jpg"
-
+import tamanna_verma from   "../assets/events_posters/tamanna_verma.jpg"
 
 
 const EventsData=[
@@ -32,6 +32,11 @@ const EventsData=[
         title:"Dream Team",
         description:"E-Cell DCRUSTM organized Dream Team, an online competition where participants posted their ideal startup team as Instagram stories. The story with the most likes won, enhancing our engagement our social media platforms.",
         imgURL:dream_team
+    },
+    {
+        title:"Webinar ft. Tamanna Verma",
+        description:"E-Cell DCRUSTM hosted an online webinar featuring Tamanna Verma, our accomplished alumna, who shared her insights and experiences from the software industry. She provided valuable guidance to students exploring career opportunities in computer science.",
+        imgURL:tamanna_verma
     },
     {
         title:"Ensight",
