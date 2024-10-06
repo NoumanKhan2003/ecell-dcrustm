@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md"; 
 
 import MemberCard from "./MemberCard";
 
@@ -6,38 +7,19 @@ const Accordion = ({title, teamData}) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (
-    <div className="pt-6 bg-white rounded-sm ">
+    <div className="pt-6 mt-4 md:px-12 pb-2 bg-white rounded-sm  ">
       <button
         onClick={() => setAccordionOpen(!accordionOpen)}
-        className="flex justify-center mb-4 w-full"
+        className="flex justify-center mb-4 w-full "
       >
-        <span className="md:text-3xl font-semibold text-[#144c8b] ">{title}</span>
+        <span className="md:text-3xl hover:text-black font-semibold text-[#144c8b] ">{title}</span>
         {/* {accordionOpen ? <span>-</span> : <span>+</span>} */}
-        <svg
-          className="fill-blue-500 shrink-0 ml-8"
-          width="16"
-          height="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            y="7"
-            width="16"
-            height="2"
-            rx="1"
-            className={`transform origin-center transition duration-200 ease-out ${
-              accordionOpen && "!rotate-180"
-            }`}
-          />
-          <rect
-            y="7"
-            width="16"
-            height="2"
-            rx="1"
-            className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-              accordionOpen && "!rotate-180"
-            }`}
-          />
-        </svg>
+        <MdKeyboardArrowDown
+          className={`ml-8 transition-transform duration-300 ease-out ${
+            accordionOpen ? "rotate-180" : "rotate-0"
+          }`}
+          size={24}  
+        />
       </button>
       <div
         className={`grid overflow-hidden transition-all duration-300 ease-in-out text-slate-600 text-sm ${
@@ -62,11 +44,11 @@ const Accordion = ({title, teamData}) => {
             
            
             {/* Add more team members here */}
-           
+           </div>
           </div>
-        </div>
+        
       </div>
-      <hr className="pt-2"/>
+    
     </div>
   );
 };

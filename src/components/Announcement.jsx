@@ -12,7 +12,7 @@ const Announcement = () => {
       <div className='mr-[2rem] flex items-center '>
         <span className='mr-[2rem]'>Auditions are going to held soon. Stay connected!</span>
         <span className='mr-[2rem]'>Follow on Insta @ ECELL.DCRUSTM </span>
-        <span className='mr-[2rem] underline font-grotesk text-2xl'><a target='_blank'  href="https://forms.gle/KFDi73xKVnSJZWhP8">Register Now!</a></span>
+        {/* <span className='mr-[2rem] underline font-grotesk text-2xl'><a target='_blank'  href="https://forms.gle/KFDi73xKVnSJZWhP8">Register Now!</a></span> */}
       </div>
       <div className='mr-[2rem] flex items-center '>
         <span className='mr-[2rem]'>Auditions are going to held soon. Stay connected!</span>

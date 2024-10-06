@@ -42,7 +42,7 @@ const TeamPage = () => {
             {/* Add more team members here */}
            
           </div>
-          <div className='mt-14 mx-auto max-w-screen bg-red-400 gap-7'>
+          <div className='mt-14 mx-auto max-w-screen  gap-7'>
             <Accordion title="TEAM 2023" teamData={TeamData23} />
             <Accordion title="TEAM 2022 (Founders Batch)" teamData={TeamData22} />
           </div>

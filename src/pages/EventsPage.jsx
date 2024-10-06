@@ -4,6 +4,7 @@ import EventsData from '../components/EventsData'
 import { FaArrowRight } from "react-icons/fa";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import currentevent from "../assets/events_posters/adventure.jpg"
 // ..
 AOS.init({
   offset:250,
@@ -22,15 +23,20 @@ const EventsPage = () => {
       {/* ongoing events section */}
       <div className=' mx-6 '>
         <h3  className="md:text-4xl text-[2.5rem]  font-black font-grotesk tracking-tighter pt-8 text-left mb-6  bg-gradient-to-r from-blue-600  to-green-500  inline-block text-transparent bg-clip-text   ">Ongoing Events</h3>
+        {/* comment out below section/div if no event is going on.. */}
         <div className='flex md:flex-nowrap flex-wrap max-w-full rounded-2xl bg-white  shadow-md'>
-          <div className='flex justify-center items-center w-[90%] md:w-[40%] bg-white m-4 '>
-            <div className='  w-[90%] h-[90%]  border-2 bg-red-200 rounded-xl hover:-rotate-2 hover:scale-105 ease-in-out duration-300 mx-auto '><img className='shadow-lg  w-full h-full  object-cover' src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/music-auditions-design-template-e0b7e049c40e1db3c8026b25af65c6ad_screen.jpg?ts=1677375459" alt="event-img" /></div>
+          <div className='flex justify-center py-4 items-center w-[90%] md:w-[40%] bg-white m-4 '>
+            <div className='  w-[90%] h-[100%]  border-2 bg-red-200 rounded-xl hover:-rotate-2 hover:scale-105 ease-in-out duration-300 mx-auto '><img className='shadow-lg  w-full h-full  object-cover' src={currentevent} alt="event-img" /></div>
           </div>
           <div className=' w-[90%] md:w-[60%] pt-4 mx-auto px-10 py-10 m-4 flex flex-col justify-evenly gap-10 md:items-start '>
-            <h2 className='text-5xl tracking-tighter font-grotesk font-bold '>Auditions</h2>
-             <p className=''>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi expedita odio perferendis corporis eum alias odit aliquid itaque quia placeat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla omnis sequi ipsam sapiente obcaecati soluta voluptatem facere odio quaerat quos!</p>
-             <p className='font-bold text-2xl '>Prize Worth : 13k</p>
-             <button className=" bg-[#0065fc] md:w-[40%] w-[90%]  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://forms.gle/KFDi73xKVnSJZWhP8">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
+            <h2 className='text-5xl tracking-tighter font-grotesk font-bold hover:text-blue-900  '>Adventure</h2>
+             <p className=''>
+                    This event is in collaboration with <span className=' text-blue-800'>Ecell IITRoorkee. </span><br />
+              Pitch deck Submission: 09 Oct 24, 12:00 PM IST – 11 Oct 24, 11:59 PM IST
+               <br />
+               Advertisement Creation: 13 Oct 24, 12:01 AM IST – 15 Oct 24, 11:59 PM IST</p>
+             <p className='font-bold text-2xl '>Prize Worth : 20K</p>
+             <button className=" bg-[#0065fc] md:w-[40%] w-[90%]  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://unstop.com/competitions/adventure-iit-roorkee-1173151">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
           </div>
         </div>
       </div>
