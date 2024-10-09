@@ -41,16 +41,16 @@ const Homepage = () => {
       {/*header section*/}
       <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
         <div className=" w-[90%] text-center md:text-left md:w-1/2 pt-10  ">
-            <h1  className="  text-[#144c8b] font-bold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14">E-Cell DCRUSTM</h1>
+            <h1  className="  text-[#144c8b] font-bold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14"> E-Cell DCRUSTM</h1>
             <h2  className="  text-gray-900 text-3xl md:text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
             <p  className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">Welcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
            <button  className=" bg-[#0065fc] text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link to='/about'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
         </div>
-        <div  className=" w-[70%] mix-blend-multiply  md:w-1/2 ">
+        <div  className=" w-[70%]   md:w-1/2 ">
           {/* <img src="https://img.freepik.com/free-vector/people-analyzing-growth-charts-illustrated_23-2148865274.jpg?t=st=1726001405~exp=1726005005~hmac=8d475c66abf9bb193b37e852b15bafd47092641eaa050ded071c30fce6c266a8&w=900" alt="hero-right-image" /> */}
-          <img className="w-full h-full object-contain" src={gif} alt="hero-right-image" />
+          <img className="w-full h-full object-contain mix-blend-multiply " src={gif} alt="hero-right-gif" />
         </div>
       </div>
      </div>
@@ -65,7 +65,7 @@ const Homepage = () => {
     </div>
 
       {/*who are we  section*/}
-       <div className=" pt-5 pb-14">
+       <div className=" pt-5 pb-14 ">
       <div className="  max-w-[1240px] mx-auto mt-20 px-4    ">
       <div  className="   md:w-full flex   flex-wrap justify-center md:flex-row md:items-center py-10">
         <div  className="flex-grow text-center md:text-left w-screen  md:w-1/2 ">
@@ -82,11 +82,11 @@ const Homepage = () => {
       {/*what we do section*/}
       <div className="  max-w-[1240px] mx-auto mt-20 px-4   ">
       <div   className="w-full  flex flex-col items-center  md:min-h-[700px]  ">
-        <div className=" bg-[#ecf5ff]  w-full  flex flex-col items-center">
+        <div className="   w-full  flex flex-col items-center">
         <h1 data-aos="fade-down" className=" text-5xl md:text-6xl text-[#000000] font-bold tracking-tighter py-10">What we do?</h1>
         <p data-aos="fade-down" className="md:text-xl text-gray-800 text-center  pb-14 mb-6 px-6 md:px-60 pt-5">At E-Cell DCRUSTM, we cultivate entrepreneurial spirit by providing a platform for innovation, collaboration, and growth. Through dynamic brainstorming, networking, and skill-enhancing workshops, we turn bold ideas into thriving startups. Our initiatives empower students to lead with creativity, teamwork, and resilience, shaping a future of endless possibilities.</p>
           </div>
-        <div  className="flex flex-col  pt-3 pb-5  overflow-hidden   md:flex-row md:flex-wrap justify-center px-4  gap-10">
+        <div  className="flex flex-col  pt-3 pb-5   overflow-hidden   md:flex-row md:flex-wrap justify-center px-4  gap-10">
           <Card imgURL={brainstormingIcon} title="Brainstorming" content="We foster innovation through collaborative brainstorming, where teamwork and communication drive the development of cutting-edge ideas." />
           <Card imgURL={networkingIcon} title="Networking" content="Our E-Cell builds strong connections, leveraging teamwork and communication to unite entrepreneurs, industry leaders, and investors for growth opportunities." />
           <Card imgURL={eventsIcon} title="Events and Workshops" content="We host impactful events and workshops, promoting teamwork and effective communication to equip aspiring entrepreneurs with the skills to turn ideas into reality." />
@@ -101,7 +101,7 @@ const Homepage = () => {
        <div   className="  max-w-[1240px] mx-auto mt-20 px-4  ">
         <h1 className=" text-center text-4xl md:text-6xl font-bold  tracking-tighter py-10">What people think about us</h1>
         
-        <div  className="w-full   " >
+        <div  className="w-full mb-4   " >
           <Testimonials />
         </div>
        </div>

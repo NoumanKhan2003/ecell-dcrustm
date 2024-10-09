@@ -54,13 +54,7 @@ const TeamData23=[
         email:"bhaveshky6231@gmail.com",
         linkedIn:"https://www.linkedin.com/in/bhavesh-yadav-371a5b206/",
     },
-    {
-        name:"BHAVESH",
-        post:"TREASURER, ECELL",
-        imgURL:bhavesh,
-        email:"bhaveshky6231@gmail.com",
-        linkedIn:"https://www.linkedin.com/in/bhavesh-yadav-371a5b206/",
-    },
+    
     {
         name:"DEEPANSHU",
         post:"TECHNICAL HEAD, ECELL",
