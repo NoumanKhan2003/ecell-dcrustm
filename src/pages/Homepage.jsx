@@ -40,15 +40,15 @@ const Homepage = () => {
    
       {/*header section*/}
       <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
-        <div className=" w-[90%] text-center md:text-left md:w-1/2 pt-10  ">
-            <h1  className="  text-[#144c8b] font-bold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14"> E-Cell DCRUSTM</h1>
+        <div  className=" w-[90%] text-center md:text-left md:w-1/2 pt-10  ">
+            <h1    className="  text-[#144c8b] font-bold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14"> E-Cell DCRUSTM</h1>
             <h2  className="  text-gray-900 text-3xl md:text-5xl pb-14">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
             <p  className="text-xl  md:text-xl text-gray-800 pb-14 mb-8  md:pr-14">Welcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
-           <button  className=" bg-[#0065fc] text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link to='/about'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
+           <button   className=" bg-[#0065fc] text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link to='/about'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button>
         </div>
-        <div  className=" w-[70%]   md:w-1/2 ">
+        <div   className=" w-[70%] mix-blend-multiply  md:w-1/2 ">
           {/* <img src="https://img.freepik.com/free-vector/people-analyzing-growth-charts-illustrated_23-2148865274.jpg?t=st=1726001405~exp=1726005005~hmac=8d475c66abf9bb193b37e852b15bafd47092641eaa050ded071c30fce6c266a8&w=900" alt="hero-right-image" /> */}
           <img className="w-full h-full object-contain mix-blend-multiply " src={gif} alt="hero-right-gif" />
         </div>

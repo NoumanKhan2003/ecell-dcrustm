@@ -12,15 +12,14 @@ const Footer = () => {
       <div className="md:mx-auto text-center max-w-full md:text-left md:max-w-[1200px] min-h-[300px] pt-4   flex flex-row justify-evenly  ">
         <div className=" mx-auto md:mx-0"><h1 className="font-semibold text-xl text-blue-100 pt-16 pb-3 ">CONTACT US</h1>
         <p className="text-gray-400 md: ">Deenbandhu Chhotu Ram University of <br /> Science and Technology, Murthal-Haryana ,India</p>
-        <p>PIN: <span className='text-gray-400'>131027</span></p><p>Email:<span className="text-gray-400"> ecell.dcrustm@gmail.com </span> </p> </div>
+        <p>PIN: <span className='text-gray-400'>131027</span></p><p>Email:<span className="text-gray-400"> ecell@dcrustm.org </span> </p> </div>
         
         <div className="hidden md:block"><h1 className="font-semibold text-xl pt-5 md:pt-16 text-blue-100 pb-3 ">QUICK LINKS</h1>
         <ul className='text-gray-400'>
-            <li><Link className="hover:underline hover:text-blue-200 " to="/">Home</Link></li>
             <li><Link className="hover:underline hover:text-blue-200 " to="/about">About</Link></li>
             <li><Link className="hover:underline hover:text-blue-200 " to="/team">Team</Link></li>
             <li><Link className="hover:underline hover:text-blue-200 " to="/gallery">Gallery</Link></li>
-           
+            <li><Link className="hover:underline hover:text-blue-200 " to="/events">Events</Link></li>
         </ul></div>
        
        
