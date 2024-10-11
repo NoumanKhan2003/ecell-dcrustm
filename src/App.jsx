@@ -12,6 +12,7 @@ import Gallery from './pages/Gallery';
 import EventsPage from './pages/EventsPage';
 import { MouseFollower } from 'react-mouse-follower';
 import Cursor from '@christian-martins/react-cursor-follow';
+import Footer from './components/Footer';
 
 
 
@@ -31,7 +32,7 @@ function App() {
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/events' element={<EventsPage />} />
       </Routes>
-     
+     <Footer />
     </ Router>
   
   )

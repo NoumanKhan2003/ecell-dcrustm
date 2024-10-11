@@ -56,7 +56,7 @@ const Homepage = () => {
      </div>
 
       {/* marqueee section */}
-      <div className="  mt-[6rem] overflow-hidden  ">
+      <div className="  mt-[6rem] overflow-hidden py-7  ">
         <div className="">
           <MarqueeText  />
         </div>
@@ -115,7 +115,7 @@ const Homepage = () => {
     
 
     <div className="  ">
-    <Footer />
+    {/* <Footer /> */}
     </div>
     
      </>

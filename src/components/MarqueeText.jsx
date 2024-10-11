@@ -6,7 +6,7 @@ const MarqueeText = () => {
     <>
     
    
-    <div className='  rotate-2 overflow-hidden    bg-white text-[#286cff] flex justify-between items-center py-[1rem] md:text-[3rem] text-[2rem] '>
+    <div className='  rotate-2 overflow-hidden uppercase   bg-white text-[#144c8b] flex justify-between items-center py-[1rem] md:text-[3rem] text-[2rem] '>
         <Marquee pauseOnClick direction="right"  speed={120}>
       <div className='mr-[2rem] flex items-center  '>
         {/* <span className=' font-grotesk mr-[2rem]'>You are the future Entrepreneurs.</span>
@@ -20,7 +20,7 @@ const MarqueeText = () => {
       </div>
       </Marquee>
     </div>
-    <div className='   shadow-lg overflow-hidden  bg-[#2e62ff] text-white flex justify-between items-center py-[1rem] md:text-[3rem] text-[2rem] '>
+    <div className=' uppercase   shadow-lg overflow-hidden  bg-[#2e62ff] text-white flex justify-between items-center py-[1rem] md:text-[3rem] text-[2rem] '>
         <Marquee pauseOnClick direction="left" speed={120}>
       <div className='mr-[2rem] flex items-center '>
         {/* <span className='mr-[2rem]'>You are the future Entrepreneurs.</span>
