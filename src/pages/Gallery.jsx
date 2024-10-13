@@ -10,7 +10,7 @@ const Gallery = () => {
           {
             GalleryImages.map((src, index)=>(
               <div key={index} className="mb-4 break-inside-avoid ">
-                <img src={src} alt="Events-img"  className="w-full object-cover rounded-lg  hover:scale-105 cursor-pointer  duration-500 ease-in-out"/>
+                <img src={src} alt="Events-img" loading='lazy' className="w-full   object-cover rounded-lg  hover:scale-105 cursor-pointer  duration-500 ease-in-out"/>
               </div>
             ))
             }

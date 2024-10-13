@@ -22,7 +22,7 @@ const TeamData22=[
     },
     {
         name:"TUSHAR BHUTANI",
-        post:"VICE-PRESIDENT & CO-FOUNDER, ECELL",
+        post:"VICE-PRESIDENT, ECELL",
         imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
         email:"tusharbhutani77@gmail.com",
         linkedIn:"https://www.linkedin.com/in/tusharbhutani",
@@ -71,14 +71,14 @@ const TeamData22=[
         linkedIn:"",
     },
     {
-        name:"KHUSBOO GUPTA",
+        name:"KHUSHBOO GUPTA",
         post:"CREATIVITY HEAD, ECELL",
         imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
         email:"",
         linkedIn:"",
     },
     {
-        name:"ANKUR YADAV",
+        name:"SAMEEKSHA",
         post:"EVENT MANAGEMENT HEAD, ECELL",
         imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
         email:"",

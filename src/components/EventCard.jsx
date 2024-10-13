@@ -4,7 +4,7 @@ const EventCard = (props) => {
   return (
     <div className="bg-red-200 group relative mt-4  mx-auto overflow-hidden rounded-xl">
         <div className="w-[330px]  h-[350px] ">
-                  <img src={props.imgURL} alt="event-img" className='  h-full w-full object-cover group-hover:rotate-3 group-hover:scale-105 transition-transform  ' />
+                  <img src={props.imgURL} alt="event-img" loading='lazy' className='  h-full w-full object-cover group-hover:rotate-3 group-hover:scale-105 transition-transform  ' />
 
         </div>
       <div className="from-transparent via-transparent to-black/50 bg-gradient-to-b absolute inset-0 group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70">

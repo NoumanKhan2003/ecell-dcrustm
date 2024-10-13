@@ -36,7 +36,8 @@ const EventsPage = () => {
                <br />
                Advertisement Creation: 13 Oct 24, 12:01 AM IST – 15 Oct 24, 11:59 PM IST</p>
              <p className='font-bold text-2xl '>Prize Worth : 20K</p>
-             <button className=" bg-[#0065fc] md:w-[40%] w-[90%]  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://unstop.com/competitions/adventure-iit-roorkee-1173151">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
+             <p className='text-red-600'>*Registrations are now closed!</p>
+             <button className=" bg-[#6d6d6d] md:w-[40%] w-[90%]  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://unstop.com/competitions/adventure-iit-roorkee-1173151">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
           </div>
         </div>
         

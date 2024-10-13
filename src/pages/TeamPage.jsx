@@ -6,6 +6,7 @@ import TeamData24 from '../components/TeamData24';
 import TeamData22 from '../components/TeamData22';
 import TeamData23 from '../components/TeamData23';
 import Accordion from '../components/Accordion';
+import ProfCard from '../components/ProfCard';
 
 const TeamPage = () => {
  
@@ -17,10 +18,13 @@ const TeamPage = () => {
           <h1 className="text-[4rem] font-bold font-grotesk text-[#144c8b]">The Team</h1>
           <h2 className="text-[1.5rem] font-grotesk mt-0">GET TO KNOW THE TEAM OF E-CELL</h2>
         </div>
-        <div className="my-32">
-          <h2 className="text-[1.8rem] font-bold font text-center">UNDER THE GUIDANCE OF</h2>
-          <div className="flex flex-row flex-wrap justify-center mt-4">
-            <MemberCard name="DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=sUg9EhsAAAAJ&citpid=3" email="" linkedIn="" />
+        <div className="mt-24 mb-4">
+          <h2 className="text-[1.8rem] font-bold font text-center mb-2">UNDER THE GUIDANCE OF</h2>
+          <div className="flex md:flex-row gap-10 flex-wrap justify-center  mt-4">
+            <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=sUg9EhsAAAAJ&citpid=3"  />
+            {/* <ProfCard name="Asfj" post="PROF.INCHARGE, E-CELL" imgURL="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=sUg9EhsAAAAJ&citpid=3"  /> */}
+            
+
           </div>
         </div>
         <div className="mx-auto">
