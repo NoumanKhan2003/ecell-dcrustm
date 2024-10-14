@@ -41,7 +41,7 @@ const Homepage = () => {
       {/*header section*/}
       <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
         <div  className=" w-[90%]  text-center md:text-left md:w-1/2 pt-10  ">
-            <h1    className="  text-[#000000] font-semibold tracking-tighter text-[2.5rem] md:text-6xl pb-10   md:pb-14"> E-Cell DCRUSTM</h1>
+            <h1    className="  text-[#000000] font-semibold tracking-tighter text-[2.5rem] md:text-6xl pb-6   md:pb-14"> E-Cell DCRUSTM</h1>
             <h2  className="  text-gray-800 text-3xl md:text-5xl md:pb-14 pb-5">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
