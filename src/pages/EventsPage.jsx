@@ -5,6 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import currentevent from "../assets/events_posters/adventure.jpg"
+import { FaCircle } from "react-icons/fa6";
 // ..
 AOS.init({
   offset:250,
@@ -22,14 +23,14 @@ const EventsPage = () => {
 
       {/* ongoing events section */}
       <div className=' mx-6 '>
-        <h3  className="md:text-4xl text-[2.5rem]  font-black font-grotesk tracking-tighter pt-8 text-left mb-6  bg-gradient-to-r from-blue-600  to-green-500  inline-block text-transparent bg-clip-text   ">Ongoing Events</h3>
+        <h3  className="md:text-4xl text-[2.5rem]  font-black font-grotesk tracking-tighter pt-8 text-left mb-6  bg-gradient-to-r from-blue-600  to-green-500  inline-block text-transparent bg-clip-text    ">Ongoing Events  </h3>
         {/* comment out below section/div if no event is going on.. */}
         <div className='flex md:flex-nowrap mt-4 flex-wrap max-w-full rounded-2xl bg-white  shadow-md'>
           <div className='flex justify-center py-4 items-center w-[90%] md:w-[40%] bg-white m-4 '>
             <div className='  w-[90%] h-[100%]  border-2  rounded-xl hover:-rotate-2 hover:scale-105 ease-in-out duration-300 mx-auto '><img className='shadow-lg  w-full h-full  object-cover' src={currentevent} alt="event-img" /></div>
           </div>
           <div className=' w-[90%] md:w-[60%] pt-4 mx-auto px-10 py-10 m-4 flex flex-col justify-evenly gap-10 md:items-start '>
-            <h2 className='text-5xl tracking-tighter font-grotesk font-bold hover:text-blue-900  '>Adventure</h2>
+            <h2 className='text-5xl tracking-tighter  font-grotesk font-bold   '>Adventure </h2>
              <p className=''>
                     This event is in collaboration with <span className=' text-blue-800'>Ecell IITRoorkee. </span><br />
               Pitch deck Submission: 09 Oct 24, 12:00 PM IST – 11 Oct 24, 11:59 PM IST

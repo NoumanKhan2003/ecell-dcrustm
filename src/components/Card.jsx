@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({imgURL,title,content}) => {
   
   return (
-    <div  className="bg-white mb-5 w-[16rem]  h-[22rem]  group ease-in-out     md:w-[14rem] md:h-[20rem] lg:w-[16rem]  lg:h-[22rem]   flex flex-col items-center hover:scale-105 hover:shadow-lg border  border-gray-300 rounded-2xl   md:hover:scale-102 duration-500 overflow-hidden">
+    <div  className="bg-white  mb-5 w-[16rem]  h-[22rem]  group ease-in-out     md:w-[14rem] md:h-[20rem] lg:w-[16rem]  lg:h-[22rem]   flex flex-col items-center hover:scale-105 hover:shadow-lg border  border-gray-300 rounded-2xl   md:hover:scale-102 duration-500 overflow-hidden">
      
       <img className='w-[60%]  p-4   ' src={imgURL} alt="card-img" />
         <h1 className="font-bold text-[1.1rem] ease-in-out text-[#000000] ">{title}</h1>

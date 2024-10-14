@@ -2,9 +2,13 @@ import aman from "../assets/team/2022/aman.jpeg"
 import harsh_singhal from "../assets/team/2022/harsh_singhal.jpg"
 import harsh_jain from "../assets/team/2022/harsh_jain.jpg"
 import mohit from "../assets/team/2022/mohit.jpg"
-
-
-
+import tushar from "../assets/team/2022/tushar.jpg"
+import arjun from "../assets/team/2022/arjun.jpg"
+import chirag from "../assets/team/2022/chirag.jpg"
+import khushboo from "../assets/team/2022/khushboo.jpg"
+import kriti_malik from "../assets/team/2022/kriti_malik.jpg"
+import sameeksha from "../assets/team/2022/sameeksha.jpg"
+import harsh_tageja from "../assets/team/2022/harsh_tageja.jpeg"
 const TeamData22=[
     {
         name:"AMAN SHARMA",
@@ -23,7 +27,7 @@ const TeamData22=[
     {
         name:"TUSHAR BHUTANI",
         post:"VICE-PRESIDENT, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:tushar,
         email:"tusharbhutani77@gmail.com",
         linkedIn:"https://www.linkedin.com/in/tusharbhutani",
     }
@@ -43,16 +47,23 @@ const TeamData22=[
         linkedIn:"https://www.linkedin.com/in/mohit-yadav-creator/",
     },
     {
+        name:"HARSH TAGEJA",
+        post:"R&D HEAD, ECELL",
+        imgURL:harsh_tageja,
+        email:"",
+        linkedIn:"",
+    },
+    {
         name:"CHIRAG GAUBA",
         post:"CORPORATE RELATION HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:chirag,
         email:"",
         linkedIn:"",
     },
     {
         name:"ARJUN JANGRA",
         post:"TECHNICAL HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:arjun,
         email:"",
         linkedIn:"",
     },
@@ -66,21 +77,21 @@ const TeamData22=[
     {
         name:"KRITI MALIK",
         post:"PUBLIC RELATION HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:kriti_malik,
         email:"",
         linkedIn:"",
     },
     {
         name:"KHUSHBOO GUPTA",
         post:"CREATIVITY HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:khushboo,
         email:"",
         linkedIn:"",
     },
     {
         name:"SAMEEKSHA",
         post:"EVENT MANAGEMENT HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:sameeksha,
         email:"",
         linkedIn:"",
     },
