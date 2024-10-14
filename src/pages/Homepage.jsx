@@ -41,11 +41,11 @@ const Homepage = () => {
       {/*header section*/}
       <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
         <div  className=" w-[90%]  text-center md:text-left md:w-1/2 pt-10  ">
-            <h1    className="  text-[#000000] font-semibold tracking-tighter text-[2.5rem] md:text-6xl pb-6   md:pb-14"> E-Cell DCRUSTM</h1>
+            <h1    className=" md:pt-10 text-[#000000] font-semibold tracking-tighter text-[2.5rem] md:text-6xl pb-6   md:pb-10"> E-Cell DCRUSTM</h1>
             <h2  className="  text-gray-800 text-3xl md:text-5xl md:pb-14 pb-5">Accelerate Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
               <br />Journey!</h2>
-            <p  className="  md:text-xl text-gray-800  md:pb-14 mb-8  md:pr-14 px-6 md:pl-0">Welcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
+            <p  className="  md:text-xl text-gray-800  md:pb-10 mb-8  md:pr-14 px-6 md:pl-0">Welcome to the DCRUST Murthal entrepreneurship community, where visionary ideas meet collaboration, fueling the next generation of groundbreaking innovations!</p>
            {/* <button className=" bg-[#0065fc]  text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link className="" to='/about'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button> */}
            <Link 
          to="/about" 
