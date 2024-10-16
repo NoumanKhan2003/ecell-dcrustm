@@ -49,7 +49,7 @@ const Homepage = () => {
            {/* <button className=" bg-[#0065fc]  text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg"><Link className="" to='/about'>Get Started!</Link><FaArrowRight className="inline ml-2 items-center" /></button> */}
            <Link 
          to="/about" 
-         className="bg-[#0065fc]   md:text-xl text-white py-5 mb-4 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg flex items-center justify-center md:justify-start w-fit mx-auto md:mx-0"
+         className="bg-[#0065fc]   md:text-xl text-white py-5 mb-4 px-10 rounded-md hover:rounded-full hover:bg-[#144c8b] hover:border-black border-2 hover:shadow-lg flex items-center justify-center md:justify-start w-fit mx-auto md:mx-0"
           
           >
          Get Started!
@@ -82,7 +82,7 @@ const Homepage = () => {
           
           <Link 
          to="/about" 
-         className="bg-[#0065fc] text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg flex items-center justify-center md:justify-start w-fit mx-auto md:mx-0"
+         className="bg-[#0065fc]    hover:border-black border-2 hover:rounded-full text-xl text-white py-5 px-10 rounded-md hover:bg-[#144c8b] hover:shadow-lg flex items-center justify-center md:justify-start w-fit mx-auto md:mx-0"
           
           >
          Know More!

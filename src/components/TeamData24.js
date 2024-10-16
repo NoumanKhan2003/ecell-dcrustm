@@ -7,6 +7,7 @@ import aditya from "../assets/team/2024/aditya.jpg"
 import deepanshu from "../assets/team/2024/deepanshu.jpg"
 import siraj from "../assets/team/2024/siraj.jpg"
 import aditya2 from "../assets/team/2024/aditya2.jpg"
+import aman from "../assets/team/2024/aman.jpeg"
 
 const TeamData24=[
     {
@@ -74,6 +75,14 @@ const TeamData24=[
         email:"shaikhsirajuddin7859@gmail.com",
         linkedIn:"https://www.linkedin.com/in/sirajuddin-shaikh-957b15228/",
     },
+    {
+        name:"AMAN",
+        post:"TECHNICAL HEAD, ECELL",
+        imgURL:aman,
+        email:"aman798828@gmail.com",
+        linkedIn:"https://www.linkedin.com/in/aman-saini-734a57247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
+    
     // {
     //     name:"ANUSHKA",
     //     post:"CORPORATE RELATIONS HEAD, ECELL",
