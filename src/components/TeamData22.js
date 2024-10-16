@@ -9,6 +9,7 @@ import khushboo from "../assets/team/2022/khushboo.jpg"
 import kriti_malik from "../assets/team/2022/kriti_malik.jpg"
 import sameeksha from "../assets/team/2022/sameeksha.jpg"
 import harsh_tageja from "../assets/team/2022/harsh_tageja.jpeg"
+import swekriti from "../assets/team/2022/swekriti.jpg"
 const TeamData22=[
     {
         name:"AMAN SHARMA",
@@ -70,7 +71,7 @@ const TeamData22=[
     {
         name:"SWEKRITI",
         post:"SOCIAL MEDIA HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+        imgURL:swekriti,
         email:"",
         linkedIn:"",
     },

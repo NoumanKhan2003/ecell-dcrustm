@@ -97,13 +97,13 @@ const TeamData23=[
         email:"shaikhsirajuddin7859@gmail.com",
         linkedIn:"https://www.linkedin.com/in/sirajuddin-shaikh-957b15228/",
     },
-    {
-        name:"MANDEEP",
-        post:"CORPORATE RELATIONS HEAD, ECELL",
-        imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
-        email:"",
-        linkedIn:"",
-    },
+    // {
+    //     name:"MANDEEP",
+    //     post:"CORPORATE RELATIONS HEAD, ECELL",
+    //     imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
+    //     email:"",
+    //     linkedIn:"",
+    // },
     
 ]
 export default TeamData23
