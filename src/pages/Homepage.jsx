@@ -40,7 +40,7 @@ const Homepage = () => {
    
       {/*header section*/}
       <div  className=" flex justify-center flex-wrap lg:flex  lg:w-full h-auto md:h-[700px] " >
-        <div  className=" w-[90%]  text-center md:text-left md:w-1/2 pt-10  ">
+        <div  className=" w-[90%]  text-center md:text-left md:w-1/2 md:pt-10  ">
             <h1    className="  text-[#000000] font-semibold tracking-tighter text-[2.5rem] md:text-6xl pb-6   md:pb-10"> E-Cell DCRUSTM</h1>
             <h2  className="  text-gray-800 text-3xl md:text-4xl md:pb-14 pb-5">Empower Your <br />
              <span className="text-blue-600" >{text}</span> <span className="text-blue-600"><Cursor cursorStyle="|" /></span>
@@ -58,7 +58,7 @@ const Homepage = () => {
         </div>
         <div   className=" w-[70%] mix-blend-multiply  md:w-1/2 ">
           {/* <img src="https://img.freepik.com/free-vector/people-analyzing-growth-charts-illustrated_23-2148865274.jpg?t=st=1726001405~exp=1726005005~hmac=8d475c66abf9bb193b37e852b15bafd47092641eaa050ded071c30fce6c266a8&w=900" alt="hero-right-image" /> */}
-          <img className="w-full h-full object-contain mix-blend-multiply " loading="lazy" src={gif} alt="hero-right-gif" />
+          <img className="w-full h-full  object-contain mix-blend-multiply   " loading="lazy" src={gif} alt="hero-right-gif" />
         </div>
       </div>
      </div>

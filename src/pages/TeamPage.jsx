@@ -13,7 +13,7 @@ const TeamPage = () => {
   return (
     <div className="flex flex-col min-h-screen mt-20">
       {/* Main content container */}
-      <div className="flex-grow  mx-auto mt-[80px] pb-10 flex flex-col justify-center">
+      <div className="flex-grow  mx-auto mt-[40px] pb-10 flex flex-col justify-center">
         <div className="text-center">
           <h1 className="text-[4rem] font-bold font-grotesk text-[#144c8b]">The Team</h1>
           <h2 className="text-[1.5rem] font-grotesk mt-0">GET TO KNOW THE TEAM OF E-CELL</h2>
