@@ -18,7 +18,7 @@ const EventsPage = () => {
 
     
     <div   className="  max-w-[1240px] mx-auto mt-28 mb-10">
-      <h1  className="md:text-6xl text-[2.5rem] text-[#144c8b] font-bold font-grotesk tracking-tighter pt-8 text-center">Our Events</h1>
+      <h1  className="md:text-6xl text-[2.5rem] text-[#144c8b] font-bold font-grotesk tracking-tighter  text-center">Our Events</h1>
 
 
       {/* ongoing events section */}

@@ -44,7 +44,7 @@ const Navbar = () => {
     <header  className={`fixed top-0  z-[20] w-full transition-all duration-300 ${
       isScrolled ? "backdrop-blur-lg bg-white/50 shadow-md" : "bg-white"
     }`}>
-      <Announcement />
+      {/* <Announcement /> */}
       <div className="flex flex-wrap  justify-between items-center max-w-[1240px] mx-auto text-black ">
         <div className="w-24 h-full px-4 py-2 my-2 ml-4 md:ml-0  rounded-full bg-white">
           <Link to="/">
