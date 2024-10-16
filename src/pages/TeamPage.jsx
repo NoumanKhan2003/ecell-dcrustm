@@ -47,8 +47,8 @@ const TeamPage = () => {
            
           </div>
           <div className='mt-14 mx-auto max-w-screen  gap-7'>
-            <Accordion title="TEAM 2023" teamData={TeamData23} />
-            <Accordion title="TEAM 2022 (Founders Batch)" teamData={TeamData22} />
+            <Accordion title="TEAM 2023-24" teamData={TeamData23} />
+            <Accordion title="TEAM 2021-23 (Founding Team)" teamData={TeamData22} />
           </div>
           
         </div>
