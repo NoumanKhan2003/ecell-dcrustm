@@ -17,13 +17,7 @@ const TeamData24=[
         email:"anubhavofficial23@gmail.com",
         linkedIn:"http://www.linkedin.com/in/anubhav-rawat-540b8a244",
     },
-    {
-        name:"RAHUL SHEKHAWAT",
-        post:"GENERAL SECRETARY, ECELL",
-        imgURL:rahul,
-        email:"rahulshekhawat087@gmail.com",
-        linkedIn:"https://www.linkedin.com/in/rahul-shekhawat-67076323b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    },
+    
     {
         name:"AASHISH JOSHI",
         post:"VICE-PRESIDENT, ECELL",
@@ -39,6 +33,13 @@ const TeamData24=[
         linkedIn:"http://linkedin.com/in/janhvi-sehgal-600918229",
     }
     ,
+    {
+        name:"RAHUL SHEKHAWAT",
+        post:"GENERAL SECRETARY, ECELL",
+        imgURL:rahul,
+        email:"rahulshekhawat087@gmail.com",
+        linkedIn:"https://www.linkedin.com/in/rahul-shekhawat-67076323b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
     
     {
         name:"ADITYA",
