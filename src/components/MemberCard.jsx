@@ -13,7 +13,8 @@ const MemberCard = (props) => {
             <a target='_blank' href={`mailto:${props.email}`}><MdEmail className="hover:text-[#144c8b] hover:scale-150 duration-200" /></a>
               <span>
                 <a target='_blank' href={props.linkedIn}><FaLinkedin  className="hover:text-[#144c8b] hover:scale-150 duration-200" /></a>
-                </span></div>
+                </span>
+                </div>
          
     </div>
 
