@@ -8,7 +8,7 @@ import Bidders_bazar from   "../assets/events_posters/Bidders_bazar.jpg"
 import Webinar_GG from   "../assets/events_posters/Webinar_GG.jpg"
 import Webinar_BPS from   "../assets/events_posters/Webinar_BPS.jpg"
 import tamanna_verma from   "../assets/events_posters/tamanna_verma.jpg"
-import Adventure from   "../assets/events_posters/Adventure.jpg"
+import Adventure from   "../assets/events_posters/adventure.jpg"
 
 
 const EventsData=[
