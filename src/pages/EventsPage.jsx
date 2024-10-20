@@ -32,7 +32,7 @@ const EventsPage = () => {
           <div className=' w-[90%] md:w-[60%] pt-4 mx-auto px-10 py-10 m-4 flex flex-col justify-evenly gap-10 md:items-start '>
             <h2 className='text-5xl tracking-tighter  font-grotesk font-bold   '>EmpowHer Quest </h2>
              <p className=''>
-             E-Cell DCRUSTM, in collaboration with <span className='text-green-500 font-bold'>RITVA (BRAC)</span>, hosted the EmpowHer Quest online quiz on Unstop. Conducted in two rounds, this engaging event celebrated women in entrepreneurship, featuring a ₹2500 prize pool and fostering knowledge-sharing among participants.<br />
+             E-Cell DCRUSTM, in collaboration with <span className='text-green-500 font-bold'>RITVA (BRAC)</span>, hosted the EmpowHer Quest online quiz on Unstop. Conducting in two rounds, this engaging event celebrated women in entrepreneurship, featuring a ₹2500 prize pool and fostering knowledge-sharing among participants.<br />
              <br />
               <span className='font-semibold'>EmpowHer Quiz (Round 1):</span> 23 Oct 24, 9:00 PM IST – 23 Oct 24, 10:00 PM IST
                <br />
