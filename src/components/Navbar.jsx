@@ -4,6 +4,8 @@ import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import ecell_logo from '../assets/ecell_logo.png';
 import Announcement from "./Announcement";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 
 const Navbar = () => {
   const [isopen ,setIsopen]=useState(false);
@@ -71,8 +73,8 @@ const Navbar = () => {
             <Link to="/gallery">Gallery</Link>
           </li>
          
-          <li className="hover:text-white text-blue-500 font-bold animate-pulse    hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-            <Link to="/events"> Events</Link> <span className=" text-xs  animate-ping"></span>
+          <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+            <Link to="/events"> Events</Link> <span className=" h-full   text-green-500 inline-block animate-pulse"><MdOutlineArrowOutward /></span>
           </li>
         </nav>
         
