@@ -71,8 +71,8 @@ const Navbar = () => {
             <Link to="/gallery">Gallery</Link>
           </li>
          
-          <li className="hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-            <Link to="/events"> Events</Link>
+          <li className="hover:text-white text-blue-500 font-bold animate-pulse    hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+            <Link to="/events"> Events</Link> <span className=" text-xs  animate-ping"></span>
           </li>
         </nav>
         

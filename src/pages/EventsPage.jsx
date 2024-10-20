@@ -4,7 +4,7 @@ import EventsData from '../components/EventsData'
 import { FaArrowRight } from "react-icons/fa";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
-import currentevent from "../assets/events_posters/adventure.jpg"
+import currentevent from "../assets/events_posters/empowher_quest.jpg"
 import { FaCircle } from "react-icons/fa6";
 // ..
 AOS.init({
@@ -27,18 +27,19 @@ const EventsPage = () => {
         {/* comment out below section/div if no event is going on.. */}
         <div className='flex md:flex-nowrap mt-4 flex-wrap max-w-full rounded-2xl bg-white  shadow-md'>
           <div className='flex justify-center py-4 items-center w-[90%] md:w-[40%] bg-white m-4 '>
-            <div className='  w-[90%] h-[100%]  border-2  rounded-xl hover:-rotate-2 hover:scale-105 ease-in-out duration-300 mx-auto '><img className='shadow-lg  w-full h-full  object-cover' src={currentevent} alt="event-img" /></div>
+            <div className='  w-[100%] h-[100%]  border-2  rounded-xl hover:-rotate-2 hover:scale-105 ease-in-out duration-300 mx-auto '><img className='shadow-lg  w-full h-full  object-cover' src={currentevent} alt="event-img" /></div>
           </div>
           <div className=' w-[90%] md:w-[60%] pt-4 mx-auto px-10 py-10 m-4 flex flex-col justify-evenly gap-10 md:items-start '>
-            <h2 className='text-5xl tracking-tighter  font-grotesk font-bold   '>Adventure </h2>
+            <h2 className='text-5xl tracking-tighter  font-grotesk font-bold   '>EmpowHer Quest </h2>
              <p className=''>
-                    This event is in collaboration with <span className=' text-blue-800'>Ecell IITRoorkee. </span><br />
-              Pitch deck Submission: 09 Oct 24, 12:00 PM IST – 11 Oct 24, 11:59 PM IST
+             E-Cell DCRUSTM, in collaboration with <span className='text-green-500 font-bold'>RITVA (BRAC)</span>, hosted the EmpowHer Quest online quiz on Unstop. Conducted in two rounds, this engaging event celebrated women in entrepreneurship, featuring a ₹2500 prize pool and fostering knowledge-sharing among participants.<br />
+             <br />
+              <span className='font-semibold'>EmpowHer Quiz (Round 1):</span> 23 Oct 24, 9:00 PM IST – 23 Oct 24, 10:00 PM IST
                <br />
-               Advertisement Creation: 13 Oct 24, 12:01 AM IST – 15 Oct 24, 11:59 PM IST</p>
-             <p className='font-bold text-2xl '>Prize Worth : 20K</p>
-             <p className='text-red-600'>*Registrations are now closed!</p>
-             <button className=" bg-[#747474] border-black border-2 hover:rounded-full md:w-[40%] w-auto  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://unstop.com/competitions/adventure-iit-roorkee-1173151">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
+               <span className='font-semibold'>EmpowHer Quest(Round 2):</span> 25 Oct 24, 9:00 PM IST – 25 Oct 24, 9:50 PM IST</p>
+             <p className='font-bold text-2xl '>Prize Worth : INR 2500</p>
+             {/* <p className='text-red-600'>*Registrations are now closed!</p> */}
+             <button className=" bg-[#0065fc] border-black border-2 hover:rounded-full md:w-[40%] w-auto  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://unstop.com/p/empowher-quest-e-cell-dcrustm-1186308?lb=xYuBeJR0">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
           </div>
         </div>
         

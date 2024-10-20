@@ -8,11 +8,16 @@ import Bidders_bazar from   "../assets/events_posters/Bidders_bazar.jpg"
 import Webinar_GG from   "../assets/events_posters/Webinar_GG.jpg"
 import Webinar_BPS from   "../assets/events_posters/Webinar_BPS.jpg"
 import tamanna_verma from   "../assets/events_posters/tamanna_verma.jpg"
+import Adventure from   "../assets/events_posters/Adventure.jpg"
 
 
 const EventsData=[
     
-    
+    {
+        title:"AdVenture",
+        description:"E-Cell DCRUST, in collaboration with E-Cell IIT Roorkee, hosted an Innovation Challenge, where teams pitched ideas(Round 1) and created video ads (Round 2). With a ₹20,000 prize pool, the event fostered creativity and collaboration among aspiring entrepreneurs.",
+        imgURL:Adventure
+    },
     {
         title:"Insta-Preneur",
         description:"An Instagram competition where aspiring entrepreneurs summed up their startup ideas in one-minute reels. The challenge? Win over the audience. Engagement and reactions on the reels determined the winner.",

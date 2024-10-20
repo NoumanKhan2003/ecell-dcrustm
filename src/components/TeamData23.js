@@ -10,6 +10,8 @@ import anubhav from "../assets/team/2024/anubhav.jpg"
 import aditya2 from "../assets/team/2024/aditya2.jpg"
 import janhvi from "../assets/team/2024/janhvi.jpeg"
 import siraj from "../assets/team/2024/siraj.jpg"
+import rahul from "../assets/team/2024/rahul.jpg"
+
 
 const TeamData23=[
     {
@@ -90,12 +92,20 @@ const TeamData23=[
         email:"janhvisehgal0712@gmail.com",
         linkedIn:"http://linkedin.com/in/janhvi-sehgal-600918229",
     },
+
     {
         name:"SIRAJUDDIN",
         post:"PUBLIC RELATIONS HEAD, ECELL",
         imgURL:siraj,
         email:"shaikhsirajuddin7859@gmail.com",
         linkedIn:"https://www.linkedin.com/in/sirajuddin-shaikh-957b15228/",
+    },
+    {
+        name:"RAHUL SHEKHAWAT",
+        post:"EVENT HEAD, ECELL",
+        imgURL:rahul,
+        email:"rahulshekhawat087@gmail.com",
+        linkedIn:"https://www.linkedin.com/in/rahul-shekhawat-67076323b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
     // {
     //     name:"MANDEEP",

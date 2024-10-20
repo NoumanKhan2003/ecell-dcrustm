@@ -21,9 +21,11 @@ const TeamPage = () => {
         </div>
         <div className="mt-24 mb-4">
           <h2 className="text-[1.8rem] font-bold font text-center mb-2">UNDER THE GUIDANCE OF</h2>
-          <div className="flex md:flex-row gap-10 flex-wrap justify-center  mt-4">
-            <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" />
-            {/* <ProfCard name="Asfj" post="PROF.INCHARGE, E-CELL" imgURL="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=sUg9EhsAAAAJ&citpid=3"  /> */}
+          <div className="flex md:flex-col gap-10 flex-wrap items-center justify-center  mt-4">
+          <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" />
+          {/* <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" /> */}
+          {/* <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" /> */}
+          
             
 
           </div>

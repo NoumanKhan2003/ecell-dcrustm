@@ -10,6 +10,7 @@ import kriti_malik from "../assets/team/2022/kriti_malik.jpg"
 import sameeksha from "../assets/team/2022/sameeksha.jpg"
 import harsh_tageja from "../assets/team/2022/harsh_tageja.jpeg"
 import swekriti from "../assets/team/2022/swekriti.jpg"
+import aashish from"../assets/team/2024/aashish.jpg"
 const TeamData22=[
     {
         name:"AMAN SHARMA",
@@ -96,7 +97,13 @@ const TeamData22=[
         email:"",
         linkedIn:"https://www.linkedin.com/in/sameeksha-dubey-181808213/",
     },
-   
+    {
+        name:"AASHISH JOSHI",
+        post:"GRAPHIC DESIGNER, ECELL",
+        imgURL:aashish,
+        email:"aashishjoshilak@gmail.com",
+        linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
+    },
 
 ]
 export default TeamData22

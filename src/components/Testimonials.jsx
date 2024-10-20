@@ -23,7 +23,7 @@ const Testimonials = () => {
     pagination={{ clickable: true }}
     scrollbar={{ draggable: true }}
    
-    autoplay={{ delay: 2000,
+    autoplay={{ delay: 5000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
      }} 
