@@ -9,10 +9,16 @@ import Webinar_GG from   "../assets/events_posters/Webinar_GG.jpg"
 import Webinar_BPS from   "../assets/events_posters/Webinar_BPS.jpg"
 import tamanna_verma from   "../assets/events_posters/tamanna_verma.jpg"
 import Adventure from   "../assets/events_posters/adventure.jpg"
+import empowher_quest from "../assets/events_posters/empowher_quest.jpg"
+
 
 
 const EventsData=[
-    
+    {
+        title:"EmpowHer Quest",
+        description:"E-Cell DCRUSTM, in collaboration with RITVA (BRAC), hosted the EmpowHer Quest online quiz on Unstop. Conducted in two rounds, this engaging event celebrated women in entrepreneurship, featuring a ₹2500 prize pool and fostering knowledge-sharing among participants.",
+        imgURL:empowher_quest
+    },
     {
         title:"AdVenture",
         description:"E-Cell DCRUST, in collaboration with E-Cell IIT Roorkee, hosted an Innovation Challenge, where teams pitched ideas(Round 1) and created video ads (Round 2). With a ₹20,000 prize pool, the event fostered creativity and collaboration among aspiring entrepreneurs.",

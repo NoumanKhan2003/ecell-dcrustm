@@ -8,6 +8,8 @@ import TeamData23 from '../components/TeamData23';
 import Accordion from '../components/Accordion';
 import ProfCard from '../components/ProfCard';
 import dinesh_singh from'../assets/team/prof/dinesh_singh.jpg';
+import vc from'../assets/team/prof/vc.jpg';
+import suresh_varma from'../assets/team/prof/suresh_varma.jpg';
 
 const TeamPage = () => {
  
@@ -20,15 +22,14 @@ const TeamPage = () => {
           <h2 className="text-[1.5rem] font-grotesk mt-0">GET TO KNOW THE TEAM OF E-CELL</h2>
         </div>
         <div className="mt-24 mb-4">
-          <h2 className="text-[1.8rem] font-bold font text-center mb-2">UNDER THE GUIDANCE OF</h2>
+          <h2 className="text-[1.8rem] font-bold text-[#144c8b] font text-center mb-2">UNDER THE GUIDANCE OF</h2>
           <div className="flex md:flex-col gap-10 flex-wrap items-center justify-center  mt-4">
-          <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" />
-          {/* <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" /> */}
-          {/* <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" /> */}
+          <ProfCard name="PROF. SHREE PRAKASH SINGH" post="VICE-CHANCELLOR, DCRUST" imgURL={vc} />
+          <ProfCard name="PROF. SURESH VERMA" post="DEAN STUDENT WELFARE, DCRUST" imgURL={suresh_varma} />
           
-            
-
           </div>
+          <h2 className="text-[1.8rem] font-bold font text-[#144c8b] text-center mt-8 mb-2">FACULTY ADVISOR</h2>
+          <ProfCard name="PROF. DINESH SINGH" post="PROF.INCHARGE, E-CELL" imgURL={dinesh_singh} email="dineshsingh.cse@dcrustm.org" linkedIn="https://www.linkedin.com/in/dinesh-singh-5ba2743b/" />
         </div>
         <div className="mx-auto">
           <h2 className="text-[1.8rem] font-bold text-center mb-20 text-[#144c8b]">CORE TEAM MEMBERS</h2>

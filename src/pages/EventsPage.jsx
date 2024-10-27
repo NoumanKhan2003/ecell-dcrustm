@@ -25,7 +25,8 @@ const EventsPage = () => {
       <div className=' mx-6 '>
         <h3  className="md:text-4xl text-[2.5rem]  font-black font-grotesk tracking-tighter pt-8 text-left mb-6  bg-gradient-to-r from-blue-600  to-green-500  inline-block text-transparent bg-clip-text    ">Ongoing Events  </h3>
         {/* comment out below section/div if no event is going on.. */}
-        <div className='flex md:flex-nowrap mt-4 flex-wrap max-w-full rounded-2xl bg-white  shadow-md'>
+        
+        {/* <div className='flex md:flex-nowrap mt-4 flex-wrap max-w-full rounded-2xl bg-white  shadow-md'>
           <div className='flex justify-center py-4 items-center w-[90%] md:w-[40%] bg-white m-4 '>
             <div className='  w-[100%] h-[100%]  border-2  rounded-xl hover:-rotate-2 hover:scale-105 ease-in-out duration-300 mx-auto '><img className='shadow-lg  w-full h-full  object-cover' src={currentevent} alt="event-img" /></div>
           </div>
@@ -38,10 +39,10 @@ const EventsPage = () => {
                <br />
                <span className='font-semibold'>EmpowHer Quest(Round 2):</span> 25 Oct 24, 9:00 PM IST – 25 Oct 24, 9:50 PM IST</p>
              <p className='font-bold text-2xl '>Prize Worth : INR 2500</p>
-             {/* <p className='text-red-600'>*Registrations are now closed!</p> */}
+             {/* <p className='text-red-600'>*Registrations are now closed!</p> 
              <button className=" bg-[#0065fc] border-black border-2 hover:rounded-full md:w-[40%] w-auto  text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg "><a target='_blank' href="https://unstop.com/p/empowher-quest-e-cell-dcrustm-1186308?lb=xYuBeJR0">Register Here!</a> <FaArrowRight className="inline ml-2 items-center" /></button>
           </div>
-        </div>
+        </div> */}
         
       </div>
 
