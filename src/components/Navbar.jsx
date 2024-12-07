@@ -72,7 +72,9 @@ const Navbar = () => {
           <li className=" hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/gallery">Gallery</Link>
           </li>
-         
+          <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+            <Link to="/blogs"> Blogs</Link> 
+          </li>
           <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
             <Link to="/events"> Events</Link> <span className=" h-full   text-green-500 inline-block animate-pulse"><MdOutlineArrowOutward /></span>
           </li>
@@ -87,8 +89,8 @@ const Navbar = () => {
             <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/">Home</Link>
             <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/about">About</Link>
             <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/team">Team</Link>
-            
             <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/gallery">Gallery</Link>
+            <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/blogs">Blogs</Link>
             <Link  onClick={closeNavbar} className="text-xl font-semibold hover:text-[#144c8b] hover:underline" to="/events">Events</Link>
           </div>
         )}
