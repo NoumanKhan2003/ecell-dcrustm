@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Divider } from "@mui/material";
 import blogsData from "../assets/blogsData.json";
 const BlogsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container sx={{ marginTop: "4rem" }}>
       <Typography

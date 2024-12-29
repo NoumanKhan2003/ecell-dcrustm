@@ -1,6 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 
 const About = () => {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <div className=" max-w-[1240px]  mx-auto mt-28 ">
       <div className="flex flex-col  items-center">
