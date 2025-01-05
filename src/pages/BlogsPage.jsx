@@ -1,11 +1,17 @@
-import React, { useEffect } from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import CardActionArea from "@mui/material/CardActionArea";
+import React, { useState, useEffect } from "react";
+import {
+  Container,
+  Typography,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActionArea,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  Button,
+} from "@mui/material";
 import blogsData from "../assets/blogsData/blogsData.json";
 import timeManagement from "../assets/blogsData/timeManagement.png";
 import failure from "../assets/blogsData/failure.png";
@@ -20,9 +26,23 @@ const imageMap = {
 };
 
 const BlogsPage = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedBlog, setSelectedBlog] = useState(null);
+
+  const handleOpen = (blog) => {
+    setSelectedBlog(blog);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedBlog(null);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <Container sx={{ marginTop: "4rem", marginBottom: "4rem" }}>
       <Typography
@@ -35,36 +55,9 @@ const BlogsPage = () => {
         fontWeight={"bold"}
         color="rgb(20 76 139)"
       >
-        Our Blogs
+        Our Latest Blogs
       </Typography>
-      {/* <Box>
-        {blogsData.map((blog, index) => (
-          <Box key={index} sx={{ marginBottom: "2rem" }}>
-            <Typography
-              variant="h4"
-              marginBottom={"0.2rem"}
-              color="#08194c"
-              fontWeight={"bold"}
-            >
-              {blog.titleMain}
-            </Typography>
-            <Typography variant="h5" marginBottom={"0.2rem"}>
-              {blog.title}
-            </Typography>
-            <Typography variant="body1" whiteSpace="pre-line">
-              {blog.content}
-            </Typography>
-            {blog.conclusion && (
-              <>
-                <Typography variant="body1" whiteSpace="pre-line">
-                  {blog.conclusion}
-                </Typography>
-                <Divider sx={{ marginTop: "1rem" }} />
-              </>
-            )}
-          </Box>
-        ))}
-      </Box> */}
+
       <Box
         sx={{
           display: "flex",
@@ -75,8 +68,12 @@ const BlogsPage = () => {
       >
         {blogsData
           .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
-          .map((blog, index) => (
-            <Card key={blog.id} sx={{ width: 500 }}>
+          .map((blog) => (
+            <Card
+              key={blog.id}
+              sx={{ width: 500 }}
+              onClick={() => handleOpen(blog)}
+            >
               <CardActionArea>
                 <CardMedia
                   component="img"
@@ -100,6 +97,48 @@ const BlogsPage = () => {
             </Card>
           ))}
       </Box>
+
+      {selectedBlog && (
+        <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+          <DialogTitle>
+            <Typography variant="h5">{selectedBlog.titleMain} </Typography>
+          </DialogTitle>
+          <DialogContent>
+            <Typography variant="body">
+              {selectedBlog.contentMain}
+            </Typography>
+
+            {selectedBlog.sections &&
+              selectedBlog.sections.map((blog, index) => (
+                <div key={index}>
+                  <Typography variant="h6" marginTop={2} sx={{ fontWeight: "bold" }}>
+                    {blog.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                    {blog.content}
+                  </Typography>
+                  <br />
+                </div>
+              ))}
+
+            {selectedBlog.conclusion && (
+              <>
+                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  Conclusion
+                </Typography>
+                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                  {selectedBlog.conclusion}
+                </Typography>
+              </>
+            )}
+          </DialogContent>
+          <Box textAlign="center" sx={{ padding: 2 }}>
+            <Button variant="contained" color="primary" onClick={handleClose}>
+              Close
+            </Button>
+          </Box>
+        </Dialog>
+      )}
     </Container>
   );
 };
