@@ -1,7 +1,9 @@
 [
     {
+        "id": 1,
         "titleMain": "Time Management Tips for Busy Entrepreneurs",
-        "content": "Entrepreneurs often juggle multiple roles, from strategizing and marketing to managing finances. With so much to do, effective time management becomes critical to avoid burnout and maximize productivity."
+        "contentMain": "Entrepreneurs often juggle multiple roles, from strategizing and marketing to managing finances. With so much to do, effective time management becomes critical to avoid burnout and maximize productivity.",
+        "image": "timeManagement"
     },
     {
         "title": "Why Time Management is Crucial",
@@ -16,8 +18,10 @@
         "conclusion": "Time is the most valuable resource for an entrepreneur. By managing it wisely, you can achieve your goals while maintaining a healthy work-life balance. \n Remember, it’s not about working harder—it’s about working smarter"
     },
     {
+        "id": 2,
         "titleMain": "Failing Forward: Lessons from Entrepreneurial Setbacks",
-        "content": "Failure is often perceived as the end of the road. However, for entrepreneurs, failure is a stepping stone—an essential part of the journey toward success. Many of the world's most successful entrepreneurs experienced setbacks before achieving their goals. What sets them apart is their ability to 'fail forward'—to learn, adapt, and grow stronger with each misstep."
+        "contentMain": "Failure is often perceived as the end of the road. However, for entrepreneurs, failure is a stepping stone—an essential part of the journey toward success. Many of the world's most successful entrepreneurs experienced setbacks before achieving their goals. What sets them apart is their ability to 'fail forward'—to learn, adapt, and grow stronger with each misstep.",
+        "image": "failure"
     },
     {
         "title": "Why Entrepreneurs Fail",
@@ -40,8 +44,10 @@
         "conclusion": "Failure isn’t the opposite of success; it’s a part of it. Entrepreneurs who embrace failure as a teacher find themselves better equipped for the challenges ahead. So, the next time you stumble, remember: failing forward is not just about recovering—it’s about evolving.\n\n Take the leap, learn from the fall, and soar higher than before. Your next big breakthrough might just be one failure away."
     },
     {
+        "id": 3,
         "titleMain": "The Power of Networking in Entrepreneurship",
-        "content": "Networking is the cornerstone of entrepreneurial success. It's not just about meeting people; it's about forging meaningful relationships that can help your business thrive. In a world where connections can open doors, networking is a skill that every entrepreneur must master."
+        "contentMain": "Networking is the cornerstone of entrepreneurial success. It's not just about meeting people; it's about forging meaningful relationships that can help your business thrive. In a world where connections can open doors, networking is a skill that every entrepreneur must master.",
+        "image": "networking"
     },
     {
         "title": "Why Networking Matters",
@@ -56,8 +62,10 @@
         "conclusion": "Networking is more than just exchanging business cards—it's about building bridges. Invest in your network, and it will pave the way for entrepreneurialgrowth."
     },
     {
+        "id": 4,
         "titleMain": "Entrepreneurship: Turning Vision into Reality",
-        "content": "Entrepreneurship is the art of transforming ideas into impactful ventures. It’s about identifying opportunities, taking risks, and crafting solutions that meet the needs of society."
+        "contentMain": "Entrepreneurship is the art of transforming ideas into impactful ventures. It’s about identifying opportunities, taking risks, and crafting solutions that meet the needs of society.",
+        "image": "enterpreneurship"
     },
     {
         "title": "What Defines an Entrepreneur?",
@@ -76,8 +84,10 @@
         "conclusion": "Entrepreneurship is a journey of ambition, risk, and reward. It’s about believing in your vision and working tirelessly to bring it to life.\n Take the leap—your idea could be the next big thing!"
     },
     {
+        "id": 5,
         "titleMain": "The Lean Startup: Building Businesses the Smart Way",
-        "content": "The traditional approach to starting a business often involves months of planning, creating a detailed business plan, and launching a fully developed product. But what if there's a faster, more efficient way? Enter the Lean Startup methodology—a revolutionary approach to entrepreneurship that focuses on building, testing, and learning quickly to create products customers actually want"
+        "contentMain": "The traditional approach to starting a business often involves months of planning, creating a detailed business plan, and launching a fully developed product. But what if there's a faster, more efficient way? Enter the Lean Startup methodology—a revolutionary approach to entrepreneurship that focuses on building, testing, and learning quickly to create products customers actually want",
+        "image": ""
     },
     {
         "title": "What is the Lean Startup?",
@@ -100,8 +110,10 @@
         "conclusion": "The Lean Startup is not just a methodology—it’s a mindset. By focusing on learning, agility, and customer needs, entrepreneurs can navigate uncertainty and build products that truly resonate. If you’re an aspiring entrepreneur, embrace the Lean Startup approach to turn your idea into a sustainable, customer-driven business.\n Remember: Build. Measure. Learn. Repeat."
     },
     {
+        "id": 6,
         "titleMain": "The Business Model: The Blueprint of Entrepreneurial Success",
-        "content": "Every successful entrepreneurial journey begins with a solid business model. It’s the foundation on which ideas are built and transformed into profitable ventures. A well-defined business model not only clarifies how a business creates and delivers value but also outlines the strategies to sustain growth in a competitive market."
+        "contentMain": "Every successful entrepreneurial journey begins with a solid business model. It’s the foundation on which ideas are built and transformed into profitable ventures. A well-defined business model not only clarifies how a business creates and delivers value but also outlines the strategies to sustain growth in a competitive market.",
+        "image": ""
     },
     {
         "title": "What is a Business Model?",
@@ -128,8 +140,10 @@
         "conclusion": "A business model is the backbone of entrepreneurial success. It provides direction, inspires innovation, and ensures sustainability. For entrepreneurs, building a strong business model is not just about defining how to make money; it’s about creating long-term value for customers, stakeholders, and society.\n\n So, whether you’re launching a startup or reimagining an existing business, invest time in designing a business model that aligns with your vision and goals. Remember, the right model can turn a great idea into a thriving enterprise. \n\n Start strategizing, and let your business model pave the way to success!"
     },
     {
+        "id": 7,
         "titleMain": "Branding in Entrepreneurship: Building More Than Just a Business",
-        "content": "In the world of entrepreneurship, where competition is fierce and customer loyalty is hardearned, branding isn’t just important—it’s essential. A strong brand sets your business apart,communicates your values, and creates a lasting impression in the minds of your audience. For entrepreneurs, branding is about more than logos and slogans; it’s about creating an identity that resonates and endures."
+        "contentMain": "In the world of entrepreneurship, where competition is fierce and customer loyalty is hardearned, branding isn’t just important—it’s essential. A strong brand sets your business apart,communicates your values, and creates a lasting impression in the minds of your audience. For entrepreneurs, branding is about more than logos and slogans; it’s about creating an identity that resonates and endures.",
+        "image": ""
     },
     {
         "title": "What is Branding?",
@@ -160,8 +174,10 @@
         "conclusion": "In entrepreneurship, branding is not a one-time activity—it’s an ongoing process of building trust, fostering loyalty, and staying relevant. A strong brand isn’t just about selling products; it’s about creating experiences and forging connections that keep customers coming back. Whether you’re just starting or looking to redefine your identity, remember: your brand is the soul of your business. Craft it thoughtfully, nurture it consistently, and let it be the bridge between your vision and your customers' hearts. \n\nYour brand is your legacy—make it unforgettable."
     },
     {
+        "id": 8,
         "titleMain": "Crowdfunding: A Game-Changer in Entrepreneurship",
-        "content": "•In the ever-evolving world of entrepreneurship, securing funding remains one of the most significant hurdles for startups and small businesses. Enter crowdfunding—a modern, innovative solution that has revolutionized how entrepreneurs bring their ideas to life. But what exactly is crowdfunding, and why has it become such a buzzword in the entrepreneurial ecosystem?"
+        "contentMain": "In the ever-evolving world of entrepreneurship, securing funding remains one of the most significant hurdles for startups and small businesses. Enter crowdfunding—a modern, innovative solution that has revolutionized how entrepreneurs bring their ideas to life. But what exactly is crowdfunding, and why has it become such a buzzword in the entrepreneurial ecosystem?",
+        "image": ""
     },
     {
         "title": "What is Crowdfunding?",

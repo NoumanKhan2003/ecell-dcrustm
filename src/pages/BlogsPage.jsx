@@ -1,15 +1,30 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Divider } from "@mui/material";
-import blogsData from "../assets/blogsData.json";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import CardActionArea from "@mui/material/CardActionArea";
+import blogsData from "../assets/blogsData/blogsData.json";
+import timeManagement from "../assets/blogsData/timeManagement.png";
+import failure from "../assets/blogsData/failure.png";
+import networking from "../assets/blogsData/networking.png";
+import enterpreneurship from "../assets/blogsData/enterpreneurship.png";
+
+const imageMap = {
+  timeManagement,
+  failure,
+  networking,
+  enterpreneurship,
+};
+
 const BlogsPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Container sx={{ marginTop: "4rem" }}>
+    <Container sx={{ marginTop: "4rem", marginBottom: "4rem" }}>
       <Typography
         variant="h2"
         sx={{
@@ -22,7 +37,7 @@ const BlogsPage = () => {
       >
         Our Blogs
       </Typography>
-      <Box>
+      {/* <Box>
         {blogsData.map((blog, index) => (
           <Box key={index} sx={{ marginBottom: "2rem" }}>
             <Typography
@@ -49,6 +64,41 @@ const BlogsPage = () => {
             )}
           </Box>
         ))}
+      </Box> */}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 6,
+          justifyContent: "center",
+        }}
+      >
+        {blogsData
+          .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
+          .map((blog, index) => (
+            <Card key={blog.id} sx={{ width: 500 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  sx={{
+                    height: 300,
+                    width: 500,
+                    objectFit: "cover",
+                  }}
+                  image={imageMap[blog.image]}
+                  alt={blog.titleMain}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {blog.titleMain}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    {blog.contentMain}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
       </Box>
     </Container>
   );
