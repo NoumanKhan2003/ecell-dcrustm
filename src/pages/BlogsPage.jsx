@@ -17,12 +17,20 @@ import timeManagement from "../assets/blogsData/timeManagement.png";
 import failure from "../assets/blogsData/failure.png";
 import networking from "../assets/blogsData/networking.png";
 import enterpreneurship from "../assets/blogsData/enterpreneurship.png";
+import leanStartup from "../assets/blogsData/leanStartup.png";
+import buisnessModel from "../assets/blogsData/buisnessModel.png";
+import branding from "../assets/blogsData/branding.png";
+import crowdfunding from "../assets/blogsData/crowdfunding.jpg";
 
 const imageMap = {
   timeManagement,
   failure,
   networking,
   enterpreneurship,
+  leanStartup,
+  buisnessModel,
+  branding,
+  crowdfunding,
 };
 
 const BlogsPage = () => {

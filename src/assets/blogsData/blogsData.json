@@ -98,7 +98,7 @@
         "id": 5,
         "titleMain": "The Lean Startup: Building Businesses the Smart Way",
         "contentMain": "The traditional approach to starting a business often involves months of planning, creating a detailed business plan, and launching a fully developed product. But what if there's a faster, more efficient way? Enter the Lean Startup methodology—a revolutionary approach to entrepreneurship that focuses on building, testing, and learning quickly to create products customers actually want",
-        "image": "",
+        "image": "leanStartup",
         "sections": [
             {
                 "id": 5,
@@ -128,7 +128,7 @@
         "id": 6,
         "titleMain": "The Business Model: The Blueprint of Entrepreneurial Success",
         "contentMain": "Every successful entrepreneurial journey begins with a solid business model. It’s the foundation on which ideas are built and transformed into profitable ventures. A well-defined business model not only clarifies how a business creates and delivers value but also outlines the strategies to sustain growth in a competitive market.",
-        "image": "",
+        "image": "buisnessModel",
         "sections": [
             {
                 "id": 6,
@@ -163,7 +163,7 @@
         "id": 7,
         "titleMain": "Branding in Entrepreneurship: Building More Than Just a Business",
         "contentMain": "In the world of entrepreneurship, where competition is fierce and customer loyalty is hardearned, branding isn’t just important—it’s essential. A strong brand sets your business apart,communicates your values, and creates a lasting impression in the minds of your audience. For entrepreneurs, branding is about more than logos and slogans; it’s about creating an identity that resonates and endures.",
-        "image": "",
+        "image": "branding",
         "sections": [
             {
                 "id": 7,
@@ -203,7 +203,7 @@
         "id": 8,
         "titleMain": "Crowdfunding: A Game-Changer in Entrepreneurship",
         "contentMain": "In the ever-evolving world of entrepreneurship, securing funding remains one of the most significant hurdles for startups and small businesses. Enter crowdfunding—a modern, innovative solution that has revolutionized how entrepreneurs bring their ideas to life. But what exactly is crowdfunding, and why has it become such a buzzword in the entrepreneurial ecosystem?",
-        "image": "",
+        "image": "crowdfunding",
         "sections": [
             {
                 "id": 8,
