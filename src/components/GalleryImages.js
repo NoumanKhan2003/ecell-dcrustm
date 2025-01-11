@@ -17,15 +17,12 @@ import g16 from '../assets/gallery/16.jpg'
 import g17 from '../assets/gallery/17.jpg'
 import g18 from '../assets/gallery/18.jpg'
 import g19 from '../assets/gallery/19.jpg'
-
+import g20 from '../assets/gallery/20.jpg'
+import g21 from '../assets/gallery/21.jpg'
 
 const GalleryImages=[
-    g17,
-    g1,
-    g2,g3,g4,g5,g6,g7,g8,g9,g11,g12,g13,g14,g15,g16,g18,g19
-    
-    
-
-
+    g1,g17,g2,g9,g4,g5,g6,
+    g16,g8,g21,g7,g3,g11,g12,
+    g14,g13,g20,g15,g18,g19
 ]
 export default GalleryImages
