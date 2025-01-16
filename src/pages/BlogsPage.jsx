@@ -125,20 +125,12 @@ const BlogsPage = () => {
                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
                     {blog.content}
                   </Typography>
+                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                    {blog.conclusion}
+                  </Typography>
                   <br />
                 </div>
               ))}
-
-            {selectedBlog.conclusion && (
-              <>
-                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                  Conclusion
-                </Typography>
-                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                  {selectedBlog.conclusion}
-                </Typography>
-              </>
-            )}
           </DialogContent>
           <Box textAlign="center" sx={{ padding: 2 }}>
             <Button variant="contained" color="primary" onClick={handleClose}>
