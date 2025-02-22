@@ -5,9 +5,9 @@ const Gallery = () => {
       window.scrollTo(0, 0);
     }, []);
   return (
-    <div className="w-full mt-14 h-full bg-gradient-to-r from-[#144c8b] to-[#0069e2]">
-      <div className="  max-w-[1240px]  mx-auto mt-0 pt-10">
-        <h1 className="md:text-6xl  text-[2.5rem] text-[#ffffff] font-bold font-grotesk tracking-tighter md:pt-1 text-center p-2 md:p-0">
+    <div className="w-full mt-14 h-full bg-gradient-to-r from-[#cfe1f6] to-[#77b7ff]">
+      <div className="  max-w-[1240px]  mx-auto mt-0 pt-5">
+        <h1 className="md:text-6xl  text-[2.5rem] text-[#232393] font-bold font-grotesk tracking-tighter text-center p-2 md:p-0">
           {" "}
           Events Snapshots
         </h1>
