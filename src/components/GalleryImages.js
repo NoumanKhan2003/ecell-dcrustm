@@ -19,10 +19,16 @@ import g18 from '../assets/gallery/18.jpg'
 import g19 from '../assets/gallery/19.jpg'
 import g20 from '../assets/gallery/20.jpg'
 import g21 from '../assets/gallery/21.jpg'
+import g22 from '../assets/gallery/22.jpg'
+import g23 from '../assets/gallery/23.jpg'
+import g24 from '../assets/gallery/24.jpg'
+import g25 from '../assets/gallery/25.jpg'
+import g26 from '../assets/gallery/26.jpg'
+import g27 from '../assets/gallery/27.jpg'
 
 const GalleryImages=[
-    g1,g17,g2,g9,g4,g5,g6,
-    g16,g8,g21,g7,g3,g11,g12,
-    g14,g13,g20,g15,g18,g19
+    g22,g25,g6,g17,g2,g9,g4,g5,g1,
+    g23,g26,g21,g16,g8,g7,g3,g11,g19,
+    g24,g27,g20,g14,g15,g13,g18,g12
 ]
 export default GalleryImages
