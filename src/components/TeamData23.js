@@ -107,13 +107,6 @@ const TeamData23=[
         email:"rahulshekhawat087@gmail.com",
         linkedIn:"https://www.linkedin.com/in/rahul-shekhawat-67076323b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
-    // {
-    //     name:"MANDEEP",
-    //     post:"CORPORATE RELATIONS HEAD, ECELL",
-    //     imgURL:"https://static.vecteezy.com/system/resources/previews/008/695/917/original/no-image-available-icon-simple-two-colors-template-for-no-image-or-picture-coming-soon-and-placeholder-illustration-isolated-on-white-background-vector.jpg",
-    //     email:"",
-    //     linkedIn:"",
-    // },
     
 ]
 export default TeamData23

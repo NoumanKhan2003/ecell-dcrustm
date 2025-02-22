@@ -82,49 +82,6 @@ const TeamData24=[
         imgURL:aman,
         email:"aman798828@gmail.com",
         linkedIn:"https://www.linkedin.com/in/aman-saini-734a57247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    },
-    
-    // {
-    //     name:"ANUSHKA",
-    //     post:"CORPORATE RELATIONS HEAD, ECELL",
-    //     imgURL:"https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg",
-    //     email:"aashihjoshilak@gmail.com",
-    //     linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
-    // },
-    // {
-    //     name:"PRIYANKA",
-    //     post:"MEETINGS & BRAINSTORMING HEAD, ECELL",
-    //     imgURL:"https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg",
-    //     email:"aashihjoshilak@gmail.com",
-    //     linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
-    // },
-    // {
-    //     name:"GARIMA",
-    //     post:"CONTENT & MEDIA HEAD, ECELL",
-    //     imgURL:"https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg",
-    //     email:"aashihjoshilak@gmail.com",
-    //     linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
-    // },
-    // {
-    //     name:"OJASWI KUMAR",
-    //     post:"R&D HEAD, ECELL",
-    //     imgURL:"https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg",
-    //     email:"aashihjoshilak@gmail.com",
-    //     linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
-    // },
-    // {
-    //     name:"CHAVI YADAV",
-    //     post:"MARKETING & OUTREACH HEAD, ECELL",
-    //     imgURL:"https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg",
-    //     email:"aashihjoshilak@gmail.com",
-    //     linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
-    // },
-    // {
-    //     name:"GARIMA SHARMA",
-    //     post:"SPONSORSHIP HEAD, ECELL",
-    //     imgURL:"https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg",
-    //     email:"canegib589@abatido.com",
-    //     linkedIn:"https://www.linkedin.com/in/aashish-joshi-a72a71228/",
-    // },
+    }
 ]
 export default TeamData24

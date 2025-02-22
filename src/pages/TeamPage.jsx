@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import MemberCard from "../components/MemberCard";
-import Footer from "../components/Footer";
 import TeamData24 from "../components/TeamData24";
 import TeamData22 from "../components/TeamData22";
 import TeamData23 from "../components/TeamData23";
