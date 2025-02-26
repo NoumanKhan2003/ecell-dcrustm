@@ -1,11 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import model from "./models/adminModel.js";
-
+import adminRoute from "./routes/adminRoute.js";
 const app = express();
 dotenv.config();
 
+app.use(express.json());
 mongoose
   .connect(process.env.Url)
   .then(() => {
@@ -15,7 +15,5 @@ mongoose
     console.log("Error connecting to database", error);
   });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use(adminRoute);
 app.listen(process.env.Port || 3000);
