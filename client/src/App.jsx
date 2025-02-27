@@ -9,6 +9,7 @@ import Gallery from "./pages/Gallery";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
+import LoginPage from "./pages/LoginPage"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </Router>
