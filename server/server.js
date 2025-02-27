@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import adminRoute from "./routes/adminRoute.js";
+import bodyParser from "body-parser";
+import cors from "cors";
+
 const app = express();
 dotenv.config();
 
@@ -15,5 +18,7 @@ mongoose
     console.log("Error connecting to database", error);
   });
 
-app.use(adminRoute);
+app.use(bodyParser.json());
+app.use(cors());
+app.use('/auth',adminRoute);
 app.listen(process.env.Port || 3000);
