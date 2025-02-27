@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
@@ -11,8 +8,6 @@ import ContactPage from "./pages/ContactPage";
 import Gallery from "./pages/Gallery";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
-import { MouseFollower } from "react-mouse-follower";
-import Cursor from "@christian-martins/react-cursor-follow";
 import Footer from "./components/Footer";
 
 function App() {
