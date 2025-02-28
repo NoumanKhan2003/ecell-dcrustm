@@ -24,6 +24,7 @@
     "react-mouse-follower": "^2.0.3",
     "react-router-dom": "^6.26.2",
     "react-simple-typewriter": "^5.0.1",
+    "react-toastify": "^11.0.5",
     "swiper": "^11.1.14"
   },
   "devDependencies": {

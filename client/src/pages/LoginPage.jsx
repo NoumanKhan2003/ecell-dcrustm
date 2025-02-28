@@ -1,7 +1,71 @@
-import React from "react";
-import { Container, Box, TextField, Button, Typography, Link, Paper } from "@mui/material";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { handleError, handleSuccess } from "../components/Utils.js";
+import { ToastContainer } from "react-toastify";
+import {
+  Container,
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+} from "@mui/material";
 
 const Form = () => {
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSignin = async (e) => {
+    e.preventDefault();
+    const { email, password } = loginInfo;
+
+    if (!email || !password) {
+      return handleError("All fields are required");
+    }
+
+    try {
+      const url = `http://localhost:5000/auth/adminLogin`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginInfo),
+      });
+
+      if (!response.ok) {
+        throw new Error("Login failed. Please check your credentials.");
+      }
+
+      const result = await response.json();
+      const { success, message, jwtToken, name, error } = result;
+
+      if (success) {
+        handleSuccess(message);
+        localStorage.setItem("token", jwtToken);
+        localStorage.setItem("loggedInUser", name);
+
+        setTimeout(() => {
+          navigate("/");
+        }, 500);
+      } else {
+        handleError(error?.details?.[0]?.message || message || "Login failed");
+      }
+    } catch (err) {
+      handleError(err.message || "Something went wrong");
+    }
+  };
+
   return (
     <Container
       sx={{
@@ -13,19 +77,47 @@ const Form = () => {
         justifyContent: "center",
       }}
     >
-      <Paper elevation={3} sx={{ padding: 3, maxWidth: 350, width: "100%", borderRadius: 2 }}>
+      <ToastContainer />
+      <Paper
+        elevation={3}
+        sx={{ padding: 3, maxWidth: 350, width: "100%", borderRadius: 2 }}
+      >
         <Typography variant="h6" align="center" fontWeight={600}>
           Sign in to E-Cell(DCRUSTM)
         </Typography>
-        <Box component="form" sx={{ mt: 2 }}>
-          <TextField fullWidth label="Enter username" margin="normal" variant="outlined" />
-          <TextField fullWidth label="Enter password" type="password" margin="normal" variant="outlined" />
-          <Button fullWidth variant="contained" color="primary" sx={{ mt: 2 }}>
+        <Box component="form" sx={{ mt: 2 }} onSubmit={handleSignin}>
+          <TextField
+            fullWidth
+            name="email"
+            label="Enter username"
+            margin="normal"
+            variant="outlined"
+            onChange={handleChange}
+            value={loginInfo.email}
+          />
+          <TextField
+            fullWidth
+            name="password"
+            label="Enter password"
+            type="password"
+            margin="normal"
+            variant="outlined"
+            onChange={handleChange}
+            value={loginInfo.password}
+          />
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            sx={{ mt: 2 }}
+            type="submit"
+          >
             Sign in
           </Button>
         </Box>
         <Typography variant="body2" align="center" sx={{ mt: 2 }}>
-          No account / Forgot Password ?<br/> Contact Admin for username and password
+          No account / Forgot Password ?<br /> Contact Admin for username and
+          password
         </Typography>
       </Paper>
     </Container>
