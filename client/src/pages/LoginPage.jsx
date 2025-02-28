@@ -54,6 +54,7 @@ const Form = () => {
         handleSuccess(message);
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
+        window.dispatchEvent(new Event("storage"));
 
         setTimeout(() => {
           navigate("/");

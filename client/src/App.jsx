@@ -9,8 +9,7 @@ import Gallery from "./pages/Gallery";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
-import LoginPage from "./pages/LoginPage"
-
+import LoginPage from "./pages/LoginPage";
 function App() {
   return (
     <Router>
