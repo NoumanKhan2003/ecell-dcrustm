@@ -7,7 +7,8 @@ import Announcement from "./Announcement";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../components/Utils.js";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const [isopen, setIsopen] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
@@ -52,7 +53,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("loggedInUser");
     setLoggedInUser(null);
-    handleError("Admin Logout Successfull");
+    handleSuccess("Admin Logout Successfull");
     setTimeout(() => {
       navigate("/login");
     }, 500);
@@ -60,6 +61,7 @@ const Navbar = () => {
 
   return (
     <>
+      <ToastContainer />
       <header
         className={`fixed top-0  z-[20] w-full transition-all duration-300 ${
           isScrolled ? "backdrop-blur-lg bg-white/50 shadow-md" : "bg-white"

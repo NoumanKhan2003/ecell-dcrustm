@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../components/Utils.js";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   Container,
   Box,
@@ -51,11 +52,10 @@ const Form = () => {
       const { success, message, jwtToken, name, error } = result;
 
       if (success) {
-        handleSuccess(message);
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
         window.dispatchEvent(new Event("storage"));
-
+        // handleSuccess("Admin Login Successfull");
         setTimeout(() => {
           navigate("/");
         }, 500);
