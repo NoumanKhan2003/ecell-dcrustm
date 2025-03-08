@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Typography,
@@ -12,6 +13,7 @@ import {
   DialogContent,
   Button,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import blogsData from "../assets/blogsData/blogsData.json";
 import timeManagement from "../assets/blogsData/timeManagement.png";
 import failure from "../assets/blogsData/failure.png";
@@ -36,6 +38,7 @@ const imageMap = {
 const BlogsPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState(null);
+  const navigate = useNavigate();
 
   const handleOpen = (blog) => {
     setSelectedBlog(blog);
@@ -46,26 +49,49 @@ const BlogsPage = () => {
     setOpen(false);
     setSelectedBlog(null);
   };
-
+  const handleAddBlog = () => {
+    navigate("/blogsForm");
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <Container sx={{ marginTop: "4rem", marginBottom: "4rem" }}>
-      <Typography
-        variant="h2"
+    <Container sx={{ marginTop: "2rem", marginBottom: "4rem" }}>
+      <Box
         sx={{
-          mx: { xs: "0.5rem", md: "2rem" },
-          my: { xs: "1rem", md: "3rem" },
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: { xs: "column", md: "row" },
         }}
-        textAlign={"center"}
-        fontWeight={"bold"}
-        color="rgb(20 76 139)"
       >
-        Our Latest Blogs
-      </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            mx: { xs: "0.5rem", md: "2rem" },
+            my: { xs: "1rem", md: "3rem" },
+          }}
+          textAlign={"center"}
+          fontWeight={"bold"}
+          color="rgb(20 76 139)"
+        >
+          Our Latest Blogs
+        </Typography>
 
+        <Button
+          variant="contained"
+          size="large"
+          sx={{
+            padding: "0.6rem 1rem",
+            height: "fit-content",
+            marginTop: { xs: "0rem", md: "4rem" },
+            marginBottom: { xs: "2rem", md: "0rem" },
+          }}
+          onClick={handleAddBlog}
+        >
+          Add new Blog{" "}
+        </Button>
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -112,14 +138,16 @@ const BlogsPage = () => {
             <Typography variant="h5">{selectedBlog.titleMain} </Typography>
           </DialogTitle>
           <DialogContent>
-            <Typography variant="body">
-              {selectedBlog.contentMain}
-            </Typography>
+            <Typography variant="body">{selectedBlog.contentMain}</Typography>
 
             {selectedBlog.sections &&
               selectedBlog.sections.map((blog, index) => (
                 <div key={index}>
-                  <Typography variant="h6" marginTop={2} sx={{ fontWeight: "bold" }}>
+                  <Typography
+                    variant="h6"
+                    marginTop={2}
+                    sx={{ fontWeight: "bold" }}
+                  >
                     {blog.title}
                   </Typography>
                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>

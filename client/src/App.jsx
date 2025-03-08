@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
 import RefreshHandler from "./components/RefreshHandler";
 import { ToastContainer } from "react-toastify";
+import BlogsForm from "./pages/BlogsUploadPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogsForm" element={<BlogsForm />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
