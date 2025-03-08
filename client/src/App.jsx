@@ -12,6 +12,8 @@ import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
 import RefreshHandler from "./components/RefreshHandler";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -20,6 +22,7 @@ function App() {
   };
   return (
       <Router>
+        <ToastContainer />
         <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
         <Navbar />
         <Routes>

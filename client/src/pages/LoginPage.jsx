@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../components/Utils.js";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import {
   Container,
   Box,
@@ -55,7 +53,7 @@ const Form = () => {
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
         window.dispatchEvent(new Event("storage"));
-        // handleSuccess("Admin Login Successfull");
+        handleSuccess("Admin Login Successfull");
         setTimeout(() => {
           navigate("/");
         }, 500);
@@ -78,7 +76,6 @@ const Form = () => {
         justifyContent: "center",
       }}
     >
-      <ToastContainer />
       <Paper
         elevation={3}
         sx={{ padding: 3, maxWidth: 350, width: "100%", borderRadius: 2 }}
