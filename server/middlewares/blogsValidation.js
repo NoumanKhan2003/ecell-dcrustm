@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-function blogsUploadValidation(req, res, next) {
+function blogsCreateValidation(req, res, next) {
   const schema = Joi.object({
     titleMain: Joi.string().required(),
     contentMain: Joi.string().required(),
@@ -24,4 +24,4 @@ function blogsUploadValidation(req, res, next) {
   next();
 }
 
-export default blogsUploadValidation;
+export {blogsCreateValidation};

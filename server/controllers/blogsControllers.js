@@ -1,6 +1,6 @@
-import blogsModel from "../models/blogsUploadModel.js";
+import blogsModel from "../models/blogsModel.js";
 
-const blogsUploadControllers = async (req, res) => {
+const blogsCreateControllers = async (req, res) => {
   try {
     const { titleMain, contentMain, image, sections } = req.body;
 
@@ -19,4 +19,4 @@ const blogsUploadControllers = async (req, res) => {
   }
 };
 
-export default blogsUploadControllers;
+export {blogsCreateControllers} ;

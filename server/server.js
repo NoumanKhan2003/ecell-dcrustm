@@ -5,7 +5,7 @@ import adminRoute from "./routes/adminRoute.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 import pingRoute from "./routes/pingRoute.js";
-import blogsUploadRoute from "./routes/blogsUploadRoute.js";
+import blogsRoute from "./routes/blogsRoute.js";
 const app = express();
 dotenv.config();
  
@@ -23,5 +23,5 @@ app.use(bodyParser.json());
 app.use(cors()); 
 app.use('/auth',adminRoute);
 app.use('/ping',pingRoute)
-app.use('/blogsUpload',blogsUploadRoute);
+app.use('/blogs',blogsRoute);
 app.listen(process.env.Port || 3000);
