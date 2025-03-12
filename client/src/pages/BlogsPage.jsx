@@ -56,6 +56,8 @@ const BlogsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const isLoggedIn = localStorage.getItem("loggedInUser");
+
   return (
     <Container sx={{ marginTop: "2rem", marginBottom: "4rem" }}>
       <Box
@@ -78,19 +80,21 @@ const BlogsPage = () => {
           Our Latest Blogs
         </Typography>
 
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            padding: "0.6rem 1rem",
-            height: "fit-content",
-            marginTop: { xs: "0rem", md: "4rem" },
-            marginBottom: { xs: "2rem", md: "0rem" },
-          }}
-          onClick={handleAddBlog}
-        >
-          Add new Blog{" "}
-        </Button>
+        {isLoggedIn && (
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              padding: "0.6rem 1rem",
+              height: "fit-content",
+              marginTop: { xs: "0rem", md: "4rem" },
+              marginBottom: { xs: "2rem", md: "0rem" },
+            }}
+            onClick={handleAddBlog}
+          >
+            Add new Blog{" "}
+          </Button>
+        )}
       </Box>
       <Box
         sx={{
