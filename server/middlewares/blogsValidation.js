@@ -4,13 +4,8 @@ function blogsCreateValidation(req, res, next) {
   const schema = Joi.object({
     titleMain: Joi.string().required(),
     contentMain: Joi.string().required(),
-    image: Joi.string().required(),
-    sections: Joi.array().items(
-      Joi.object({
-        title: Joi.string().required(),
-        content: Joi.string().required(),
-      })
-    ),
+    image: Joi.string(),
+    sections: Joi.string(),
   });
 
   const { error } = schema.validate(req.body, { abortEarly: false });
@@ -24,4 +19,4 @@ function blogsCreateValidation(req, res, next) {
   next();
 }
 
-export {blogsCreateValidation};
+export { blogsCreateValidation };

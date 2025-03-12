@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { X, Image as ImageIcon } from "lucide-react";
 import { Container, Typography } from "@mui/material";
+import { handleError, handleSuccess } from "../components/Utils.js";
+import { useNavigate } from "react-router-dom";
 const BlogsForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [subSections, setSubSections] = useState([]);
   const [thumbnail, setThumbnail] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
+  const navigate = useNavigate();
 
   const addSubSection = () => {
     setSubSections([...subSections, { subTitle: "", subContent: "" }]);
@@ -49,14 +52,32 @@ const BlogsForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({
-      title,
-      content,
-      subSections,
-      thumbnail,
-    });
+    const formData = new FormData();
+    formData.append("titleMain", title);
+    formData.append("contentMain", content);
+    formData.append("sections", JSON.stringify(subSections));
+    if (thumbnail) {
+      formData.append("image", thumbnail);
+    }
+    try {
+      const response = await fetch("http://localhost:5000/blogs/create", {
+        method: "POST",
+        body: formData,
+      });
+      if (response.ok) {
+        const data = await response.json();
+        handleSuccess("Blog Uploaded successfully");
+        setTimeout(() => {
+          navigate("/blogs");
+        }, 500);
+      } else {
+        handleError("Failed to upload blog. Please try again.");
+      }
+    } catch (error) {
+      handleError("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -75,6 +96,7 @@ const BlogsForm = () => {
       </Typography>
       <form
         onSubmit={handleSubmit}
+        encType="multipart/form-data"
         className="max-w-2xl mx-auto p-6 space-y-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
       >
         <div className="space-y-2">

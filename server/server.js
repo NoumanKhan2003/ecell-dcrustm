@@ -4,12 +4,16 @@ import dotenv from "dotenv";
 import adminRoute from "./routes/adminRoute.js";
 import bodyParser from "body-parser";
 import cors from "cors";
+import path from "path";
 import pingRoute from "./routes/pingRoute.js";
 import blogsRoute from "./routes/blogsRoute.js";
 const app = express();
 dotenv.config();
  
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+
 mongoose
   .connect(process.env.Mongo_Url)
   .then(() => {

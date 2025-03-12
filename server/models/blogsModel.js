@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const SectionSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  content: { type: String, required: true },
+  subTitle: String,
+  subContent: String,
 });
 
 const BlogsSchema = new mongoose.Schema(
@@ -10,7 +10,7 @@ const BlogsSchema = new mongoose.Schema(
     titleMain: { type: String, required: true },
     contentMain: { type: String, required: true },
     image: { type: String, default: "", required: true },
-    sections: { type: [SectionSchema], required: true },
+    sections: [SectionSchema],
   },
   { timestamps: true }
 );
