@@ -19,7 +19,7 @@ const useBlogsData = () => {
   useEffect(() => {
     const getBlogsData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/blogs");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs`);
         if (!response.ok) {
           return handleError("Failed to fetch blogs");
         }

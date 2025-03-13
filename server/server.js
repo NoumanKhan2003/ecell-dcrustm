@@ -28,4 +28,4 @@ app.use(cors());
 app.use('/auth',adminRoute);
 app.use('/ping',pingRoute)
 app.use('/blogs',blogsRoute);
-app.listen(process.env.Port || 3000);
+app.listen(process.env.PORT || 3000);

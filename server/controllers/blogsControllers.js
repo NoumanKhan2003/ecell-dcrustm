@@ -25,7 +25,7 @@ const blogsCreateControllers = async (req, res) => {
 
     let imageUrl = null;
     if (req.file) {
-      imageUrl = `http://localhost:5000/uploads/${req.file.filename}`;
+      imageUrl = `${process.env.BACKEND_URL}/uploads/${req.file.filename}`;
     }
 
     const newBlog = new blogsModel({

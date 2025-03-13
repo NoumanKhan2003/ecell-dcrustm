@@ -65,7 +65,7 @@ const BlogsForm = () => {
         return handleError("All fields are required");
       }
     try {
-      const response = await fetch("http://localhost:5000/blogs/create", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs/create`, {
         method: "POST",
         body: formData,
       });

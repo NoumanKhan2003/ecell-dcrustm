@@ -33,9 +33,8 @@ const Form = () => {
     if (!email || !password) {
       return handleError("All fields are required");
     }
-
     try {
-      const url = `http://localhost:5000/auth/adminLogin`;
+      const url = `${import.meta.env.VITE_BACKEND_URL}/auth/adminLogin`;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
