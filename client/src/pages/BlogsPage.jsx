@@ -146,20 +146,17 @@ const BlogsPage = () => {
             <Typography variant="body">{selectedBlog.contentMain}</Typography>
 
             {selectedBlog.sections &&
-              selectedBlog.sections.map((blog, index) => (
-                <div key={index}>
+              selectedBlog.sections.map((blog, _id) => (
+                <div key={_id}>
                   <Typography
                     variant="h6"
                     marginTop={2}
                     sx={{ fontWeight: "bold" }}
                   >
-                    {blog.title}
+                    {blog.subTitle}
                   </Typography>
                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                    {blog.content}
-                  </Typography>
-                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                    {blog.conclusion}
+                    {blog.subContent}
                   </Typography>
                   <br />
                 </div>
