@@ -107,6 +107,7 @@ const BlogsPage = () => {
       >
         {blogsData
           .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
           .map((blog) => (
             <Card
               key={blog._id}
