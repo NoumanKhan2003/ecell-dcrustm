@@ -13,29 +13,30 @@ import {
   DialogContent,
   Button,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import blogsData from "../assets/blogsData/blogsData.json";
-import timeManagement from "../assets/blogsData/timeManagement.png";
-import failure from "../assets/blogsData/failure.png";
-import networking from "../assets/blogsData/networking.png";
-import enterpreneurship from "../assets/blogsData/enterpreneurship.png";
-import leanStartup from "../assets/blogsData/leanStartup.png";
-import buisnessModel from "../assets/blogsData/buisnessModel.png";
-import branding from "../assets/blogsData/branding.png";
-import crowdfunding from "../assets/blogsData/crowdfunding.jpg";
+import { handleError, handleSuccess } from "../components/Utils.js";
+const useBlogsData = () => {
+  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    const getBlogsData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/blogs");
+        if (!response.ok) {
+          return handleError("Failed to fetch blogs");
+        }
+        const data = await response.json();
+        setBlogs(data);
+      } catch (error) {
+        return handleError(error);
+      }
+    };
+    getBlogsData();
+  }, []);
 
-const imageMap = {
-  timeManagement,
-  failure,
-  networking,
-  enterpreneurship,
-  leanStartup,
-  buisnessModel,
-  branding,
-  crowdfunding,
+  return blogs;
 };
 
 const BlogsPage = () => {
+  const blogsData = useBlogsData();
   const [open, setOpen] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const navigate = useNavigate();
@@ -108,7 +109,7 @@ const BlogsPage = () => {
           .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
           .map((blog) => (
             <Card
-              key={blog.id}
+              key={blog._id}
               sx={{ width: 500 }}
               onClick={() => handleOpen(blog)}
             >
@@ -120,7 +121,7 @@ const BlogsPage = () => {
                     width: 500,
                     objectFit: "cover",
                   }}
-                  image={imageMap[blog.image]}
+                  image={blog.image}
                   alt={blog.titleMain}
                 />
                 <CardContent>

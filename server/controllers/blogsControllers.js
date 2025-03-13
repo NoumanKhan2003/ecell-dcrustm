@@ -47,4 +47,12 @@ const blogsCreateControllers = async (req, res) => {
   }
 };
 
-export { blogsCreateControllers };
+const blogsReadControllers = async (req, res) => {
+  try {
+    const readBlogs = await blogsModel.find();
+    res.json(readBlogs);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch blogs" });
+  }
+};
+export { blogsCreateControllers, blogsReadControllers };

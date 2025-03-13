@@ -61,6 +61,9 @@ const BlogsForm = () => {
     if (thumbnail) {
       formData.append("image", thumbnail);
     }
+     if (!title || !content || !thumbnail) {
+        return handleError("All fields are required");
+      }
     try {
       const response = await fetch("http://localhost:5000/blogs/create", {
         method: "POST",
@@ -117,7 +120,7 @@ const BlogsForm = () => {
             rows={1}
             className="border-gray-500 block w-full rounded-md shadow-sm p-2"
             style={{ resize: "none", overflow: "hidden" }}
-            required
+            
           ></textarea>
         </div>
 
@@ -139,7 +142,7 @@ const BlogsForm = () => {
             style={{ resize: "none", overflow: "hidden" }}
             rows={4}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2"
-            required
+            
           ></textarea>
         </div>
 

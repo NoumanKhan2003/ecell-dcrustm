@@ -1,6 +1,9 @@
 import express from "express";
 import { blogsCreateValidation } from "../middlewares/blogsValidation.js";
-import { blogsCreateControllers } from "../controllers/blogsControllers.js";
+import {
+  blogsCreateControllers,
+  blogsReadControllers,
+} from "../controllers/blogsControllers.js";
 import { uploadImage } from "../middlewares/multerMiddleware.js";
 const blogsRouter = express.Router();
 
@@ -10,5 +13,5 @@ blogsRouter.post(
   blogsCreateValidation,
   blogsCreateControllers
 );
-
-export default blogsRouter;
+blogsRouter.get("/", blogsReadControllers);
+export default blogsRouter ;
