@@ -58,7 +58,7 @@ function Virtual(_ref) {
     }
     return slideEl;
   }
-  function update(force, beforeInit) {
+  function update(force, beforeInit, forceActiveIndex) {
     const {
       slidesPerView,
       slidesPerGroup,
@@ -83,7 +83,7 @@ function Virtual(_ref) {
     if (!swiper.params.cssMode) {
       swiper.updateActiveIndex();
     }
-    const activeIndex = swiper.activeIndex || 0;
+    const activeIndex = typeof forceActiveIndex === 'undefined' ? swiper.activeIndex || 0 : forceActiveIndex;
     let offsetProp;
     if (swiper.rtlTranslate) offsetProp = 'right';else offsetProp = swiper.isHorizontal() ? 'left' : 'top';
     let slidesAfter;

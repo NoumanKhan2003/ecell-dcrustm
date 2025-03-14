@@ -307,10 +307,10 @@ function Pagination(_ref) {
       el = [...swiper.el.querySelectorAll(params.el)];
       // check if it belongs to another nested Swiper
       if (el.length > 1) {
-        el = el.filter(subEl => {
+        el = el.find(subEl => {
           if (elementParents(subEl, '.swiper')[0] !== swiper.el) return false;
           return true;
-        })[0];
+        });
       }
     }
     if (Array.isArray(el) && el.length === 1) el = el[0];

@@ -66,7 +66,7 @@ function Autoplay(_ref) {
   const getSlideDelay = () => {
     let activeSlideEl;
     if (swiper.virtual && swiper.params.virtual.enabled) {
-      activeSlideEl = swiper.slides.filter(slideEl => slideEl.classList.contains('swiper-slide-active'))[0];
+      activeSlideEl = swiper.slides.find(slideEl => slideEl.classList.contains('swiper-slide-active'));
     } else {
       activeSlideEl = swiper.slides[swiper.activeIndex];
     }

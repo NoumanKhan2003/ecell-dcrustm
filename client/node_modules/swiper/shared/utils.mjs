@@ -184,8 +184,9 @@ function elementChildren(element, selector) {
   if (selector === void 0) {
     selector = '';
   }
+  const window = getWindow();
   const children = [...element.children];
-  if (element instanceof HTMLSlotElement) {
+  if (window.HTMLSlotElement && element instanceof HTMLSlotElement) {
     children.push(...element.assignedElements());
   }
   if (!selector) {
@@ -193,11 +194,26 @@ function elementChildren(element, selector) {
   }
   return children.filter(el => el.matches(selector));
 }
+function elementIsChildOfSlot(el, slot) {
+  // Breadth-first search through all parent's children and assigned elements
+  const elementsQueue = [slot];
+  while (elementsQueue.length > 0) {
+    const elementToCheck = elementsQueue.shift();
+    if (el === elementToCheck) {
+      return true;
+    }
+    elementsQueue.push(...elementToCheck.children, ...(elementToCheck.shadowRoot ? elementToCheck.shadowRoot.children : []), ...(elementToCheck.assignedElements ? elementToCheck.assignedElements() : []));
+  }
+}
 function elementIsChildOf(el, parent) {
-  const isChild = parent.contains(el);
-  if (!isChild && parent instanceof HTMLSlotElement) {
+  const window = getWindow();
+  let isChild = parent.contains(el);
+  if (!isChild && window.HTMLSlotElement && parent instanceof HTMLSlotElement) {
     const children = [...parent.assignedElements()];
-    return children.includes(el);
+    isChild = children.includes(el);
+    if (!isChild) {
+      isChild = elementIsChildOfSlot(el, parent);
+    }
   }
   return isChild;
 }

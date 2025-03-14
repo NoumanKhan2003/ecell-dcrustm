@@ -335,7 +335,7 @@ function Mousewheel(_ref) {
         if (!ignoreWheelEvents) emit('scroll', e);
 
         // Stop autoplay
-        if (swiper.params.autoplay && swiper.params.autoplayDisableOnInteraction) swiper.autoplay.stop();
+        if (swiper.params.autoplay && swiper.params.autoplay.disableOnInteraction) swiper.autoplay.stop();
         // Return page scroll on edge positions
         if (params.releaseOnEdges && (position === swiper.minTranslate() || position === swiper.maxTranslate())) {
           return true;
