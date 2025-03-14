@@ -46,7 +46,7 @@ function getParams(element, propName, propValue) {
     });
   }
   attrsList.forEach(attr => {
-    const moduleParam = modulesParamsList.find(mParam => attr.name.startsWith(`${mParam}-`));
+    const moduleParam = modulesParamsList.filter(mParam => attr.name.indexOf(`${mParam}-`) === 0)[0];
     if (moduleParam) {
       const parentObjName = attrToProp(moduleParam);
       const subObjName = attrToProp(attr.name.split(`${moduleParam}-`)[1]);
