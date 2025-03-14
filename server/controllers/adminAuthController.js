@@ -1,5 +1,5 @@
 import AdminModel from "../models/adminModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const adminSignup = async (req, res) => {
