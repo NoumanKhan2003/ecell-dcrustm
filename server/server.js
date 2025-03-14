@@ -24,7 +24,7 @@ mongoose
   });
 
 app.use(bodyParser.json());
-app.use(cors()); 
+app.use(cors({ origin: "https://ecell-dcrustm.vercel.app"})); 
 app.use('/auth',adminRoute);
 app.use('/',pingRoute)
 app.use('/blogs',blogsRoute);
