@@ -1,5 +1,5 @@
 import blogsModel from "../models/blogsModel.js";
-
+import { v2 as cloudinary } from "cloudinary";
 const blogsCreateControllers = async (req, res) => {
   try {
     const { titleMain, contentMain } = req.body;
@@ -23,10 +23,7 @@ const blogsCreateControllers = async (req, res) => {
       }
     }
 
-    let imageUrl = null;
-    if (req.file) {
-      imageUrl = `${process.env.BACKEND_URL}/uploads/${req.file.filename}`;
-    }
+    const imageUrl = req.file ? req.file.path : null;
 
     const newBlog = new blogsModel({
       titleMain,
