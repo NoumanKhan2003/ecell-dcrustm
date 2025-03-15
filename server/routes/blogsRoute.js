@@ -3,6 +3,7 @@ import { blogsCreateValidation } from "../middlewares/blogsValidation.js";
 import {
   blogsCreateControllers,
   blogsReadControllers,
+  blogsDeleteControllers,
 } from "../controllers/blogsControllers.js";
 import { uploadImage } from "../middlewares/multerMiddleware.js";
 const blogsRouter = express.Router();
@@ -14,4 +15,5 @@ blogsRouter.post(
   blogsCreateControllers
 );
 blogsRouter.get("/", blogsReadControllers);
-export default blogsRouter ;
+blogsRouter.delete("/delete/:id", blogsDeleteControllers);
+export default blogsRouter;

@@ -14,25 +14,32 @@ import {
   Button,
 } from "@mui/material";
 import { handleError, handleSuccess } from "../components/Utils.js";
+
 const useBlogsData = () => {
   const [blogs, setBlogs] = useState([]);
-  useEffect(() => {
-    const getBlogsData = async () => {
-      try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs`);
-        if (!response.ok) {
-          return handleError("Failed to fetch blogs");
-        }
-        const data = await response.json();
-        setBlogs(data);
-      } catch (error) {
-        return handleError(error);
+  const [loading, setLoading] = useState(true);
+
+  const getBlogsData = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/blogs`);
+      if (!response.ok) {
+        return handleError("Failed to fetch blogs");
       }
-    };
+      const data = await response.json();
+      setBlogs(data);
+    } catch (error) {
+      return handleError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     getBlogsData();
   }, []);
 
-  return blogs;
+  return { blogs, loading, refreshBlogs: getBlogsData };
 };
 
 const BlogsPage = () => {
@@ -50,9 +57,41 @@ const BlogsPage = () => {
     setOpen(false);
     setSelectedBlog(null);
   };
+
   const handleAddBlog = () => {
     navigate("/blogsForm");
   };
+
+  const handleDeleteBlog = async (e) => {
+    e.stopPropagation();
+
+    if (!selectedBlog || !selectedBlog._id) {
+      return handleError("Invalid blog selection");
+    }
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/blogs/delete/${selectedBlog._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete blog");
+      }
+
+      handleSuccess("Blog deleted successfully");
+      blogsData.refreshBlogs();
+      handleClose();
+    } catch (error) {
+      handleError(error.message || "An error occurred");
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -105,7 +144,7 @@ const BlogsPage = () => {
           justifyContent: "center",
         }}
       >
-        {blogsData
+        {blogsData.blogs
           .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
           .map((blog) => (
@@ -163,10 +202,21 @@ const BlogsPage = () => {
                 </div>
               ))}
           </DialogContent>
-          <Box textAlign="center" sx={{ padding: 2 }}>
-            <Button variant="contained" color="primary" onClick={handleClose}>
+          <Box
+            sx={{ padding: 2, display: "flex", justifyContent: "space-evenly" }}
+          >
+            <Button variant="outlined" color="primary" onClick={handleClose}>
               Close
             </Button>
+            {isLoggedIn && (
+              <Button
+                variant="outlined"
+                color="error"
+                onClick={handleDeleteBlog}
+              >
+                Delete
+              </Button>
+            )}
           </Box>
         </Dialog>
       )}

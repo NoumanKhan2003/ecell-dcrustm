@@ -52,4 +52,23 @@ const blogsReadControllers = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch blogs" });
   }
 };
-export { blogsCreateControllers, blogsReadControllers };
+const blogsDeleteControllers = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ error: "Blog ID is required" });
+    }
+
+    const deleteBlogs = await blogsModel.findByIdAndDelete(id);
+    
+    if (!deleteBlogs) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+
+    res.json({ message: "Blog deleted successfully", deletedBlog: deleteBlogs });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete blog", details: error.message });
+  }
+};
+
+export { blogsCreateControllers, blogsReadControllers, blogsDeleteControllers };
