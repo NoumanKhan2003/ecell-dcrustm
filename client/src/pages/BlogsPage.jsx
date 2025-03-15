@@ -12,6 +12,7 @@ import {
   DialogTitle,
   DialogContent,
   Button,
+  Skeleton,
 } from "@mui/material";
 import { handleError, handleSuccess } from "../components/Utils.js";
 
@@ -99,7 +100,9 @@ const BlogsPage = () => {
   const isLoggedIn = localStorage.getItem("loggedInUser");
 
   return (
-    <Container sx={{ marginTop: "2rem", marginBottom: "4rem" }}>
+    <Container
+      sx={{ marginTop: "2rem", marginBottom: "4rem", minHeight: "100vh" }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -136,6 +139,7 @@ const BlogsPage = () => {
           </Button>
         )}
       </Box>
+
       <Box
         sx={{
           display: "flex",
@@ -144,37 +148,69 @@ const BlogsPage = () => {
           justifyContent: "center",
         }}
       >
-        {blogsData.blogs
-          .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          .map((blog) => (
-            <Card
-              key={blog._id}
-              sx={{ width: 500 }}
-              onClick={() => handleOpen(blog)}
-            >
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  sx={{
-                    height: 300,
-                    width: 500,
-                    objectFit: "cover",
-                  }}
-                  image={blog.image}
-                  alt={blog.titleMain}
+        {blogsData.loading &&
+          [1, 2, 3, 4].map((index) => (
+            <Card key={index} sx={{ width: 500 }}>
+              <Skeleton
+                variant="rectangular"
+                width={500}
+                height={300}
+                animation="pulse"
+              />
+              <CardContent>
+                <Skeleton
+                  variant="text"
+                  width="80%"
+                  height={30}
+                  animation="wave"
                 />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {blog.titleMain}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    {blog.contentMain}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
+                <Skeleton
+                  variant="text"
+                  width="100%"
+                  height={20}
+                  animation="wave"
+                />
+                <Skeleton
+                  variant="text"
+                  width="90%"
+                  height={20}
+                  animation="wave"
+                />
+              </CardContent>
             </Card>
           ))}
+
+        {!blogsData.loading &&
+          blogsData.blogs
+            .filter((blog) => blog.titleMain && blog.titleMain.trim() !== "")
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            .map((blog) => (
+              <Card
+                key={blog._id}
+                sx={{ width: 500 }}
+                onClick={() => handleOpen(blog)}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    sx={{ height: 300, width: 500, objectFit: "cover" }}
+                    image={blog.image}
+                    alt={blog.titleMain}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {blog.titleMain}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      {blog.contentMain}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            ))}
       </Box>
 
       {selectedBlog && (
