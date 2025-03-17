@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -22,9 +22,17 @@ import { ToastContainer } from "react-toastify";
 import BlogsForm from "./pages/BlogsUploadPage";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true"
+  );
+  const [isAdmin, setIsAdmin] = useState(
+    localStorage.getItem("isAdmin") === "true"
+  );
 
+  useEffect(() => {
+    localStorage.setItem("isAuthenticated", isAuthenticated);
+    localStorage.setItem("isAdmin", isAdmin);
+  }, [isAuthenticated, isAdmin]);
   const PrivateRoute = ({ element }) => {
     return isAuthenticated ? element : <Navigate to="/login" />;
   };
