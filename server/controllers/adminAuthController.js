@@ -56,4 +56,12 @@ const adminLogin = async (req, res) => {
   }
 };
 
-export { adminSignup, adminLogin };
+const AdminRead = async (req, res) => {
+  try {
+    const readAdmin = await AdminModel.find();
+    res.json(readAdmin);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch Admin/User List" });
+  }
+};
+export { adminSignup, adminLogin, AdminRead };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -12,17 +12,25 @@ import {
   Button,
 } from "@mui/material";
 
-const users = [
-  { name: "John Doe", email: "john@example.com", role: "Admin" },
-  { name: "Jane Smith", email: "jane@example.com", role: "Member" },
-  {
-    name: "Michael Brown",
-    email: "michael@example.com",
-    role: "Mentor",
-  },
-];
+const AdministrationPage = () => {
+  const [users, setUsers] = useState([]);
 
-const UserManagement = () => {
+  const getUsersData = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch Users Data");
+      }
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+  useEffect(() => {
+    getUsersData();
+  }, []);
+
   return (
     <Container
       maxWidth="lg"
@@ -40,7 +48,7 @@ const UserManagement = () => {
         sx={{
           mx: { xs: "0.5rem", md: "0rem" },
           my: { xs: "1rem", md: "0rem" },
-          marginTop: { xs: "3rem", md: "0rem" },
+          marginTop: { xs: "3rem", md: "2rem" },
         }}
         textAlign={"center"}
         fontWeight={"bold"}
@@ -48,6 +56,7 @@ const UserManagement = () => {
       >
         E-Cell(DCRUSTM) Registered Users List
       </Typography>
+
       <Button
         variant="contained"
         size="large"
@@ -62,12 +71,13 @@ const UserManagement = () => {
       >
         Add New User
       </Button>
+
       <TableContainer component={Paper} elevation={3}>
         <Table>
           <TableHead>
             <TableRow sx={{ backgroundColor: "#1976d2", color: "#fff" }}>
               <TableCell sx={{ color: "white", fontWeight: "bold" }}>
-                ID
+                Sr. No.
               </TableCell>
               <TableCell sx={{ color: "white", fontWeight: "bold" }}>
                 Name
@@ -84,9 +94,9 @@ const UserManagement = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user, index) => (
-              <TableRow key={index} hover>
-                <TableCell>{index + 1}</TableCell>
+            {users.map((user, _id) => (
+              <TableRow key={_id} hover>
+                <TableCell>{_id +1}</TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.role}</TableCell>
@@ -104,4 +114,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default AdministrationPage;

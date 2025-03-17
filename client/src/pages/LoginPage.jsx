@@ -34,7 +34,7 @@ const Form = () => {
       return handleError("All fields are required");
     }
     try {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/auth/adminLogin`;
+      const url = `${import.meta.env.VITE_BACKEND_URL}/admin/adminLogin`;
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

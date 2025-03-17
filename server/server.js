@@ -25,7 +25,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(cors()); 
-app.use('/auth',adminRoute);
+app.use('/admin',adminRoute);
 app.use('/',pingRoute)
 app.use('/blogs',blogsRoute);
 app.listen(process.env.PORT || 3000);
