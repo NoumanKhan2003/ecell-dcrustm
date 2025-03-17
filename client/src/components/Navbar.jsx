@@ -52,8 +52,9 @@ const Navbar = () => {
   const handleLogout = (e) => {
     localStorage.removeItem("token");
     localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("loggedInUserEmail");
     setLoggedInUser(null);
-    handleSuccess("Admin Logout Successfull");
+    handleSuccess("Logout Successfull");
     setTimeout(() => {
       navigate("/login");
     }, 500);
@@ -97,6 +98,11 @@ const Navbar = () => {
             <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
               <Link to="/events"> Events</Link>
             </li>
+            {loggedInUser && loggedInUser === "Admin" && (
+              <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                <Link to="/administration">Administration</Link>
+              </li>
+            )}
             {!loggedInUser ? (
               <li className="hover:text-white     hover:bg-[#43db75] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
                 <Link to="/login"> Login</Link>
@@ -160,6 +166,15 @@ const Navbar = () => {
               >
                 Events
               </Link>
+              {loggedInUser && loggedInUser === "Admin" && (
+                <Link
+                  onClick={closeNavbar}
+                  className="text-xl font-semibold hover:text-[#144c8b] hover:underline"
+                  to="/administration"
+                >
+                  Administration
+                </Link>
+              )}
               {!loggedInUser ? (
                 <Link
                   onClick={closeNavbar}

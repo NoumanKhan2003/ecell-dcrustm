@@ -51,8 +51,9 @@ const Form = () => {
       if (success) {
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
+        localStorage.setItem("loggedInUserEmail", email);
         window.dispatchEvent(new Event("storage"));
-        handleSuccess("Admin Login Successfull");
+        handleSuccess("Login Successfull");
         setTimeout(() => {
           navigate("/");
         }, 500);

@@ -1,24 +1,46 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-function RefrshHandler({ setIsAuthenticated }) {
+function RefreshHandler({ setIsAuthenticated, setIsAdmin }) {
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (loggedInUser) {
       setIsAuthenticated(true);
+
+      if (loggedInUser === "Admin") {
+        setIsAdmin(true);
+        if (["/logout", "/login"].includes(location.pathname)) {
+          navigate("/", { replace: true });
+        }
+      } else {
+        setIsAdmin(false);
+        if (
+          ["/logout", "/login", "/signup", "/administration"].includes(
+            location.pathname
+          )
+        ) {
+          navigate("/", { replace: true });
+        }
+      }
+    } else {
+      setIsAuthenticated(false);
+      setIsAdmin(false);
+
       if (
-        location.pathname === "/logout" ||
-        location.pathname === "/login" ||
-        location.pathname === "/signup"
+        ["/logout", "/signup", "/administration", "/blogsForm"].includes(
+          location.pathname
+        )
       ) {
-        navigate("/", { replace: false });
+        navigate("/", { replace: true });
       }
     }
-  }, [location, navigate, setIsAuthenticated]);
+  }, [location.pathname, navigate, setIsAuthenticated, setIsAdmin]);
 
   return null;
 }
 
-export default RefrshHandler;
+export default RefreshHandler;
