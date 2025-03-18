@@ -6,15 +6,23 @@ import {
   Button,
   Typography,
   Paper,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControl,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { handleError, handleSuccess } from "../components/Utils";
 
 const SignUpPage = () => {
   const [signUpInfo, setSignUpInfo] = useState({
     name: "",
     email: "",
+    userType: "",
     password: "",
   });
 
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSignUpInfo((prev) => ({
@@ -22,13 +30,53 @@ const SignUpPage = () => {
       [name]: value,
     }));
   };
-  const handleSignUp = async () => {};
+
+  const handleAddUser = async (e) => {
+    e.preventDefault();
+    if (
+      !signUpInfo.name ||
+      !signUpInfo.email ||
+      !signUpInfo.password ||
+      !signUpInfo.userType
+    ) {
+      return handleError("All fields are required");
+    }
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/admin/adminsignup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: signUpInfo.name.trim(),
+            email: signUpInfo.email.trim(),
+            userType: signUpInfo.userType,
+            password: signUpInfo.password,
+          }),          
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        handleSuccess("User Added successfully");
+        setTimeout(() => {
+          navigate("/administration");
+        }, 500);
+      } else {
+        handleError("Failed to add user. Please try again.");
+      }
+    } catch (error) {
+      handleError("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <Container
       sx={{
-        marginTop: "2rem",
+        marginTop: "4rem",
         marginBottom: "4rem",
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -41,7 +89,7 @@ const SignUpPage = () => {
         <Typography variant="h6" align="center" fontWeight={600}>
           Sign in to E-Cell(DCRUSTM)
         </Typography>
-        <Box component="form" sx={{ mt: 2 }} onSubmit={handleSignUp}>
+        <Box component="form" sx={{ mt: 2 }} onSubmit={handleAddUser}>
           <TextField
             fullWidth
             name="name"
@@ -54,12 +102,34 @@ const SignUpPage = () => {
           <TextField
             fullWidth
             name="email"
-            label="Enter username"
+            label="Enter Email of User"
             margin="normal"
             variant="outlined"
             onChange={handleChange}
             value={signUpInfo.email}
           />
+          <FormControl fullWidth margin="normal">
+            <InputLabel id="userType" shrink>
+              Type of User
+            </InputLabel>
+            <Select
+              labelId="userType"
+              id="userType"
+              name="userType"
+              label="Type of User"
+              value={signUpInfo.userType}
+              onChange={handleChange}
+              variant="outlined"
+              displayEmpty
+            >
+              <MenuItem value="" disabled>
+                Select User Type
+              </MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+              <MenuItem value="Member">Member</MenuItem>
+            </Select>
+          </FormControl>
+
           <TextField
             fullWidth
             name="password"

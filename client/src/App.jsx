@@ -16,6 +16,7 @@ import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage"
 import AdministrationPage from "./pages/AdministrationPage";
 import RefreshHandler from "./components/RefreshHandler";
 import { ToastContainer } from "react-toastify";
@@ -63,6 +64,10 @@ function App() {
         <Route
           path="/administration"
           element={<AdminRoute element={<AdministrationPage />} />}
+        />
+          <Route
+          path="/signup"
+          element={<AdminRoute element={<SignUpPage />} />}
         />
       </Routes>
       <Footer />

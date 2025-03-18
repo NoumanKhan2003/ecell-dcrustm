@@ -7,10 +7,13 @@ import {
   adminSignup,
   adminLogin,
   AdminRead,
+  adminDelete,
 } from "../controllers/adminAuthController.js";
 const adminRouter = express.Router();
 
-adminRouter.post("/adminLogin", adminLoginValidation, adminLogin);
-adminRouter.post("/adminSignup", adminSignupValidation, adminSignup);
+adminRouter.post("/adminlogin", adminLoginValidation, adminLogin);
+adminRouter.post("/adminsignup", adminSignupValidation, adminSignup);
 adminRouter.get("/", AdminRead);
+adminRouter.delete("/delete/:id", adminDelete);
+
 export default adminRouter;

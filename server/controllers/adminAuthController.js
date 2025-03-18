@@ -1,10 +1,11 @@
 import AdminModel from "../models/adminModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import adminModel from "../models/adminModel.js";
 
 const adminSignup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email,userType, password } = req.body;
 
     const existingAdmin = await AdminModel.findOne({ email });
     if (existingAdmin) {
@@ -14,7 +15,7 @@ const adminSignup = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newAdmin = new AdminModel({ name, email, password: hashedPassword });
+    const newAdmin = new AdminModel({ name, email,userType, password: hashedPassword });
     await newAdmin.save();
 
     res.status(201).json({ message: "Signup successful", success: true });
@@ -64,4 +65,17 @@ const AdminRead = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch Admin/User List" });
   }
 };
-export { adminSignup, adminLogin, AdminRead };
+
+const adminDelete = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ error: "User ID is required" });
+    }
+    const adminDelete = await adminModel.findByIdAndDelete(id);
+    res.json({ message: "Admin deleted successfully", deletedAdmin: adminDelete });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to delete Admin", details: error.message });
+  }
+};
+export { adminSignup, adminLogin, AdminRead,adminDelete };

@@ -12,7 +12,7 @@ const adminSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    role: {
+    userType: {
       type: String,
       required: true,
     },
