@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Navbar = () => {
   const [isopen, setIsopen] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState("");
+  const [loggedInUserType, setLoggedInUserType] = useState("");
   const navigate = useNavigate();
 
   function toggleNavbar() {
@@ -41,6 +42,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleStorageChange = () => {
       setLoggedInUser(localStorage.getItem("loggedInUser"));
+      setLoggedInUserType(localStorage.getItem("loggedInUserType"));
     };
     window.addEventListener("storage", handleStorageChange);
     handleStorageChange();
@@ -53,6 +55,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("loggedInUser");
     localStorage.removeItem("loggedInUserEmail");
+    localStorage.removeItem("loggedInUserType");
     setLoggedInUser(null);
     handleSuccess("Logout Successfull");
     setTimeout(() => {
@@ -98,7 +101,7 @@ const Navbar = () => {
             <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
               <Link to="/events"> Events</Link>
             </li>
-            {loggedInUser && loggedInUser === "Admin" && (
+            {loggedInUser && loggedInUserType === "Admin" && (
               <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
                 <Link to="/administration">Administration</Link>
               </li>
@@ -166,7 +169,7 @@ const Navbar = () => {
               >
                 Events
               </Link>
-              {loggedInUser && loggedInUser === "Admin" && (
+              {loggedInUser && loggedInUserType === "Admin" && (
                 <Link
                   onClick={closeNavbar}
                   className="text-xl font-semibold hover:text-[#144c8b] hover:underline"

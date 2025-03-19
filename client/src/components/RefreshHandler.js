@@ -7,11 +7,12 @@ function RefreshHandler({ setIsAuthenticated, setIsAdmin }) {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
+    const loggedInUserType = localStorage.getItem("loggedInUserType");
 
     if (loggedInUser) {
       setIsAuthenticated(true);
 
-      if (loggedInUser === "Admin") {
+      if (loggedInUserType === "Admin") {
         setIsAdmin(true);
         if (["/logout", "/login"].includes(location.pathname)) {
           navigate("/", { replace: true });

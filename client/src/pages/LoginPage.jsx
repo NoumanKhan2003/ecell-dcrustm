@@ -46,12 +46,13 @@ const Form = () => {
       }
 
       const result = await response.json();
-      const { success, message, jwtToken, name, error } = result;
+      const { success, message, jwtToken, name,userType, error } = result;
 
       if (success) {
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
         localStorage.setItem("loggedInUserEmail", email);
+        localStorage.setItem("loggedInUserType", userType);
         window.dispatchEvent(new Event("storage"));
         handleSuccess("Login Successfull");
         setTimeout(() => {

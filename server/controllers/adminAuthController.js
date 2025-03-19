@@ -51,6 +51,7 @@ const adminLogin = async (req, res) => {
       jwtToken,
       email,
       name: admin.name,
+      userType: admin.userType,
     });
   } catch (err) {
     res.status(500).json({ message: "Internal server error", success: false });

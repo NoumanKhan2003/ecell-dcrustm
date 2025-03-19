@@ -16,11 +16,12 @@ import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage"
+import SignUpPage from "./pages/SignUpPage";
 import AdministrationPage from "./pages/AdministrationPage";
 import RefreshHandler from "./components/RefreshHandler";
 import { ToastContainer } from "react-toastify";
 import BlogsForm from "./pages/BlogsUploadPage";
+import ContributorsPage from "./pages/ContributorsPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -65,10 +66,11 @@ function App() {
           path="/administration"
           element={<AdminRoute element={<AdministrationPage />} />}
         />
-          <Route
+        <Route
           path="/signup"
           element={<AdminRoute element={<SignUpPage />} />}
         />
+        <Route path="/contributors" element={<ContributorsPage />} />
       </Routes>
       <Footer />
     </Router>

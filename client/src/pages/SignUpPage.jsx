@@ -54,7 +54,7 @@ const SignUpPage = () => {
             email: signUpInfo.email.trim(),
             userType: signUpInfo.userType,
             password: signUpInfo.password,
-          }),          
+          }),
         }
       );
       if (response.ok) {
@@ -87,7 +87,7 @@ const SignUpPage = () => {
         sx={{ padding: 3, maxWidth: 500, width: "100%", borderRadius: 2 }}
       >
         <Typography variant="h6" align="center" fontWeight={600}>
-          Sign in to E-Cell(DCRUSTM)
+          Add User to E-Cell(DCRUSTM)
         </Typography>
         <Box component="form" sx={{ mt: 2 }} onSubmit={handleAddUser}>
           <TextField
@@ -147,7 +147,7 @@ const SignUpPage = () => {
             sx={{ mt: 2 }}
             type="submit"
           >
-            Sign in
+            Sign Up
           </Button>
         </Box>
         <Typography variant="body2" align="center" sx={{ mt: 2 }}>
