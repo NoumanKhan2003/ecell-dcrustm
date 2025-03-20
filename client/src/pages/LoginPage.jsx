@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../components/Utils.js";
 import {
@@ -8,15 +8,23 @@ import {
   Button,
   Typography,
   Paper,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Form = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
-
   const navigate = useNavigate();
+
+  const togglePassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,7 +54,7 @@ const Form = () => {
       }
 
       const result = await response.json();
-      const { success, message, jwtToken, name,userType, error } = result;
+      const { success, message, jwtToken, name, userType, error } = result;
 
       if (success) {
         localStorage.setItem("token", jwtToken);
@@ -65,6 +73,10 @@ const Form = () => {
       handleError(err.message || "Something went wrong");
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container
@@ -98,11 +110,26 @@ const Form = () => {
             fullWidth
             name="password"
             label="Enter password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             margin="normal"
             variant="outlined"
             onChange={handleChange}
             value={loginInfo.password}
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={togglePassword} edge="end">
+                      {showPassword ? (
+                        <VisibilityOffIcon />
+                      ) : (
+                        <VisibilityIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
+            }}
           />
           <Button
             fullWidth

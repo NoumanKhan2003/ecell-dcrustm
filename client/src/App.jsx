@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import TeamPage from "./pages/TeamPage";
 import ContactPage from "./pages/ContactPage";
-import Gallery from "./pages/Gallery";
+import GalleryPage from "./pages/GalleryPage";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
@@ -54,7 +54,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route
           path="/blogsForm"

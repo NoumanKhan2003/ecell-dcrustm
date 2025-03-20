@@ -66,6 +66,14 @@ const Footer = () => {
                 Events
               </Link>
             </li>
+            <li>
+              <Link
+                className="hover:underline hover:text-blue-200 "
+                to="/contributors"
+              >
+                Contributors
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -91,7 +99,10 @@ const Footer = () => {
           © {currentDate} ECELL DCRUSTM. All rights reserved.
         </p>
         <p className="text-gray-500">
-          Designed & Developed by <Link to="/contributors" className="text-white">Ecell DCRUSTM Technical Team</Link> 
+          Designed & Developed by{" "}
+          <Link to="/contributors" className="text-white">
+            Ecell DCRUSTM Technical Team
+          </Link>
         </p>
       </div>
     </div>
