@@ -1,18 +1,78 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import EventsData from "../components/EventsData";
 import { FaArrowRight } from "react-icons/fa";
 import currentevent from "../assets/events_posters/empowher_quest.jpg";
 import { FaCircle } from "react-icons/fa6";
-import { Box, Container, Typography, Button } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Skeleton,
+  Card,
+  CardContent,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { handleError, handleSuccess } from "../components/Utils";
 const EventsPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const isLoggedIn = localStorage.getItem("loggedInUser");
-const navigate = useNavigate();
- 
+  const navigate = useNavigate();
+  const [pastEvent, setPastEvent] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const readPastEventData = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/events`
+      );
+      if (!response.ok) {
+        return handleError("Failed to fetch Past Events");
+      }
+      const data = await response.json();
+      setPastEvent(data);
+    } catch (error) {
+      return handleError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeletePastEvent = async (pastEventId, e) => {
+    e.stopPropagation();
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/events/deletePastEvent/${pastEventId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete Past Event");
+      }
+
+      handleSuccess("Past Event deleted successfully");
+      setPastEvent((prevEvents) =>
+        prevEvents.filter((pastEvent) => pastEvent._id !== pastEventId)
+      );
+    } catch (error) {
+      handleError(error.message || "An error occurred");
+    }
+  };
+  useEffect(() => {
+    readPastEventData();
+  }, []);
+
   return (
     <Container sx={{ mt: 8, mb: 8 }}>
       {/* ongoing events section */}
@@ -76,7 +136,6 @@ const navigate = useNavigate();
           </div>
         </div> */}
       </Box>
-
       {/* past events section */}
       <Box
         sx={{
@@ -105,38 +164,66 @@ const navigate = useNavigate();
               marginBottom: { xs: "0rem", md: "0rem" },
               width: { xs: "80%", md: "fit-content" },
             }}
-            onClick={()=>{
-              navigate('/pastEventForm')
+            onClick={() => {
+              navigate("/pastEventForm");
             }}
           >
             Add past events
           </Button>
         )}
       </Box>
-
       <Box className="grid grid-cols-1 md:grid-cols-3 gap-9 mt-10">
-        {EventsData.map((item) => (
-          <div className="bg-red-200 group relative  mx-auto overflow-hidden rounded-xl">
-            <div className="w-auto h-[350px] ">
-              <img
-                src={item.imgURL}
-                alt="event-img"
-                loading="lazy"
-                className=" object-cover group-hover:rotate-3 group-hover:scale-105 transition-transform  "
-              />
-            </div>
-            <div className="from-transparent via-transparent to-black/50 bg-gradient-to-b absolute inset-0 group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70">
-              <div className="absolute inset-0 px-9 flex flex-col items-center justify-center translate-y-[90%] group-hover:translate-y-0 transition-all">
-                <h1 className=" text-white font-bold text-3xl pb-3 text-center">
-                  {item.title}
-                </h1>
-                <p className="text-white  text-center text-[14px]">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
+        {loading
+          ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => (
+              <Card
+                key={index}
+                className="bg-gray-300 group  rounded-xl"
+              >
+                <Skeleton
+                  variant="rectangular"
+                  width="100%"
+                  height={350}
+                  animation="wave"
+                />
+              </Card>
+            ))
+          : pastEvent
+              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+              .map((data) => (
+                <div
+                  key={data._id}
+                  className="bg-red-200 group relative mx-auto overflow-hidden rounded-xl"
+                >
+                  <div className="w-auto h-[350px]">
+                    <img
+                      src={data.image}
+                      alt="event-img"
+                      loading="lazy"
+                      className="object-cover group-hover:rotate-3 group-hover:scale-105 transition-transform"
+                    />
+                  </div>
+                  <div className="from-transparent via-transparent to-black/50 bg-gradient-to-b absolute inset-0 group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70">
+                    <div className="absolute inset-0 px-9 flex flex-col items-center justify-center translate-y-[90%] group-hover:translate-y-0 transition-all">
+                      <h1 className="text-white font-bold text-3xl pb-3 text-center">
+                        {data.title}
+                      </h1>
+                      <p className="text-white text-center text-[14px]">
+                        {data.description}
+                      </p>
+                      {isLoggedIn && (
+                        <Button
+                          variant="contained"
+                          color="error"
+                          onClick={(e) => handleDeletePastEvent(data._id, e)}
+                          sx={{ mt: 2 }}
+                        >
+                          Delete
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
       </Box>
     </Container>
   );
