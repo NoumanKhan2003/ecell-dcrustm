@@ -100,7 +100,7 @@ const BlogsForm = () => {
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
-        className="max-w-2xl mx-auto p-6 space-y-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        className="max-w-4xl mx-auto p-6 space-y-8 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
       >
         <div className="space-y-2">
           <label

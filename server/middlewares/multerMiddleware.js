@@ -11,7 +11,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const storage = new CloudinaryStorage({
+const blogStorage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: "blogs", 
@@ -19,6 +19,13 @@ const storage = new CloudinaryStorage({
   },
 });
 
-const upload = multer({ storage });
+const pastEventStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "pastEvents",
+    allowedFormats: ["jpg", "png", "jpeg"],
+  },
+});
 
-export const uploadImage = upload.single("image");
+export const uploadBlogImage = multer({ storage: blogStorage }).single("image");
+export const uploadPastEventImage = multer({ storage:pastEventStorage }).single("image");

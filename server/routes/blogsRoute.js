@@ -5,12 +5,12 @@ import {
   blogsReadControllers,
   blogsDeleteControllers,
 } from "../controllers/blogsControllers.js";
-import { uploadImage } from "../middlewares/multerMiddleware.js";
+import { uploadBlogImage } from "../middlewares/multerMiddleware.js";
 const blogsRouter = express.Router();
 
 blogsRouter.post(
   "/create",
-  uploadImage,
+  uploadBlogImage,
   blogsCreateValidation,
   blogsCreateControllers
 );

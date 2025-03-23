@@ -7,9 +7,10 @@ import cors from "cors";
 import path from "path";
 import pingRoute from "./routes/pingRoute.js";
 import blogsRoute from "./routes/blogsRoute.js";
+import eventsRoute from "./routes/eventsRoute.js";
 const app = express();
 dotenv.config();
- 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
@@ -24,8 +25,9 @@ mongoose
   });
 
 app.use(bodyParser.json());
-app.use(cors()); 
-app.use('/admin',adminRoute);
-app.use('/',pingRoute)
-app.use('/blogs',blogsRoute);
+app.use(cors());
+app.use("/admin", adminRoute);
+app.use("/", pingRoute);
+app.use("/blogs", blogsRoute);
+app.use("/events", eventsRoute);
 app.listen(process.env.PORT || 3000);

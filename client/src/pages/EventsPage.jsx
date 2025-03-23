@@ -3,14 +3,16 @@ import EventsData from "../components/EventsData";
 import { FaArrowRight } from "react-icons/fa";
 import currentevent from "../assets/events_posters/empowher_quest.jpg";
 import { FaCircle } from "react-icons/fa6";
-import { Box, Container, Typography } from "@mui/material";
-
-
+import { Box, Container, Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const EventsPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const isLoggedIn = localStorage.getItem("loggedInUser");
+const navigate = useNavigate();
+ 
   return (
     <Container sx={{ mt: 8, mb: 8 }}>
       {/* ongoing events section */}
@@ -76,17 +78,43 @@ const EventsPage = () => {
       </Box>
 
       {/* past events section */}
-      <Box sx={{ textAlign: "center" }}>
+      <Box
+        sx={{
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
         <Typography
           variant="h3"
           sx={{ fontWeight: "bold" }}
-          className="md:text-4xl mt-2 text-[2.5rem] text-[#000000] font-grotesk mx-6 pt-8 pb-8"
+          className="md:text-4xl text-[2.5rem] text-[#000000] font-grotesk mx-6"
         >
           All Past Events
         </Typography>
+        {isLoggedIn && (
+          <Button
+            variant="outlined"
+            size="large"
+            sx={{
+              padding: "0.6rem 1rem",
+              height: "fit-content",
+              ml: { xs: 0, md: 4 },
+              marginTop: { xs: "0.5rem", md: "0.5rem" },
+              marginBottom: { xs: "0rem", md: "0rem" },
+              width: { xs: "80%", md: "fit-content" },
+            }}
+            onClick={()=>{
+              navigate('/pastEventForm')
+            }}
+          >
+            Add past events
+          </Button>
+        )}
       </Box>
 
-      <Box className="grid grid-cols-1 md:grid-cols-3 gap-9 ">
+      <Box className="grid grid-cols-1 md:grid-cols-3 gap-9 mt-10">
         {EventsData.map((item) => (
           <div className="bg-red-200 group relative  mx-auto overflow-hidden rounded-xl">
             <div className="w-auto h-[350px] ">

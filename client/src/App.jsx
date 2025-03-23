@@ -22,6 +22,7 @@ import RefreshHandler from "./components/RefreshHandler";
 import { ToastContainer } from "react-toastify";
 import BlogsForm from "./pages/BlogsUploadPage";
 import ContributorsPage from "./pages/ContributorsPage";
+import PastEventUploadPage from "./pages/PastEventUploadPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -59,6 +60,10 @@ function App() {
         <Route
           path="/blogsForm"
           element={<PrivateRoute element={<BlogsForm />} />}
+        />
+        <Route
+          path="/pastEventForm"
+          element={<PrivateRoute element={<PastEventUploadPage />} />}
         />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/login" element={<LoginPage />} />
