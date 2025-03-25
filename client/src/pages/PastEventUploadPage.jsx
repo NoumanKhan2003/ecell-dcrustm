@@ -65,7 +65,7 @@ const PastEventUploadPage = () => {
         handleError(data.message);
       }
     } catch (error) {
-      handleError(`An error occurred: "${error.message}`);
+      handleError(`An error occurred: ${error.message}`);
     }
   };
 

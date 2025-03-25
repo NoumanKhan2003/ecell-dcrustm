@@ -27,5 +27,14 @@ const pastEventStorage = new CloudinaryStorage({
   },
 });
 
+const presentEventStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "presentEvents",
+    allowedFormats: ["jpg", "png", "jpeg"],
+  },
+});
 export const uploadBlogImage = multer({ storage: blogStorage }).single("image");
 export const uploadPastEventImage = multer({ storage:pastEventStorage }).single("image");
+export const uploadPresentEventImage = multer({ storage:presentEventStorage }).single("image");
+
