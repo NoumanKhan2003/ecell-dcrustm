@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Container,
   Box,
@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../components/Utils";
+import LoaderComponent from "../components/Loader.jsx";
 
 const SignUpPage = () => {
   const [signUpInfo, setSignUpInfo] = useState({
@@ -21,6 +22,7 @@ const SignUpPage = () => {
     userType: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -41,6 +43,8 @@ const SignUpPage = () => {
     ) {
       return handleError("All fields are required");
     }
+    setLoading(true);
+
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/admin/adminsignup`,
@@ -69,9 +73,22 @@ const SignUpPage = () => {
     } catch (error) {
       handleError("An error occurred. Please try again.");
     }
+    finally {
+      setLoading(false);
+    }
   };
 
+  useEffect(() => {
+      if (loading) {
+        window.scrollTo(0, 0);
+      }
+    }, [loading]);
+  
   return (
+    <>
+      {loading ? (
+        <LoaderComponent />
+      ) : (
     <Container
       sx={{
         marginTop: "4rem",
@@ -156,6 +173,8 @@ const SignUpPage = () => {
         </Typography>
       </Paper>
     </Container>
+     )}
+     </>
   );
 };
 

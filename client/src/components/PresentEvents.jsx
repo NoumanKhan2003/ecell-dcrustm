@@ -97,21 +97,23 @@ const PresentEventsPage = () => {
     <Container>
       <Box sx={{ mb: 2 }}>
         <Box sx={{ textAlign: "center", mt: 2 }}>
-        {presentEvent.length > 0 ?  <Typography
-            variant="h3"
-            sx={{ fontWeight: "bold" }}
-            className="bg-gradient-to-r from-blue-600  to-green-500 inline-block text-transparent bg-clip-text"
-          >
-            Ongoing Events
-          </Typography> :
-          <Typography
-          variant="h3"
-          sx={{ fontWeight: "bold" }}
-          className="bg-gradient-to-r from-blue-600  to-green-500 inline-block text-transparent bg-clip-text"
-        >
-         No Ongoing Events
-        </Typography>
-          }
+          {presentEvent.length > 0 ? (
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: "bold" }}
+              className="bg-gradient-to-r from-blue-600  to-green-500 inline-block text-transparent bg-clip-text"
+            >
+              Ongoing Events
+            </Typography>
+          ) : (
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: "bold" }}
+              className="bg-gradient-to-r from-blue-600  to-green-500 inline-block text-transparent bg-clip-text"
+            >
+              No Ongoing Events
+            </Typography>
+          )}
 
           {isLoggedIn && (
             <Button
@@ -158,10 +160,10 @@ const PresentEventsPage = () => {
               <p>{data.description}</p>
               {data.sections &&
                 data.sections.map((section, index) => (
-                  <p key={index}>
+                  <div key={index} className="break-words">
                     <span className="font-semibold">{section.subTitle}</span>:{" "}
                     {section.subContent}
-                  </p>
+                  </div>
                 ))}
               {data.prize && (
                 <p className="font-bold text-2xl">Prize Worth : {data.prize}</p>
