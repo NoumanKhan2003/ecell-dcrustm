@@ -152,6 +152,20 @@ const presentEventDeleteControllers = async (req, res) => {
   }
 };
 
+const toggleRegistrationController = async (req, res) => {
+  try {
+    const event = await Event.findById(req.params.eventId);
+
+    if (!event) {
+      return res.status(404).json({ error: "Event not found" });
+    }
+    event.registrationStatus = event.registrationStatus === "open" ? "close" : "open";
+    await event.save();
+    res.json({ message: "Registration status updated", status: event.registrationStatus });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to update registration status" });
+  }
+};
 export {
   pastEventCreateController,
   pastEventReadController,
@@ -159,4 +173,5 @@ export {
   presentEventCreateController,
   presentEventReadController,
   presentEventDeleteControllers,
+  toggleRegistrationController
 };

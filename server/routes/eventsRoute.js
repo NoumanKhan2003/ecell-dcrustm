@@ -1,5 +1,5 @@
 import express from "express";
-import { pastEventCreateController, pastEventDeleteControllers, pastEventReadController, presentEventCreateController, presentEventDeleteControllers, presentEventReadController } from "../controllers/eventController.js";
+import { pastEventCreateController, pastEventDeleteControllers, pastEventReadController, presentEventCreateController, presentEventDeleteControllers, presentEventReadController, toggleRegistrationController } from "../controllers/eventController.js";
 import { pastEventCreateValidation, presentEventCreateValidation } from "../middlewares/eventValidation.js";
 import { uploadPastEventImage, uploadPresentEventImage } from "../middlewares/multerMiddleware.js";
 
@@ -22,5 +22,6 @@ eventRouter.post(
 );
 eventRouter.get("/presentEvents",presentEventReadController)
 eventRouter.delete("/deletePresentEvent/:id",presentEventDeleteControllers)
+eventRouter.post("/toggleRegistration/:id", toggleRegistrationController);
 
 export default eventRouter;

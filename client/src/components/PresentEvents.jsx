@@ -9,8 +9,8 @@ const PresentEventsPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [presentEvent, setPresentEvent] = useState([]);
-  const [registrationState, setRegistrationState] = useState(() => {
-    const savedState = localStorage.getItem("registrationState");
+  const [registrationStatus, setRegistrationStatus] = useState(() => {
+    const savedState = localStorage.getItem("registrationStatus");
     return savedState ? JSON.parse(savedState) : {};
   });
 
@@ -27,17 +27,17 @@ const PresentEventsPage = () => {
       setPresentEvent(data);
 
       const savedState =
-        JSON.parse(localStorage.getItem("registrationState")) || {};
+        JSON.parse(localStorage.getItem("registrationStatus")) || {};
       const initialState = { ...savedState };
 
       data.forEach((event) => {
         if (!(event._id in initialState)) {
-          initialState[event._id] = "close";
+          initialState[event._id] = event.registrationStatus || "close";
         }
       });
 
-      setRegistrationState(initialState);
-      localStorage.setItem("registrationState", JSON.stringify(initialState));
+      setRegistrationStatus(initialState);
+      localStorage.setItem("registrationStatus", JSON.stringify(initialState));
     } catch (error) {
       return handleError(error);
     } finally {
@@ -69,24 +69,47 @@ const PresentEventsPage = () => {
         prevEvents.filter((event) => event._id !== presentEventId)
       );
 
-      const updatedState = { ...registrationState };
+      const updatedState = { ...registrationStatus };
       delete updatedState[presentEventId];
-      setRegistrationState(updatedState);
-      localStorage.setItem("registrationState", JSON.stringify(updatedState));
+      setRegistrationStatus(updatedState);
+      localStorage.setItem("registrationStatus", JSON.stringify(updatedState));
     } catch (error) {
       handleError(error.message || "An error occurred");
     }
   };
 
-  const handleRegistration = (eventId) => {
-    setRegistrationState((prevState) => {
-      const newState = {
-        ...prevState,
-        [eventId]: prevState[eventId] === "open" ? "close" : "open",
-      };
-      localStorage.setItem("registrationState", JSON.stringify(newState));
-      return newState;
-    });
+  const handleRegistration = async (eventId) => {
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/events/toggleRegistration/${eventId}`,
+        { method: "POST", headers: { "Content-Type": "application/json" } }
+      );
+
+      if (!response.ok) {
+        return handleError("Failed to update registration status");
+      }
+
+      const data = await response.json();
+      handleSuccess("Registration status updated");
+
+      setRegistrationStatus((prevState) => {
+        const newState = { ...prevState, [eventId]: data.registrationStatus };
+        localStorage.setItem("registrationStatus", JSON.stringify(newState));
+        return newState;
+      });
+
+      setPresentEvent((prevEvents) =>
+        prevEvents.map((event) =>
+          event._id === eventId
+            ? { ...event, registrationStatus: data.registrationStatus }
+            : event
+        )
+      );
+    } catch (error) {
+      handleError(error.message || "An error occurred");
+    }
   };
 
   useEffect(() => {
@@ -161,7 +184,7 @@ const PresentEventsPage = () => {
               {data.sections &&
                 data.sections.map((section, index) => (
                   <div key={index} className="break-words">
-                    <span className="font-semibold">{section.subTitle}</span>:{" "}
+                    <span className="font-semibold">{section.subTitle}</span> :{" "}
                     {section.subContent}
                   </div>
                 ))}
@@ -169,7 +192,7 @@ const PresentEventsPage = () => {
                 <p className="font-bold text-2xl">Prize Worth : {data.prize}</p>
               )}
 
-              {registrationState[data._id] === "open" ? (
+              {data.registrationStatus === "open" ? (
                 <Button
                   variant="contained"
                   size="large"
@@ -231,7 +254,7 @@ const PresentEventsPage = () => {
                       p: 1,
                     }}
                   >
-                    {registrationState[data._id] === "open"
+                    {data.registrationStatus === "open"
                       ? "Close Registration"
                       : "Open Registration"}
                   </Button>

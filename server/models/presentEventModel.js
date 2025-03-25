@@ -29,6 +29,7 @@ const PresentEventSchema = new mongoose.Schema(
         message: "Registration link is required for external registration.",
       },
     },
+    registrationStatus: { type: String, default: "close" },
   },
   { timestamps: true }
 );
