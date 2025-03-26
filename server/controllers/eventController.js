@@ -154,15 +154,21 @@ const presentEventDeleteControllers = async (req, res) => {
 
 const toggleRegistrationController = async (req, res) => {
   try {
-    const event = await Event.findById(req.params.eventId);
-
-    if (!event) {
-      return res.status(404).json({ error: "Event not found" });
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ error: "Event ID is required" });
     }
-    event.registrationStatus = event.registrationStatus === "open" ? "close" : "open";
-    await event.save();
-    res.json({ message: "Registration status updated", status: event.registrationStatus });
-  } catch (error) {
+
+    const togglePresentEvent = await presentEventModel.findById(id);
+
+    if (!togglePresentEvent) {
+      return res.status(404).json({ error: "Present Event not found" });
+    }
+    togglePresentEvent.registrationStatus = togglePresentEvent.registrationStatus === "open" ? "close" : "open";
+    await togglePresentEvent.save();
+    res.json({ message: "Registration status updated", status: togglePresentEvent });
+  }
+  catch (error) {
     res.status(500).json({ error: "Failed to update registration status" });
   }
 };

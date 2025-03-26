@@ -25,19 +25,6 @@ const PresentEventsPage = () => {
       }
       const data = await response.json();
       setPresentEvent(data);
-
-      const savedState =
-        JSON.parse(localStorage.getItem("registrationStatus")) || {};
-      const initialState = { ...savedState };
-
-      data.forEach((event) => {
-        if (!(event._id in initialState)) {
-          initialState[event._id] = event.registrationStatus || "close";
-        }
-      });
-
-      setRegistrationStatus(initialState);
-      localStorage.setItem("registrationStatus", JSON.stringify(initialState));
     } catch (error) {
       return handleError(error);
     } finally {
@@ -78,32 +65,26 @@ const PresentEventsPage = () => {
     }
   };
 
-  const handleRegistration = async (eventId) => {
+  const handleRegistration = async (presentEventId, e) => {
+    e.stopPropagation();
     try {
       const response = await fetch(
         `${
           import.meta.env.VITE_BACKEND_URL
-        }/events/toggleRegistration/${eventId}`,
+        }/events/toggleRegistration/${presentEventId}`,
         { method: "POST", headers: { "Content-Type": "application/json" } }
       );
 
       if (!response.ok) {
         return handleError("Failed to update registration status");
       }
-
       const data = await response.json();
       handleSuccess("Registration status updated");
-
-      setRegistrationStatus((prevState) => {
-        const newState = { ...prevState, [eventId]: data.registrationStatus };
-        localStorage.setItem("registrationStatus", JSON.stringify(newState));
-        return newState;
-      });
-
+      readPresentEventData();
       setPresentEvent((prevEvents) =>
         prevEvents.map((event) =>
-          event._id === eventId
-            ? { ...event, registrationStatus: data.registrationStatus }
+          event._id === presentEventId
+            ? { ...event, registrationStatus: data.status }
             : event
         )
       );
@@ -193,23 +174,23 @@ const PresentEventsPage = () => {
               )}
 
               {data.registrationStatus === "open" ? (
-                <Button
-                  variant="contained"
-                  size="large"
-                  className="bg-[#0065fc] border-black border-2 hover:rounded-full md:w-[40%] w-auto text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg"
+                <a
+                  target="_blank"
+                  href={
+                    data.registrationLink
+                      ? data.registrationLink
+                      : "/eventRegistration"
+                  }
                 >
-                  <a
-                    target="_blank"
-                    href={
-                      data.registrationLink
-                        ? data.registrationLink
-                        : "/eventRegistration"
-                    }
+                  <Button
+                    variant="contained"
+                    size="large"
+                    className="bg-[#0065fc] border-black border-2 hover:rounded-full md:w-[100%] w-auto text-xl text-white py-5 px-8 rounded-md hover:bg-[#144c8b] hover:shadow-lg"
                   >
                     Register Here!
-                  </a>
-                  <FaArrowRight className="inline ml-2 items-center" />
-                </Button>
+                    <FaArrowRight className="inline ml-2 items-center" />
+                  </Button>
+                </a>
               ) : (
                 <p className="text-red-600">*Registrations are closed now!</p>
               )}
@@ -245,7 +226,7 @@ const PresentEventsPage = () => {
                     variant="outlined"
                     color="secondary"
                     size="large"
-                    onClick={() => handleRegistration(data._id)}
+                    onClick={(e) => handleRegistration(data._id, e)}
                     sx={{
                       width: { xs: "90%", md: "fit-content" },
                       margin: { xs: "auto", md: "0" },
