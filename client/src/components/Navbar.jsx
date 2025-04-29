@@ -83,33 +83,49 @@ const Navbar = () => {
           </div>
 
           <nav className=" hidden md:flex list-none  ml-auto font-medium font-grotesk text-[16px] ">
-            <li className="  hover:text-white  hover:bg-[#144c8b] p-3 px-7 my-auto   hover:duration-300 py-auto  cursor-pointer ">
-              <Link to="/"> Home</Link>
-            </li>
-            <li className=" hover:text-white  hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-              <Link to="/about"> About</Link>
-            </li>
-            <li className=" hover:text-white  hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-              <Link to="/team"> Team</Link>
-            </li>
-            <li className=" hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-              <Link to="/gallery">Gallery</Link>
-            </li>
-            <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-              <Link to="/blogs"> Blogs</Link>
-            </li>
-            <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-              <Link to="/events"> Events</Link>
-            </li>
-            {loggedInUser && loggedInUserType === "Admin" && (
-              <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-                <Link to="/administration">Administration</Link>
+            <Link to="/">
+              <li className="  hover:text-white  hover:bg-[#144c8b] p-3 px-7 my-auto   hover:duration-300 py-auto  cursor-pointer ">
+                Home
               </li>
+            </Link>
+            <Link to="/about">
+              <li className=" hover:text-white  hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                About
+              </li>
+            </Link>
+            <Link to="/team">
+              <li className=" hover:text-white  hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                Team
+              </li>
+            </Link>
+            <Link to="/gallery">
+              <li className=" hover:text-white   hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                Gallery
+              </li>
+            </Link>
+            <Link to="/blogs">
+              <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                Blogs
+              </li>
+            </Link>
+            <Link to="/events">
+              <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                Events
+              </li>
+            </Link>
+            {loggedInUser && loggedInUserType === "Admin" && (
+              <Link to="/administration">
+                <li className="hover:text-white     hover:bg-[#144c8b] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                  Administration
+                </li>
+              </Link>
             )}
             {!loggedInUser ? (
-              <li className="hover:text-white     hover:bg-[#43db75] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
-                <Link to="/login"> Login</Link>
-              </li>
+              <Link to="/login">
+                <li className="hover:text-white     hover:bg-[#43db75] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer">
+                  Login
+                </li>
+              </Link>
             ) : (
               <li
                 className="hover:text-white     hover:bg-[#d13d3d] p-3 my-auto px-7  hover:duration-300 py-auto  cursor-pointer"

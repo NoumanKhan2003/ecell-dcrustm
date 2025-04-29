@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const EventRegistrationPage = () => {
   return (
     <div>
-       
+      
     </div>
-  )
-}
+  );
+};
 
-export default EventRegistrationPage
+export default EventRegistrationPage;
