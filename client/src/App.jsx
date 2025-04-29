@@ -24,7 +24,8 @@ import BlogsForm from "./pages/BlogsUploadPage";
 import ContributorsPage from "./pages/ContributorsPage";
 import PastEventUploadPage from "./pages/PastEventUploadPage";
 import PresentEventUploadPage from "./pages/PresentEventUploadPage";
-import EventRegistrationPage from "./pages/EventRegistrationPage";
+import EventRegistrationFormCreation from "./pages/EventRegistrationFormCreation";
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
@@ -71,7 +72,11 @@ function App() {
           element={<PrivateRoute element={<PresentEventUploadPage />} />}
         />
         <Route path="/events" element={<EventsPage />} />
-        <Route path="/eventRegistration" element={<EventRegistrationPage />} />
+        <Route
+          path="/eventRegistrationFormCreation"
+          element={<PrivateRoute element={<EventRegistrationFormCreation />} />}
+        />
+        {/* <Route path="/eventRegistration" element={<EventRegistrationPage/>}/> */}
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/administration"
