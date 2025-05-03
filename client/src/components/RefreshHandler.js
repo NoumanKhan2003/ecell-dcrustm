@@ -20,7 +20,7 @@ function RefreshHandler({ setIsAuthenticated, setIsAdmin }) {
       } else {
         setIsAdmin(false);
         if (
-          ["/logout", "/login", "/signup", "/administration"].includes(
+          ["/logout", "/login", "/signupUser", "/administration"].includes(
             location.pathname
           )
         ) {
@@ -32,7 +32,7 @@ function RefreshHandler({ setIsAuthenticated, setIsAdmin }) {
       setIsAdmin(false);
 
       if (
-        ["/logout", "/signup", "/administration", "/blogsForm"].includes(
+        ["/logout", "/signupUser", "/administration", "/blogsForm"].includes(
           location.pathname
         )
       ) {

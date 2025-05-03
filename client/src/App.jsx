@@ -83,7 +83,7 @@ function App() {
           element={<AdminRoute element={<AdministrationPage />} />}
         />
         <Route
-          path="/signup"
+          path="/signupUser"
           element={<AdminRoute element={<SignUpPage />} />}
         />
         <Route path="/contributors" element={<ContributorsPage />} />

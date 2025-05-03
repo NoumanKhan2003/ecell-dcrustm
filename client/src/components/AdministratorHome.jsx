@@ -56,11 +56,11 @@ const AdministrationHome = () => {
     }
   };
 
-  const handleEditUser = async (user)=>{
-    
+  const handleEditUser = ()=>{
+    navigate("/editUser")
   }
   const handleAddUser = () => {
-    navigate("/signup");
+    navigate("/signupUser");
   };
 
   useEffect(() => {
