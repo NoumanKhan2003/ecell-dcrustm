@@ -14,7 +14,7 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-const Form = () => {
+const UserLoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -150,4 +150,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default UserLoginPage;

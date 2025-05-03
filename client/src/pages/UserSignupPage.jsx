@@ -12,10 +12,10 @@ import {
   FormControl,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { handleError, handleSuccess } from "../components/Utils";
+import { handleError, handleSuccess } from "../components/Utils.js";
 import LoaderComponent from "../components/Loader.jsx";
 
-const SignUpPage = () => {
+const UserSignUpPage = () => {
   const [signUpInfo, setSignUpInfo] = useState({
     name: "",
     email: "",
@@ -178,4 +178,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default UserSignUpPage;

@@ -15,8 +15,6 @@ import GalleryPage from "./pages/GalleryPage";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import Footer from "./components/Footer";
-import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage";
 import AdministrationPage from "./pages/AdministrationPage";
 import RefreshHandler from "./components/RefreshHandler";
 import { ToastContainer } from "react-toastify";
@@ -25,6 +23,9 @@ import ContributorsPage from "./pages/ContributorsPage";
 import PastEventUploadPage from "./pages/PastEventUploadPage";
 import PresentEventUploadPage from "./pages/PresentEventUploadPage";
 import EventRegistrationFormCreation from "./pages/EventRegistrationFormCreation";
+import UserSignUpPage from "./pages/userSignupPage";
+import UserEditPage from "./pages/UserEditPage";
+import UserLoginPage from "./pages/UserLoginPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -77,14 +78,18 @@ function App() {
           element={<PrivateRoute element={<EventRegistrationFormCreation />} />}
         />
         {/* <Route path="/eventRegistration" element={<EventRegistrationPage/>}/> */}
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<UserLoginPage />} />
         <Route
           path="/administration"
           element={<AdminRoute element={<AdministrationPage />} />}
         />
         <Route
           path="/signupUser"
-          element={<AdminRoute element={<SignUpPage />} />}
+          element={<AdminRoute element={<UserSignUpPage/>} />}
+        />
+         <Route
+          path="/editUser"
+          element={<AdminRoute element={<UserEditPage/>} />}
         />
         <Route path="/contributors" element={<ContributorsPage />} />
       </Routes>
