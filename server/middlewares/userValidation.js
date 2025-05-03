@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const adminSignupValidation = (req, res, next) => {
+const userSignupValidation = (req, res, next) => {
   const schema = Joi.object({
     name: Joi.string().min(1).max(100).required(),
     email: Joi.string().email().required(),
@@ -14,7 +14,7 @@ const adminSignupValidation = (req, res, next) => {
   next();
 };
 
-const adminLoginValidation = (req, res, next) => {
+const userLoginValidation = (req, res, next) => {
   const schema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(4).max(100).required(),
@@ -27,6 +27,6 @@ const adminLoginValidation = (req, res, next) => {
 };
 
 export {
-  adminSignupValidation,
-  adminLoginValidation,
+  userSignupValidation,
+  userLoginValidation,
 };

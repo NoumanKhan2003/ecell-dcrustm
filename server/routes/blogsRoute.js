@@ -15,5 +15,5 @@ blogsRouter.post(
   blogsCreateControllers
 );
 blogsRouter.get("/", blogsReadControllers);
-blogsRouter.delete("/delete/:id", blogsDeleteControllers);
+blogsRouter.delete("/userDelete/:id", blogsDeleteControllers);
 export default blogsRouter;

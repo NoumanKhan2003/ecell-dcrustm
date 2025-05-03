@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import adminRoute from "./routes/adminRoute.js";
+import userRoute from "./routes/userRoute.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
@@ -26,7 +26,7 @@ mongoose
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/admin", adminRoute);
+app.use("/user", userRoute);
 app.use("/", pingRoute);
 app.use("/blogs", blogsRoute);
 app.use("/events", eventsRoute);

@@ -47,7 +47,7 @@ const SignUpPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/admin/adminsignup`,
+        `${import.meta.env.VITE_BACKEND_URL}/user/userSignup`,
         {
           method: "POST",
           headers: {

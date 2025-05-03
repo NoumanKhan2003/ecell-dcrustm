@@ -20,7 +20,7 @@ const AdministrationHome = () => {
 
   const getUsersData = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/admin`);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user`);
       if (!response.ok) {
         throw new Error("Failed to fetch Users Data");
       }
@@ -37,7 +37,7 @@ const AdministrationHome = () => {
     }
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/admin/delete/${user._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/user/userDelete/${user._id}`,
         {
           method: "DELETE",
           headers: {
