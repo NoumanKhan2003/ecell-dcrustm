@@ -56,6 +56,9 @@ const AdministrationHome = () => {
     }
   };
 
+  const handleEditUser = async (user)=>{
+    
+  }
   const handleAddUser = () => {
     navigate("/signup");
   };
@@ -123,6 +126,9 @@ const AdministrationHome = () => {
               <TableCell sx={{ color: "white", fontWeight: "bold" }}>
                 Remove User
               </TableCell>
+              <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                Edit User
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -139,6 +145,15 @@ const AdministrationHome = () => {
                     onClick={() => handleDeleteUser(user)}
                   >
                     Delete
+                  </Button>
+                </TableCell>
+                <TableCell>
+                  <Button
+                    color="warning"
+                    variant="outlined"
+                    onClick={() => handleEditUser(user)}
+                  >
+                    Edit
                   </Button>
                 </TableCell>
               </TableRow>
