@@ -9,7 +9,7 @@ const adminSignupValidation = (req, res, next) => {
   });
   const { error } = schema.validate(req.body);
   if (error) {
-    return res.status(400).json({ message: "Bad request", error });
+    return res.status(400).json({ message: "Bad request. Check Data", error });
   }
   next();
 };
@@ -21,7 +21,7 @@ const adminLoginValidation = (req, res, next) => {
   });
   const { error } = schema.validate(req.body);
   if (error) {
-    return res.status(400).json({ message: "Bad request", error });
+    return res.status(400).json({ message: "Bad request. Check Data", error });
   }
   next();
 };

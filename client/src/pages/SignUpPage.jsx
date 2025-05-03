@@ -68,7 +68,7 @@ const SignUpPage = () => {
           navigate("/administration");
         }, 500);
       } else {
-        handleError("Failed to add user. Please try again.");
+        handleError("Failed to add user.Check Data and Please try again.");
       }
     } catch (error) {
       handleError("An error occurred. Please try again.");
