@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -10,10 +10,11 @@ import {
   FormControlLabel,
   Checkbox,
   Paper,
-  IconButton,
 } from "@mui/material";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import DescriptionIcon from "@mui/icons-material/Description";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const questionTypes = [
   { value: "short_answer", label: "Short Answer" },
@@ -23,21 +24,28 @@ const questionTypes = [
   { value: "file_upload", label: "File Upload (JPG/PDF)" },
 ];
 
+const defaultQuestion = {
+  question: "",
+  type: "short_answer",
+  options: [""],
+  required: false,
+};
+
 const EventRegistrationPage = () => {
-  const [questions, setQuestions] = useState([]);
+  const [eventTitle, setEventTitle] = useState("");
+  const [showDescription, setShowDescription] = useState(false);
+  const [eventDescription, setEventDescription] = useState("");
+  const [questions, setQuestions] = useState([defaultQuestion]);
   const [formThumbnail, setFormThumbnail] = useState(null);
   const [formThumbnailFile, setFormThumbnailFile] = useState(null);
 
   const handleAddQuestion = () => {
-    setQuestions([
-      ...questions,
-      {
-        question: "",
-        type: "short_answer",
-        options: [""],
-        required: false,
-      },
-    ]);
+    setQuestions([...questions, { ...defaultQuestion }]);
+  };
+
+  const handleRemoveQuestion = (index) => {
+    const updated = questions.filter((_, i) => i !== index);
+    setQuestions(updated.length > 0 ? updated : [defaultQuestion]);
   };
 
   const handleQuestionChange = (index, field, value) => {
@@ -73,7 +81,12 @@ const EventRegistrationPage = () => {
   };
 
   const handleSubmitForm = () => {
-    console.log("Form Structure:", { thumbnail: formThumbnailFile, questions });
+    console.log("Form Structure:", {
+      eventTitle,
+      eventDescription: showDescription ? eventDescription : "",
+      thumbnail: formThumbnailFile,
+      questions,
+    });
     alert("Form structure saved (check console)");
   };
 
@@ -87,8 +100,50 @@ const EventRegistrationPage = () => {
           gutterBottom
           sx={{ fontSize: { xs: "2rem", sm: "2.5rem" } }}
         >
-        Create Event Registration Form
+          Create Event Registration Form
         </Typography>
+
+        {/* Event Title & Description */}
+        <Box sx={{ mb: 6 }}>
+          <TextField
+            fullWidth
+            required
+            label="Event Title"
+            variant="outlined"
+            value={eventTitle}
+            onChange={(e) => setEventTitle(e.target.value)}
+            sx={{ mb: 2 }}
+          />
+
+          <Button
+            variant="outlined"
+            startIcon={<DescriptionIcon />}
+            onClick={() => setShowDescription((prev) => !prev)}
+            sx={{
+              mb: 2,
+              borderRadius: 8,
+              display: "flex",
+              justifyContent: "center",
+              margin: "auto",
+              fontSize: "1.2rem",
+            }}
+          >
+            {showDescription ? "Remove Description" : "Add Description"}
+          </Button>
+
+          {showDescription && (
+            <TextField
+              fullWidth
+              label="Event Description (Optional)"
+              variant="outlined"
+              multiline
+              rows={4}
+              value={eventDescription}
+              onChange={(e) => setEventDescription(e.target.value)}
+              sx={{ mt: 2 }}
+            />
+          )}
+        </Box>
 
         {/* Thumbnail Upload */}
         <Box sx={{ mb: 6, textAlign: "center" }}>
@@ -155,21 +210,46 @@ const EventRegistrationPage = () => {
               position: "relative",
             }}
           >
-            <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
-              <Typography fontWeight="bold" sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}>
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 2 }}
+            >
+              <Typography
+                fontWeight="bold"
+                sx={{ fontSize: { xs: "1rem", sm: "1.25rem" } }}
+              >
                 Question {index + 1}
               </Typography>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={q.required}
-                    onChange={(e) =>
-                      handleQuestionChange(index, "required", e.target.checked)
-                    }
-                  />
-                }
-                label="Required"
-              />
+
+              <Box>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={q.required}
+                      onChange={(e) =>
+                        handleQuestionChange(
+                          index,
+                          "required",
+                          e.target.checked
+                        )
+                      }
+                    />
+                  }
+                  label="Required"
+                />
+
+                <Button
+                  onClick={() => handleRemoveQuestion(index)}
+                  startIcon={<DeleteIcon />}
+                  color="error"
+                  variant="text"
+                  disabled={questions.length === 1}
+                >
+                  Remove
+                </Button>
+              </Box>
             </Box>
 
             <TextField
@@ -192,7 +272,7 @@ const EventRegistrationPage = () => {
               onChange={(e) =>
                 handleQuestionChange(index, "type", e.target.value)
               }
-              sx={{ mb: 2, fontSize: { xs: "0.875rem", sm: "1rem" } }}
+              sx={{ mb: 2 }}
             >
               {questionTypes.map((type) => (
                 <MenuItem key={type.value} value={type.value}>
@@ -212,28 +292,17 @@ const EventRegistrationPage = () => {
                     onChange={(e) =>
                       handleOptionChange(index, oIndex, e.target.value)
                     }
-                    sx={{ mb: 1, fontSize: { xs: "0.875rem", sm: "1rem" } }}
+                    sx={{ mb: 1 }}
                   />
                 ))}
-                <Button
-                  onClick={() => handleAddOption(index)}
-                  sx={{
-                    fontSize: { xs: "0.75rem", sm: "1rem" },
-                    padding: { xs: "6px 12px", sm: "8px 16px" },
-                  }}
-                >
+                <Button onClick={() => handleAddOption(index)}>
                   + Add Option
                 </Button>
               </Box>
             )}
 
             {q.type === "file_upload" && (
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                mt={1}
-                sx={{ fontSize: { xs: "0.75rem", sm: "0.875rem" } }}
-              >
+              <Typography variant="body2" color="text.secondary" mt={1}>
                 📎 Users will have to upload a JPG or PDF file.
               </Typography>
             )}
@@ -251,8 +320,6 @@ const EventRegistrationPage = () => {
               mx: 2,
               px: 3,
               ":hover": { bgcolor: "#e3f2fd" },
-              fontSize: { xs: "0.75rem", sm: "1rem" },
-              padding: { xs: "8px 16px", sm: "10px 20px" },
             }}
           >
             Add Question
