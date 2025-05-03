@@ -56,9 +56,15 @@ const AdministrationHome = () => {
     }
   };
 
-  const handleEditUser = ()=>{
-    navigate("/editUser")
-  }
+  const handleEditUser = (user) => {
+    if (user && user._id) {
+      navigate(`/editUser/${user._id}`);
+    } else {
+      console.error("Invalid user object:", user);
+    }
+  };
+  
+  
   const handleAddUser = () => {
     navigate("/signupUser");
   };
@@ -149,6 +155,7 @@ const AdministrationHome = () => {
                 </TableCell>
                 <TableCell>
                   <Button
+                  key={user._id}
                     color="warning"
                     variant="outlined"
                     onClick={() => handleEditUser(user)}

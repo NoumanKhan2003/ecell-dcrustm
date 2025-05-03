@@ -71,6 +71,24 @@ const userRead = async (req, res) => {
   }
 };
 
+const userReadOne = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ error: "User ID is required" });
+    }
+    const user = await userModel.findById(id);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Failed to fetch user", details: error.message });
+  }
+};
+
 const userDelete = async (req, res) => {
   try {
     const { id } = req.params;
@@ -94,14 +112,18 @@ const userEdit = async (req, res) => {
     if (!id) {
       return res.status(400).json({ error: "User ID is required" });
     }
+
     if (updateUser.password) {
       updateUser.password = await bcrypt.hash(updateUser.password, 10);
     }
 
-    const userEdit = await userModel.findByIdAndUpdate(id, updateUser, {
-      new: true,
-      runValidators: true,
-    });
+    const userEdit = await userModel
+      .findByIdAndUpdate(id, updateUser, {
+        new: true,
+        runValidators: true,
+      })
+      .select("-password");
+
     if (!userEdit) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -114,4 +136,4 @@ const userEdit = async (req, res) => {
   }
 };
 
-export { userSignup, userLogin, userRead, userDelete, userEdit };
+export { userSignup, userLogin, userRead, userDelete, userEdit, userReadOne };

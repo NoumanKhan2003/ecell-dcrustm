@@ -88,7 +88,7 @@ function App() {
           element={<AdminRoute element={<UserSignUpPage/>} />}
         />
          <Route
-          path="/editUser"
+          path="/editUser/:id"
           element={<AdminRoute element={<UserEditPage/>} />}
         />
         <Route path="/contributors" element={<ContributorsPage />} />

@@ -101,9 +101,9 @@ const UserSignUpPage = () => {
     >
       <Paper
         elevation={3}
-        sx={{ padding: 3, maxWidth: 500, width: "100%", borderRadius: 2 }}
+        sx={{ padding: 3, maxWidth: 600, width: "100%", borderRadius: 2 }}
       >
-        <Typography variant="h6" align="center" fontWeight={600}>
+        <Typography variant="h5" align="center" fontWeight={600}>
           Add User to E-Cell(DCRUSTM)
         </Typography>
         <Box component="form" sx={{ mt: 2 }} onSubmit={handleAddUser}>
@@ -160,11 +160,11 @@ const UserSignUpPage = () => {
           <Button
             fullWidth
             variant="contained"
-            color="primary"
+            color="success"
             sx={{ mt: 2 }}
             type="submit"
           >
-            Sign Up
+            Sign Up User
           </Button>
         </Box>
         <Typography variant="body2" align="center" sx={{ mt: 2 }}>
