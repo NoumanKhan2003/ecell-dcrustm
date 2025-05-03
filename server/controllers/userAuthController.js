@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 const userSignup = async (req, res) => {
   try {
-    const { name, email,userType, password } = req.body;
+    const { name, email, userType, password } = req.body;
 
     const existinguser = await userModel.findOne({ email });
     if (existinguser) {
@@ -14,7 +14,12 @@ const userSignup = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newuser = new userModel({ name, email,userType, password: hashedPassword });
+    const newuser = new userModel({
+      name,
+      email,
+      userType,
+      password: hashedPassword,
+    });
     await newuser.save();
 
     res.status(201).json({ message: "Signup successful", success: true });
@@ -75,21 +80,38 @@ const userDelete = async (req, res) => {
     const userDelete = await userModel.findByIdAndDelete(id);
     res.json({ message: "user deleted successfully", deletedUser: userDelete });
   } catch (error) {
-    res.status(500).json({ error: "Failed to delete user", details: error.message });
+    res
+      .status(500)
+      .json({ error: "Failed to delete user", details: error.message });
   }
 };
 
 const userEdit = async (req, res) => {
   try {
     const { id } = req.params;
+    const updateUser = req.body;
+
     if (!id) {
       return res.status(400).json({ error: "User ID is required" });
     }
-    const userEdit = await userModel.findByIdAndUpdate(id);
+    if (updateUser.password) {
+      updateUser.password = await bcrypt.hash(updateUser.password, 10);
+    }
+
+    const userEdit = await userModel.findByIdAndUpdate(id, updateUser, {
+      new: true,
+      runValidators: true,
+    });
+    if (!userEdit) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.json({ message: "User Updated successfully", editedUser: userEdit });
   } catch (error) {
-    res.status(500).json({ error: "Failed to Edit User", details: error.message });
+    res
+      .status(500)
+      .json({ error: "Failed to Edit User", details: error.message });
   }
 };
 
-export { userSignup, userLogin, userRead,userDelete,userEdit };
+export { userSignup, userLogin, userRead, userDelete, userEdit };
