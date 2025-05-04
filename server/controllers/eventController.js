@@ -1,5 +1,6 @@
 import pastEventModel from "../models/pastEventModel.js";
 import presentEventModel from "../models/presentEventModel.js";
+import eventRegisterModel from '../models/eventRegisterModel.js';
 
 const pastEventCreateController = async (req, res) => {
   try {
@@ -172,6 +173,48 @@ const toggleRegistrationController = async (req, res) => {
     res.status(500).json({ error: "Failed to update registration status" });
   }
 };
+
+const addEventRegisterForm = async (req, res) => {
+  try {
+    const { eventTitle, eventDescription, questions } = req.body;
+
+    const existingForm = await eventRegisterModel.findOne({ eventTitle });
+    if (existingForm) {
+      return res
+        .status(409)
+        .json({ message: "This form title already exists!", success: false });
+    }
+
+    const thumbnailPath = req.file ? req.file.path : null;
+
+    const parsedQuestions =
+      typeof questions === "string" ? JSON.parse(questions) : questions;
+
+    const newForm = new eventRegisterModel({
+      eventTitle,
+      eventDescription,
+      thumbnailPath,
+      questions: parsedQuestions,
+    });
+
+    await newForm.save();
+
+    res.status(201).json({
+      message: "Form created successfully",
+      success: true,
+      data: newForm,
+    });
+  } catch (err) {
+    console.error("Error saving form:", err);
+    res.status(500).json({
+      message: "Internal server error",
+      success: false,
+      error: err.message,
+    });
+  }
+};
+
+
 export {
   pastEventCreateController,
   pastEventReadController,
@@ -179,5 +222,6 @@ export {
   presentEventCreateController,
   presentEventReadController,
   presentEventDeleteControllers,
-  toggleRegistrationController
+  toggleRegistrationController,
+  addEventRegisterForm
 };

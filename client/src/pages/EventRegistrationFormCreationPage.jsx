@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Box,
   Button,
@@ -15,6 +15,8 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DescriptionIcon from "@mui/icons-material/Description";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { handleError, handleSuccess } from "../components/Utils";
 
 const questionTypes = [
   { value: "short_answer", label: "Short Answer" },
@@ -37,7 +39,9 @@ const EventRegistrationPage = () => {
   const [eventDescription, setEventDescription] = useState("");
   const [questions, setQuestions] = useState([defaultQuestion]);
   const [formThumbnail, setFormThumbnail] = useState(null);
-  const [formThumbnailFile, setFormThumbnailFile] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const fileInputRef = useRef(null);
 
   const handleAddQuestion = () => {
     setQuestions([...questions, { ...defaultQuestion }]);
@@ -77,34 +81,63 @@ const EventRegistrationPage = () => {
 
   const handleThumbnailUpload = (file) => {
     setFormThumbnail(URL.createObjectURL(file));
-    setFormThumbnailFile(file);
+    setThumbnail(file);
   };
 
-  const handleSubmitForm = () => {
-    console.log("Form Structure:", {
-      eventTitle,
-      eventDescription: showDescription ? eventDescription : "",
-      thumbnail: formThumbnailFile,
-      questions,
-    });
-    alert("Form structure saved (check console)");
+  const handleSubmitForm = async () => {
+    const formData = new FormData();
+    formData.append("eventTitle", eventTitle);
+    formData.append(
+      "eventDescription",
+      showDescription ? eventDescription : ""
+    );
+    formData.append("questions", JSON.stringify(questions));
+    if (thumbnail) {
+      formData.append("image", thumbnail);
+    }
+    if (!eventTitle || questions.length === 0) {
+      return handleError("All Fields are required.");
+    }
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/events/addEventRegisterForm`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        handleSuccess("Form made & saved successfully.");
+      } else {
+        handleError(data.message);
+      }
+    } catch (error) {
+      handleError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 6 }}>
-      <Paper elevation={4} sx={{ p: 4, borderRadius: 4, bgcolor: "#f9f9f9" }}>
+    <Container maxWidth="md" sx={{ mt: 10, mb: 3}}>
+      <Paper elevation={2} sx={{p: {md:4,xs:1}, borderRadius: 2, bgcolor: "#f9f9f9" }}>
         <Typography
           variant="h4"
           fontWeight="bold"
           textAlign="center"
           gutterBottom
-          sx={{ fontSize: { xs: "2rem", sm: "2.5rem" } }}
+          sx={{
+            fontSize: { xs: "2rem", sm: "2.5rem" },
+            color: "rgb(20, 76, 139)",
+          }}
         >
           Create Event Registration Form
         </Typography>
 
         {/* Event Title & Description */}
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: 1 }}>
           <TextField
             fullWidth
             required
@@ -112,7 +145,7 @@ const EventRegistrationPage = () => {
             variant="outlined"
             value={eventTitle}
             onChange={(e) => setEventTitle(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{ mb: 1 }}
           />
 
           <Button
@@ -120,13 +153,14 @@ const EventRegistrationPage = () => {
             startIcon={<DescriptionIcon />}
             onClick={() => setShowDescription((prev) => !prev)}
             sx={{
-              mb: 2,
+              mb: 0,
               borderRadius: 8,
               display: "flex",
               justifyContent: "center",
               margin: "auto",
               fontSize: "1.2rem",
             }}
+            color={showDescription ? "error" : "success"}
           >
             {showDescription ? "Remove Description" : "Add Description"}
           </Button>
@@ -146,35 +180,60 @@ const EventRegistrationPage = () => {
         </Box>
 
         {/* Thumbnail Upload */}
-        <Box sx={{ mb: 6, textAlign: "center" }}>
+        <Box sx={{ mb: 4, textAlign: "center" }}>
           <Typography variant="subtitle1" gutterBottom>
-            Optional: Upload Form Thumbnail (JPG/PDF)
+            Optional: Event Description & Thumbnail (JPG/PNG)
           </Typography>
           <input
             accept="image/jpeg,image/png"
             type="file"
             style={{ display: "none" }}
             id="form-thumbnail-upload"
+            ref={fileInputRef}
             onChange={(e) => handleThumbnailUpload(e.target.files[0])}
           />
-          <label htmlFor="form-thumbnail-upload">
+          {!formThumbnail ? (
+            <label htmlFor="form-thumbnail-upload">
+              <Button
+                variant="outlined"
+                component="span"
+                color="success"
+                startIcon={<UploadFileIcon />}
+                sx={{
+                  borderRadius: 8,
+                  mt: 1,
+                  fontSize: { xs: "0.875rem", sm: "1rem" },
+                  padding: { xs: "8px 16px", sm: "10px 20px" },
+                }}
+              >
+                Upload Thumbnail
+              </Button>
+            </label>
+          ) : (
             <Button
               variant="outlined"
               component="span"
-              startIcon={<UploadFileIcon />}
+              color="error"
+              startIcon={<DeleteOutlineIcon />}
               sx={{
                 borderRadius: 8,
-                mt: 1,
-                fontSize: { xs: "0.875rem", sm: "1rem" },
-                padding: { xs: "8px 16px", sm: "10px 20px" },
+                mt: 0,
+                fontSize: { xs: "0.875rem", md: "1rem" },
+                padding: { xs: "8px 16px", md: "10px 20px" },
+              }}
+              onClick={() => {
+                setFormThumbnail(null);
+                if (fileInputRef.current) {
+                  fileInputRef.current.value = null;
+                }
               }}
             >
-              Upload Thumbnail
+              Remove Thumbnail
             </Button>
-          </label>
+          )}
           {formThumbnail && (
             <Box
-              mt={4}
+              mt={1}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -202,7 +261,7 @@ const EventRegistrationPage = () => {
             key={index}
             elevation={2}
             sx={{
-              p: 3,
+              p: {md:3,xs:1},
               mb: 4,
               borderRadius: 3,
               borderLeft: "4px solid #1976d2",
@@ -310,7 +369,7 @@ const EventRegistrationPage = () => {
         ))}
 
         {/* Action Buttons */}
-        <Box textAlign="center" mt={4}>
+        <Box textAlign="center" mt={2}>
           <Button
             variant="outlined"
             startIcon={<AddCircleOutlineIcon />}
@@ -330,9 +389,9 @@ const EventRegistrationPage = () => {
             onClick={handleSubmitForm}
             sx={{
               borderRadius: 8,
-              px: 4,
-              fontSize: { xs: "0.875rem", sm: "1rem" },
-              padding: { xs: "8px 16px", sm: "10px 20px" },
+              px: 3,
+              fontSize: { xs: "0.875rem", md: "1rem" },
+              mt:{md:0,xs:2},
             }}
           >
             Save Form

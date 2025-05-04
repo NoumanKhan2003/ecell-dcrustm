@@ -1,7 +1,24 @@
 import express from "express";
-import { pastEventCreateController, pastEventDeleteControllers, pastEventReadController, presentEventCreateController, presentEventDeleteControllers, presentEventReadController, toggleRegistrationController } from "../controllers/eventController.js";
-import { pastEventCreateValidation, presentEventCreateValidation } from "../middlewares/eventValidation.js";
-import { uploadPastEventImage, uploadPresentEventImage } from "../middlewares/multerMiddleware.js";
+import {
+  addEventRegisterForm,
+  pastEventCreateController,
+  pastEventDeleteControllers,
+  pastEventReadController,
+  presentEventCreateController,
+  presentEventDeleteControllers,
+  presentEventReadController,
+  toggleRegistrationController,
+} from "../controllers/eventController.js";
+import {
+  eventRegisterFormCreateValidation,
+  pastEventCreateValidation,
+  presentEventCreateValidation,
+} from "../middlewares/eventValidation.js";
+import {
+  uploadEventRegisterImage,
+  uploadPastEventImage,
+  uploadPresentEventImage,
+} from "../middlewares/multerMiddleware.js";
 
 const eventRouter = express.Router();
 
@@ -11,8 +28,8 @@ eventRouter.post(
   pastEventCreateValidation,
   pastEventCreateController
 );
-eventRouter.get("/pastEvents",pastEventReadController)
-eventRouter.delete("/deletePastEvent/:id",pastEventDeleteControllers)
+eventRouter.get("/pastEvents", pastEventReadController);
+eventRouter.delete("/deletePastEvent/:id", pastEventDeleteControllers);
 
 eventRouter.post(
   "/createPresentEvent",
@@ -20,8 +37,15 @@ eventRouter.post(
   presentEventCreateValidation,
   presentEventCreateController
 );
-eventRouter.get("/presentEvents",presentEventReadController)
-eventRouter.delete("/deletePresentEvent/:id",presentEventDeleteControllers)
+eventRouter.get("/presentEvents", presentEventReadController);
+eventRouter.delete("/deletePresentEvent/:id", presentEventDeleteControllers);
 eventRouter.post("/toggleRegistration/:id", toggleRegistrationController);
+
+eventRouter.post(
+  "/addEventRegisterForm",
+  uploadEventRegisterImage,
+  eventRegisterFormCreateValidation,
+  addEventRegisterForm
+);
 
 export default eventRouter;

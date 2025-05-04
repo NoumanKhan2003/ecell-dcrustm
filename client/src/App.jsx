@@ -22,7 +22,7 @@ import BlogsForm from "./pages/BlogsUploadPage";
 import ContributorsPage from "./pages/ContributorsPage";
 import PastEventUploadPage from "./pages/PastEventUploadPage";
 import PresentEventUploadPage from "./pages/PresentEventUploadPage";
-import EventRegistrationFormCreation from "./pages/EventRegistrationFormCreation";
+import EventRegistrationFormCreationPage from "./pages/EventRegistrationFormCreationPage";
 import UserSignUpPage from "./pages/userSignupPage";
 import UserEditPage from "./pages/UserEditPage";
 import UserLoginPage from "./pages/UserLoginPage";
@@ -60,6 +60,10 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/contributors" element={<ContributorsPage />} />
+        <Route path="/login" element={<UserLoginPage />} />
+
         <Route
           path="/blogsForm"
           element={<PrivateRoute element={<BlogsForm />} />}
@@ -72,13 +76,10 @@ function App() {
           path="/presentEventForm"
           element={<PrivateRoute element={<PresentEventUploadPage />} />}
         />
-        <Route path="/events" element={<EventsPage />} />
         <Route
           path="/eventRegistrationFormCreation"
-          element={<PrivateRoute element={<EventRegistrationFormCreation />} />}
+          element={<PrivateRoute element={<EventRegistrationFormCreationPage />} />}
         />
-        {/* <Route path="/eventRegistration" element={<EventRegistrationPage/>}/> */}
-        <Route path="/login" element={<UserLoginPage />} />
         <Route
           path="/administration"
           element={<AdminRoute element={<AdministrationPage />} />}
@@ -91,7 +92,6 @@ function App() {
           path="/editUser/:id"
           element={<AdminRoute element={<UserEditPage/>} />}
         />
-        <Route path="/contributors" element={<ContributorsPage />} />
       </Routes>
       <Footer />
     </Router>

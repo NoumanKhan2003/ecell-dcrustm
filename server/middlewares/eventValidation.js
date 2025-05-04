@@ -24,9 +24,9 @@ function presentEventCreateValidation(req, res, next) {
     description: Joi.string().required(),
     image: Joi.string(),
     sections: Joi.string(),
-    registrationType:Joi.string(),
-    registrationLink:Joi.string(),
-    prize:Joi.string(),
+    registrationType: Joi.string(),
+    registrationLink: Joi.string(),
+    prize: Joi.string(),
   });
 
   const { error } = schema.validate(req.body, { abortEarly: false });
@@ -39,4 +39,35 @@ function presentEventCreateValidation(req, res, next) {
 
   next();
 }
-export { pastEventCreateValidation, presentEventCreateValidation };
+
+function eventRegisterFormCreateValidation(req, res, next) {
+  const schema = Joi.object({
+    eventTitle: Joi.string().trim().required(),
+    eventDescription: Joi.string().allow("").optional(),
+    questions: Joi.array().min(1).required(),
+    image: Joi.any(),
+  });
+  const parsedData = {
+    ...req.body,
+    questions:
+      typeof req.body.questions === "string"
+        ? JSON.parse(req.body.questions)
+        : req.body.questions,
+  };
+
+  const { error } = schema.validate(parsedData, { abortEarly: false });
+
+  if (error) {
+    return res
+      .status(400)
+      .json({ message: "Bad request", error: error.details });
+  }
+
+  next();
+}
+
+export {
+  pastEventCreateValidation,
+  presentEventCreateValidation,
+  eventRegisterFormCreateValidation,
+};
