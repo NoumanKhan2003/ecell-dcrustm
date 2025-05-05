@@ -146,7 +146,7 @@ const AdministrationHome = () => {
                 <TableCell>{user.userType}</TableCell>
                 <TableCell>
                   <Button
-                    color="warning"
+                    color="error"
                     variant="outlined"
                     onClick={() => handleDeleteUser(user)}
                   >
@@ -156,7 +156,7 @@ const AdministrationHome = () => {
                 <TableCell>
                   <Button
                   key={user._id}
-                    color="warning"
+                    color="info"
                     variant="outlined"
                     onClick={() => handleEditUser(user)}
                   >

@@ -27,7 +27,6 @@ const questionTypes = [
 ];
 
 const defaultQuestion = {
-  question: "",
   type: "short_answer",
   options: [""],
   required: false,
@@ -44,7 +43,15 @@ const EventRegistrationPage = () => {
   const fileInputRef = useRef(null);
 
   const handleAddQuestion = () => {
-    setQuestions([...questions, { ...defaultQuestion }]);
+    setQuestions([
+      ...questions,
+      {
+        text: "",
+        type: "short_answer",
+        options: [],
+        required: false,
+      },
+    ]);
   };
 
   const handleRemoveQuestion = (index) => {
@@ -56,12 +63,14 @@ const EventRegistrationPage = () => {
     const updated = [...questions];
     updated[index][field] = value;
 
-    if (
-      field === "type" &&
-      value !== "multiple_choice" &&
-      value !== "single_choice"
-    ) {
-      updated[index].options = [""];
+    if (field === "type") {
+      if (value === "multiple_choice" || value === "single_choice") {
+        updated[index].options = updated[index].options.length
+          ? updated[index].options
+          : [""];
+      } else {
+        updated[index].options = [];
+      }
     }
 
     setQuestions(updated);
@@ -71,6 +80,16 @@ const EventRegistrationPage = () => {
     const updated = [...questions];
     updated[qIndex].options[oIndex] = value;
     setQuestions(updated);
+  };
+
+  const handleDeleteOption = (questionIndex, optionIndex) => {
+    const updatedQuestions = [...questions];
+    if (updatedQuestions[questionIndex].options.length > 1) {
+      updatedQuestions[questionIndex].options.splice(optionIndex, 1);
+      setQuestions(updatedQuestions);
+    } else {
+      handleError("At least one option is required.");
+    }
   };
 
   const handleAddOption = (qIndex) => {
@@ -84,7 +103,30 @@ const EventRegistrationPage = () => {
     setThumbnail(file);
   };
 
-  const handleSubmitForm = async () => {
+  const validateForm = () => {
+    for (let q of questions) {
+      if (!q.question || q.question.trim() === "") {
+        return false;
+      }
+
+      if (
+        (q.type === "multiple_choice" || q.type === "single_choice") &&
+        (!q.options || q.options.some((opt) => !opt || opt.trim() === ""))
+      ) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      handleError("Added fields cannot be empty");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("eventTitle", eventTitle);
     formData.append(
@@ -121,8 +163,11 @@ const EventRegistrationPage = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 3}}>
-      <Paper elevation={2} sx={{p: {md:4,xs:1}, borderRadius: 2, bgcolor: "#f9f9f9" }}>
+    <Container maxWidth="md" sx={{ mt: 10, mb: 3 }}>
+      <Paper
+        elevation={2}
+        sx={{ p: { md: 4, xs: 1 }, borderRadius: 2, bgcolor: "#f9f9f9" }}
+      >
         <Typography
           variant="h4"
           fontWeight="bold"
@@ -261,7 +306,7 @@ const EventRegistrationPage = () => {
             key={index}
             elevation={2}
             sx={{
-              p: {md:3,xs:1},
+              p: { md: 3, xs: 1 },
               mb: 4,
               borderRadius: 3,
               borderLeft: "4px solid #1976d2",
@@ -343,16 +388,27 @@ const EventRegistrationPage = () => {
             {(q.type === "multiple_choice" || q.type === "single_choice") && (
               <Box sx={{ pl: 2 }}>
                 {q.options.map((opt, oIndex) => (
-                  <TextField
+                  <Box
                     key={oIndex}
-                    fullWidth
-                    label={`Option ${oIndex + 1}`}
-                    value={opt}
-                    onChange={(e) =>
-                      handleOptionChange(index, oIndex, e.target.value)
-                    }
-                    sx={{ mb: 1 }}
-                  />
+                    sx={{ display: "flex", alignItems: "center", mb: 1 }}
+                  >
+                    <TextField
+                      fullWidth
+                      label={`Option ${oIndex + 1}`}
+                      value={opt}
+                      onChange={(e) =>
+                        handleOptionChange(index, oIndex, e.target.value)
+                      }
+                    />
+                    <Button
+                      color="error"
+                      onClick={() => handleDeleteOption(index, oIndex)}
+                      disabled={q.options.length === 1}
+                      sx={{ ml: 1, minWidth: "40px" }}
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </Button>
+                  </Box>
                 ))}
                 <Button onClick={() => handleAddOption(index)}>
                   + Add Option
@@ -385,13 +441,13 @@ const EventRegistrationPage = () => {
           </Button>
           <Button
             variant="contained"
-            color="primary"
+            color="success"
             onClick={handleSubmitForm}
             sx={{
               borderRadius: 8,
               px: 3,
               fontSize: { xs: "0.875rem", md: "1rem" },
-              mt:{md:0,xs:2},
+              mt: { md: 0, xs: 2 },
             }}
           >
             Save Form
