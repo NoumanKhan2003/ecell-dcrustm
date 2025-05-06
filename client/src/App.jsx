@@ -6,26 +6,26 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import Navbar from "./components/Navbar";
-import About from "./pages/About";
-import TeamPage from "./pages/TeamPage";
-import ContactPage from "./pages/ContactPage";
-import GalleryPage from "./pages/GalleryPage";
-import EventsPage from "./pages/EventsPage";
-import BlogsPage from "./pages/BlogsPage";
-import Footer from "./components/Footer";
-import AdministrationPage from "./pages/AdministrationPage";
-import RefreshHandler from "./components/RefreshHandler";
+import Homepage from "./pages/Homepage.jsx";
+import Navbar from "./components/Navbar.jsx";
+import About from "./pages/About.jsx";
+import TeamPage from "./pages/TeamPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
+import GalleryPage from "./pages/GalleryPage.jsx";
+import EventsPage from "./pages/EventsPage.jsx";
+import BlogsPage from "./pages/BlogsPage.jsx";
+import Footer from "./components/Footer.jsx";
+import AdministrationPage from "./pages/AdministrationPage.jsx";
+import RefreshHandler from "./components/RefreshHandler.jsx";
 import { ToastContainer } from "react-toastify";
-import BlogsForm from "./pages/BlogsUploadPage";
-import ContributorsPage from "./pages/ContributorsPage";
-import PastEventUploadPage from "./pages/PastEventUploadPage";
-import PresentEventUploadPage from "./pages/PresentEventUploadPage";
-import EventRegistrationFormCreationPage from "./pages/EventRegistrationFormCreationPage";
-import UserSignUpPage from "./pages/userSignupPage";
-import UserEditPage from "./pages/UserEditPage";
-import UserLoginPage from "./pages/UserLoginPage";
+import BlogsForm from "./pages/BlogsUploadPage.jsx";
+import ContributorsPage from "./pages/ContributorsPage.jsx";
+import PastEventUploadPage from "./pages/PastEventUploadPage.jsx";
+import PresentEventUploadPage from "./pages/PresentEventUploadPage.jsx";
+import EventRegistrationFormCreationPage from "./pages/EventRegistrationFormCreationPage.jsx";
+import UserSignUpPage from "./pages/userSignupPage.jsx";
+import UserEditPage from "./pages/UserEditPage.jsx";
+import UserLoginPage from "./pages/UserLoginPage.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
