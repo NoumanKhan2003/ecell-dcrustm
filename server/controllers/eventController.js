@@ -1,6 +1,6 @@
 import pastEventModel from "../models/pastEventModel.js";
 import presentEventModel from "../models/presentEventModel.js";
-import eventRegisterModel from '../models/eventRegisterModel.js';
+import eventRegisterModel from "../models/eventRegisterModel.js";
 
 const pastEventCreateController = async (req, res) => {
   try {
@@ -101,6 +101,9 @@ const presentEventCreateController = async (req, res) => {
     if (registrationType === "external") {
       newPresentEvent.registrationLink = registrationLink;
     }
+    if (registrationType === "internal") {
+      newPresentEvent.registrationLink = registrationLink;
+    }
     if (prize) {
       newPresentEvent.prize = prize;
     }
@@ -144,12 +147,10 @@ const presentEventDeleteControllers = async (req, res) => {
       deletedPresentEvent: deletePresentEvent,
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        error: "Failed to delete Present event",
-        details: error.message,
-      });
+    res.status(500).json({
+      error: "Failed to delete Present event",
+      details: error.message,
+    });
   }
 };
 
@@ -165,16 +166,19 @@ const toggleRegistrationController = async (req, res) => {
     if (!togglePresentEvent) {
       return res.status(404).json({ error: "Present Event not found" });
     }
-    togglePresentEvent.registrationStatus = togglePresentEvent.registrationStatus === "open" ? "close" : "open";
+    togglePresentEvent.registrationStatus =
+      togglePresentEvent.registrationStatus === "open" ? "close" : "open";
     await togglePresentEvent.save();
-    res.json({ message: "Registration status updated", status: togglePresentEvent });
-  }
-  catch (error) {
+    res.json({
+      message: "Registration status updated",
+      status: togglePresentEvent,
+    });
+  } catch (error) {
     res.status(500).json({ error: "Failed to update registration status" });
   }
 };
 
-const addEventRegisterForm = async (req, res) => {
+const addEventRegisterFormController = async (req, res) => {
   try {
     const { eventTitle, eventDescription, questions } = req.body;
 
@@ -214,6 +218,14 @@ const addEventRegisterForm = async (req, res) => {
   }
 };
 
+const eventRegistrationForms = async (_, res) => {
+  try {
+    const eventRegistrationForm = await eventRegisterModel.find();
+    res.json(eventRegistrationForm);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch Event Registration Forms" });
+  }
+};
 
 export {
   pastEventCreateController,
@@ -223,5 +235,6 @@ export {
   presentEventReadController,
   presentEventDeleteControllers,
   toggleRegistrationController,
-  addEventRegisterForm
+  addEventRegisterFormController,
+  eventRegistrationForms,
 };

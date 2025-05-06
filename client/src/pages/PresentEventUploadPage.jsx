@@ -11,8 +11,9 @@ import {
   TextField,
 } from "@mui/material";
 import { handleError, handleSuccess } from "../components/Utils.js";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoaderComponent from "../components/Loader.jsx";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const PresentEventForm = () => {
   const [title, setTitle] = useState("");
@@ -23,6 +24,9 @@ const PresentEventForm = () => {
   const [prize, setPrize] = useState("");
   const [registrationType, setRegistrationType] = useState("");
   const [externalLink, setExternalLink] = useState("");
+  const [internalLink, setInternalLink] = useState([]);
+  const [selectedInternalLink, setSelectedInternalLink] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -46,9 +50,14 @@ const PresentEventForm = () => {
   const handleThumbnailChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      if (!file.type.startsWith("image/")) {
+        return handleError("Only image files are allowed.");
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        return handleError("File size must be under 10MB.");
+      }
       setThumbnail(file);
-      const objectUrl = URL.createObjectURL(file);
-      setPreviewUrl(objectUrl);
+      setPreviewUrl(URL.createObjectURL(file));
     }
   };
 
@@ -70,16 +79,56 @@ const PresentEventForm = () => {
   };
 
   const handleRegistrationChange = (event) => {
-    setRegistrationType(event.target.value);
-    if (event.target.value !== "external") {
+    const value = event.target.value;
+    setRegistrationType(value);
+    if (value === "external") {
+      setInternalLink([]);
+    } else {
       setExternalLink("");
     }
   };
+
+  const fetchInternalFormLink = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForms`
+      );
+      if (!response.ok) {
+        return handleError("Failed to fetch Internal Forms");
+      }
+      const data = await response.json();
+      if (Array.isArray(data)) {
+        setInternalLink(data);
+      } else {
+        setInternalLink([]);
+      }
+    } catch (error) {
+      return handleError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchInternalFormLink();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !description || !thumbnail || !registrationType) {
       return handleError("All fields are required");
+    }
+    if (registrationType === "external") {
+      if (!externalLink) {
+        return handleError(
+          "Registration link is required for external registration"
+        );
+      }
+    }
+    if (registrationType === "internal") {
+      if (!selectedInternalLink) {
+        return handleError("Please select an internal registration form.");
+      }
     }
     setLoading(true);
     const formData = new FormData();
@@ -94,12 +143,11 @@ const PresentEventForm = () => {
       formData.append("prize", prize);
     }
     if (registrationType === "external") {
-      if (!externalLink) {
-        return handleError(
-          "Registration link is required for external registration"
-        );
-      }
       formData.append("registrationLink", externalLink);
+    }
+
+    if (registrationType === "internal") {
+      formData.append("registrationLink", selectedInternalLink);
     }
 
     try {
@@ -355,6 +403,7 @@ const PresentEventForm = () => {
                   <MenuItem value="external">External Link</MenuItem>
                 </Select>
               </FormControl>
+
               {registrationType === "external" && (
                 <TextField
                   fullWidth
@@ -364,11 +413,49 @@ const PresentEventForm = () => {
                   onChange={(e) => setExternalLink(e.target.value)}
                 />
               )}
+              {registrationType === "internal" && (
+                <Box>
+                  <Typography variant="body1" sx={{ fontWeight: "bold",color:"orange" }}>
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    Note: Form missing?{" "}
+                      Create now! {"  "}
+                      <AddCircleOutlineIcon/>
+                    </a>
+                  </Typography>
+
+                  <FormControl fullWidth margin="normal">
+                    <InputLabel id="internalLink" shrink>
+                      Internal Form
+                    </InputLabel>
+                    <Select
+                      labelId="internalLink"
+                      id="internalLink"
+                      name="internalLink"
+                      value={selectedInternalLink}
+                      onChange={(e) => setSelectedInternalLink(e.target.value)}
+                      label="Internal Form"
+                      variant="outlined"
+                      displayEmpty
+                      defaultValue=""
+                    >
+                      <MenuItem value="" disabled>
+                        Select Internal Form
+                      </MenuItem>
+                      {internalLink.map((formLink, index) => (
+                        <MenuItem key={index} value={formLink._id}>
+                          {formLink.eventTitle}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Box>
+              )}
             </div>
 
             <div className="pt-4">
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition transform hover:scale-105"
               >
                 Push the Event
