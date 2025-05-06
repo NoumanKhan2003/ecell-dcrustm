@@ -16,7 +16,7 @@ import EventsPage from "./pages/EventsPage.jsx";
 import BlogsPage from "./pages/BlogsPage.jsx";
 import Footer from "./components/Footer.jsx";
 import AdministrationPage from "./pages/AdministrationPage.jsx";
-import RefreshHandler from "./components/RefreshHandler.jsx";
+import RefreshHandler from "./components/RefreshHandler.js";
 import { ToastContainer } from "react-toastify";
 import BlogsForm from "./pages/BlogsUploadPage.jsx";
 import ContributorsPage from "./pages/ContributorsPage.jsx";
