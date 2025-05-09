@@ -23,7 +23,7 @@ import ContributorsPage from "./pages/ContributorsPage.jsx";
 import PastEventUploadPage from "./pages/PastEventUploadPage.jsx";
 import PresentEventUploadPage from "./pages/PresentEventUploadPage.jsx";
 import EventRegistrationFormCreationPage from "./pages/EventRegistrationFormCreationPage.jsx";
-import UserSignUpPage from "./pages/userSignupPage.jsx";
+import UserSignUpPage from "./pages/UserSignupPage.jsx";
 import UserEditPage from "./pages/UserEditPage.jsx";
 import UserLoginPage from "./pages/UserLoginPage.jsx";
 
