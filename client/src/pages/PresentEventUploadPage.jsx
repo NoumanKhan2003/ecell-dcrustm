@@ -13,7 +13,7 @@ import {
 import { handleError, handleSuccess } from "../components/Utils.js";
 import { Link, useNavigate } from "react-router-dom";
 import LoaderComponent from "../components/Loader.jsx";
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const PresentEventForm = () => {
   const [title, setTitle] = useState("");
@@ -109,6 +109,26 @@ const PresentEventForm = () => {
       setLoading(false);
     }
   };
+  const handleCreateNewForm = () => {
+    window.open(
+      "/eventRegistrationFormCreation",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+useEffect(() => {
+  const handleVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      fetchInternalFormLink(); 
+    }
+  };
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+  return () => {
+    document.removeEventListener("visibilitychange", handleVisibilityChange);
+  };
+}, []);
+
   useEffect(() => {
     fetchInternalFormLink();
   }, []);
@@ -415,12 +435,19 @@ const PresentEventForm = () => {
               )}
               {registrationType === "internal" && (
                 <Box>
-                  <Typography variant="body1" sx={{ fontWeight: "bold",color:"orange" }}>
-                  <a href="/" target="_blank" rel="noopener noreferrer">
-                    Note: Form missing?{" "}
-                      Create now! {"  "}
-                      <AddCircleOutlineIcon/>
-                    </a>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: "bold",
+                      color: "orange",
+                      "&:hover": {
+                        cursor:"pointer"
+                      },
+                    }}
+                    onClick={() => handleCreateNewForm()}
+                  >
+                    Note: Form missing? Create now! {"  "}
+                    <AddCircleOutlineIcon />
                   </Typography>
 
                   <FormControl fullWidth margin="normal">
