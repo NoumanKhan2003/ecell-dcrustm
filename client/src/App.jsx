@@ -26,6 +26,7 @@ import EventRegistrationFormCreationPage from "./pages/EventRegistrationFormCrea
 import UserSignUpPage from "./pages/UserSignupPage.jsx";
 import UserEditPage from "./pages/UserEditPage.jsx";
 import UserLoginPage from "./pages/UserLoginPage.jsx";
+import EventRegistrationFormPage from "./pages/EventRegistrationFormPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -63,6 +64,10 @@ function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/contributors" element={<ContributorsPage />} />
         <Route path="/login" element={<UserLoginPage />} />
+        <Route
+          path="/eventRegistrationForm"
+          element={<EventRegistrationFormPage />}
+        />
 
         <Route
           path="/blogsForm"
@@ -78,7 +83,9 @@ function App() {
         />
         <Route
           path="/eventRegistrationFormCreation"
-          element={<PrivateRoute element={<EventRegistrationFormCreationPage />} />}
+          element={
+            <PrivateRoute element={<EventRegistrationFormCreationPage />} />
+          }
         />
         <Route
           path="/administration"
@@ -86,11 +93,11 @@ function App() {
         />
         <Route
           path="/signupUser"
-          element={<AdminRoute element={<UserSignUpPage/>} />}
+          element={<AdminRoute element={<UserSignUpPage />} />}
         />
-         <Route
+        <Route
           path="/editUser/:id"
-          element={<AdminRoute element={<UserEditPage/>} />}
+          element={<AdminRoute element={<UserEditPage />} />}
         />
       </Routes>
       <Footer />

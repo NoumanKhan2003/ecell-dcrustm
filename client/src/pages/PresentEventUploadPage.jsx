@@ -92,7 +92,7 @@ const PresentEventForm = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForms`
+        `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm`
       );
       if (!response.ok) {
         return handleError("Failed to fetch Internal Forms");

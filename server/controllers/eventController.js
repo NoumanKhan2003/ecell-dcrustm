@@ -218,7 +218,7 @@ const addEventRegisterFormController = async (req, res) => {
   }
 };
 
-const eventRegistrationForms = async (_, res) => {
+const eventRegistrationForm = async (_, res) => {
   try {
     const eventRegistrationForm = await eventRegisterModel.find();
     res.json(eventRegistrationForm);
@@ -236,5 +236,5 @@ export {
   presentEventDeleteControllers,
   toggleRegistrationController,
   addEventRegisterFormController,
-  eventRegistrationForms,
+  eventRegistrationForm,
 };
