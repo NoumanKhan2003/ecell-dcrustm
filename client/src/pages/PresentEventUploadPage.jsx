@@ -9,6 +9,7 @@ import {
   InputLabel,
   FormControl,
   TextField,
+  Button,
 } from "@mui/material";
 import { handleError, handleSuccess } from "../components/Utils.js";
 import { Link, useNavigate } from "react-router-dom";
@@ -25,7 +26,11 @@ const PresentEventForm = () => {
   const [registrationType, setRegistrationType] = useState("");
   const [externalLink, setExternalLink] = useState("");
   const [internalLink, setInternalLink] = useState([]);
-  const [selectedInternalLink, setSelectedInternalLink] = useState("");
+  const [selectedInternalLink, setSelectedInternalLink] = useState({
+    eventId: "",
+    eventTitle: "",
+  });
+  const [selectedEventTitle, setSelectedEventTitle] = useState("");
 
   const [loading, setLoading] = useState(false);
 
@@ -117,17 +122,17 @@ const PresentEventForm = () => {
     );
   };
 
-useEffect(() => {
-  const handleVisibilityChange = () => {
-    if (document.visibilityState === "visible") {
-      fetchInternalFormLink(); 
-    }
-  };
-  document.addEventListener("visibilitychange", handleVisibilityChange);
-  return () => {
-    document.removeEventListener("visibilitychange", handleVisibilityChange);
-  };
-}, []);
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        fetchInternalFormLink();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
   useEffect(() => {
     fetchInternalFormLink();
@@ -167,7 +172,8 @@ useEffect(() => {
     }
 
     if (registrationType === "internal") {
-      formData.append("registrationLink", selectedInternalLink);
+      formData.append("eventId", selectedInternalLink);
+      formData.append("eventTitle", selectedEventTitle);
     }
 
     try {
@@ -441,13 +447,20 @@ useEffect(() => {
                       fontWeight: "bold",
                       color: "orange",
                       "&:hover": {
-                        cursor:"pointer"
+                        cursor: "pointer",
                       },
                     }}
                     onClick={() => handleCreateNewForm()}
                   >
-                    Note: Form missing? Create now! {"  "}
-                    <AddCircleOutlineIcon />
+                    Note: Form not created yet?{" "}
+                    <Button
+                      endIcon={<AddCircleOutlineIcon />}
+                      color="warning"
+                      variant="contained"
+                      size="small"
+                    >
+                      Create Now
+                    </Button>
                   </Typography>
 
                   <FormControl fullWidth margin="normal">
@@ -458,8 +471,12 @@ useEffect(() => {
                       labelId="internalLink"
                       id="internalLink"
                       name="internalLink"
-                      value={selectedInternalLink}
-                      onChange={(e) => setSelectedInternalLink(e.target.value)}
+                      value={JSON.stringify(selectedInternalLink)}
+                      onChange={(e) => {
+                        const selected = JSON.parse(e.target.value);
+                        setSelectedInternalLink(selected.eventId);
+                        setSelectedEventTitle(selected.eventTitle);
+                      }}
                       label="Internal Form"
                       variant="outlined"
                       displayEmpty
@@ -469,7 +486,13 @@ useEffect(() => {
                         Select Internal Form
                       </MenuItem>
                       {internalLink.map((formLink, index) => (
-                        <MenuItem key={index} value={formLink._id}>
+                        <MenuItem
+                          key={index}
+                          value={JSON.stringify({
+                            eventId: formLink._id,
+                            eventTitle: formLink.eventTitle,
+                          })}
+                        >
                           {formLink.eventTitle}
                         </MenuItem>
                       ))}

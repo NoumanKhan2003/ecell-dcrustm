@@ -26,6 +26,8 @@ function presentEventCreateValidation(req, res, next) {
     sections: Joi.string(),
     registrationType: Joi.string(),
     registrationLink: Joi.string(),
+    eventId: Joi.string(),
+    eventTitle: Joi.string(),
     prize: Joi.string(),
   });
 

@@ -68,7 +68,7 @@ const pastEventDeleteControllers = async (req, res) => {
 
 const presentEventCreateController = async (req, res) => {
   try {
-    const { title, description, prize, registrationType, registrationLink } =
+    const { title, description, prize, registrationType, registrationLink,eventId,eventTitle } =
       req.body;
 
     const existingEvent = await presentEventModel.findOne({ title });
@@ -102,10 +102,13 @@ const presentEventCreateController = async (req, res) => {
       newPresentEvent.registrationLink = registrationLink;
     }
     if (registrationType === "internal") {
-      newPresentEvent.registrationLink = registrationLink;
+      newPresentEvent.eventId = eventId;
     }
     if (prize) {
       newPresentEvent.prize = prize;
+    }
+    if(eventTitle){
+      newPresentEvent.eventTitle = eventTitle;
     }
 
     await newPresentEvent.save();
