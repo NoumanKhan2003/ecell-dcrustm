@@ -189,7 +189,7 @@ const EventRegistrationFormPage = () => {
       } else {
         handleSuccess("Registration Successful");
         setFormData({});
-         setTimeout(() => {
+        setTimeout(() => {
           window.close();
         }, 1000);
       }
@@ -199,6 +199,9 @@ const EventRegistrationFormPage = () => {
       setloading(false);
     }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -285,7 +288,7 @@ const EventRegistrationFormPage = () => {
                 <Typography
                   variant="h6"
                   color="text.secondary"
-                  sx={{ maxWidth: "100%", }}
+                  sx={{ maxWidth: "100%" }}
                 >
                   {eventForm?.eventDescription}
                 </Typography>
