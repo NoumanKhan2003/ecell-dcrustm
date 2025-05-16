@@ -137,7 +137,7 @@ const PresentEventsPage = () => {
             </Button>
           )}
 
-          {!loading ? (
+          {loading ? (
             <Box
               sx={{
                 display: "flex",
