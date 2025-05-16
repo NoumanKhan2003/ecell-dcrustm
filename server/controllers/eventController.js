@@ -1,6 +1,7 @@
 import pastEventModel from "../models/pastEventModel.js";
 import presentEventModel from "../models/presentEventModel.js";
 import eventRegisterModel from "../models/eventRegisterModel.js";
+import eventRegistrationFormUserDataModel from "../models/eventRegisterUserModel.js";
 
 const pastEventCreateController = async (req, res) => {
   try {
@@ -250,6 +251,28 @@ const eventRegistrationFormController = async (req, res) => {
   }
 };
 
+const postEventRegistrationController = async (req, res) => {
+  try {
+    const { eventTitle, eventId, responses } = req.body;
+
+    if (!eventId || !eventTitle || !responses) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    const submission = new eventRegistrationFormUserDataModel({
+      eventId,
+      eventTitle,
+      responses,
+    });
+
+    await submission.save();
+    res.status(201).json({ message: "Registration submitted successfully" });
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
 export {
   pastEventCreateController,
   pastEventReadController,
@@ -261,4 +284,5 @@ export {
   addEventRegisterFormController,
   eventRegistrationFormController,
   getEventRegistrationFormController,
+  postEventRegistrationController,
 };

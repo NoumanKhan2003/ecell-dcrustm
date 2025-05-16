@@ -15,11 +15,13 @@ import {
   Paper,
   Divider,
 } from "@mui/material";
-
+import Loader from "../components/Loader";
+import { handleError, handleSuccess } from "../components/Utils";
 const EventRegistrationFormPage = () => {
   const { id } = useParams();
   const [eventForm, setEventForm] = useState(null);
   const [formData, setFormData] = useState({});
+  const [loading, setloading] = useState(false);
 
   useEffect(() => {
     const fetchEventForm = async () => {
@@ -57,11 +59,15 @@ const EventRegistrationFormPage = () => {
     }
   };
 
+  const handleClear = () => {
+    setFormData({});
+  };
+
   const renderQuestion = (question, index) => {
     const key = `question_${index}`;
 
     return (
-      <Box key={index} mb={3}>
+      <Box key={index} mb={4}>
         {(() => {
           switch (question.type) {
             case "short_answer":
@@ -72,7 +78,7 @@ const EventRegistrationFormPage = () => {
                   variant="outlined"
                   fullWidth
                   required={question.required}
-                  name={key}
+                  name={`question_${index}`}
                   value={formData[key] || ""}
                   onChange={(e) => handleInputChange(e, key)}
                   multiline={question.type === "long_answer"}
@@ -83,9 +89,9 @@ const EventRegistrationFormPage = () => {
             case "single_choice":
               return (
                 <FormControl fullWidth required={question.required}>
-                  <FormLabel>{question.question}</FormLabel>
+                  <FormLabel sx={{ mb: 1 }}>{question.question}</FormLabel>
                   <RadioGroup
-                    name={key}
+                    name={`question_${index}`}
                     value={formData[key] || ""}
                     onChange={(e) => handleInputChange(e, key)}
                   >
@@ -104,7 +110,7 @@ const EventRegistrationFormPage = () => {
             case "multiple_choice":
               return (
                 <FormControl fullWidth>
-                  <FormLabel>{question.question}</FormLabel>
+                  <FormLabel sx={{ mb: 1 }}>{question.question}</FormLabel>
                   {question.options.map((option, i) => (
                     <FormControlLabel
                       key={i}
@@ -128,7 +134,7 @@ const EventRegistrationFormPage = () => {
             case "file_upload":
               return (
                 <FormControl fullWidth>
-                  <FormLabel>{question.question}</FormLabel>
+                  <FormLabel sx={{ mb: 1 }}>{question.question}</FormLabel>
                   <input
                     type="file"
                     style={{ marginTop: "8px" }}
@@ -147,70 +153,186 @@ const EventRegistrationFormPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      form.append(key, value);
-    });
+    setloading(true);
+    try {
+      const responses = Object.entries(formData).map(([key, value]) => {
+        const index = parseInt(key.split("_")[1]);
+        const matchedQuestion = eventForm?.questions?.[index];
 
-    const response = await fetch(`/api/submit-event-form/${id}`, {
-      method: "POST",
-      body: form,
-    });
+        return {
+          questionId: matchedQuestion?._id || "Unknown ID",
+          question: matchedQuestion?.question || "Unknown Question",
+          answer: value,
+        };
+      });
+      const payload = {
+        eventTitle: eventForm?.eventTitle,
+        eventId: eventForm?._id,
+        responses,
+      };
 
-    const result = await response.json();
-    console.log(result);
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/events/postEventRegistrationForm`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        handleError(data.message || "An error occurred");
+      } else {
+        handleSuccess("Registration Successful");
+      }
+    } catch (error) {
+      handleError(error.message || "Something went wrong");
+    } finally {
+      setloading(false);
+    }
   };
 
-  if (!eventForm) {
-    return <Typography variant="h6">Loading...</Typography>;
-  }
-
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 6 }}>
-      <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        <Box mb={3}>
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            {eventForm.eventTitle}
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Container maxWidth="md" sx={{ mt: 9, mb: 8 }}>
+          <Typography
+            variant="h5"
+            align="center"
+            gutterBottom
+            fontWeight="bold"
+            sx={{
+              mb: 3,
+              fontSize: { md: "3.5rem", xs: "2.5rem" },
+              color: "rgb(20 76 139)",
+            }}
+          >
+            Register Now
           </Typography>
-          {eventForm.eventDescription && (
-            <Typography variant="body1" color="text.secondary">
-              {eventForm.eventDescription}
-            </Typography>
-          )}
-          {eventForm.thumbnailPath && (
+          <Paper
+            elevation={4}
+            sx={{
+              p: { xs: 3, md: 3 },
+              px: { md: 5 },
+              borderRadius: 3,
+              borderTop: "0.2rem solid rgb(20 76 139)",
+              borderBottom: "0.2rem solid rgb(20 76 139)",
+            }}
+          >
             <Box
               sx={{
-                width: "90%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                margin: "auto",
               }}
             >
-              <img
-                src={eventForm.thumbnailPath}
-                alt="Thumnail Image"
-                style={{ height: "100%", width: "100%" }}
-              />
+              <Typography
+                variant="h5"
+                fontWeight="bold"
+                sx={{ mb: 2, fontSize: { md: "3rem", xs: "2rem" } }}
+              >
+                {eventForm?.eventTitle?.toUpperCase() || "UNTITLED EVENT"}
+              </Typography>
             </Box>
-          )}
-        </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: "center",
+                gap: 4,
+                mb: 4,
+              }}
+            >
+              {eventForm?.thumbnailPath && (
+                <Box
+                  sx={{
+                    flex: { xs: "0 0 100%", sm: "0 0 45%" },
+                    maxHeight: 500,
+                    overflow: "hidden",
+                    borderRadius: 2,
+                  }}
+                >
+                  <img
+                    src={eventForm.thumbnailPath}
+                    alt="Thumbnail"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "inherit",
+                      display: "block",
+                    }}
+                  />
+                </Box>
+              )}
 
-        <Divider sx={{ mb: 4 }} />
+              <Box
+                sx={{
+                  flex: { xs: "0 0 100%", sm: "0 0 55%" },
+                  textAlign: { xs: "center", sm: "left" },
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  color="text.secondary"
+                  sx={{ maxWidth: "100%", }}
+                >
+                  {eventForm?.eventDescription}
+                </Typography>
+              </Box>
+            </Box>
 
-        <form onSubmit={handleSubmit}>
-          {eventForm.questions.map((question, index) =>
-            renderQuestion(question, index)
-          )}
+            <Divider sx={{ mb: 1 }} />
+            <Typography
+              variant="h4"
+              sx={{ display: "flex", justifyContent: "center", my: 2 }}
+            >
+              Fill the Form to Register for Event
+            </Typography>
 
-          <Box mt={4} textAlign="right">
-            <Button type="submit" variant="contained" size="large">
-              Submit
-            </Button>
-          </Box>
-        </form>
-      </Paper>
-    </Container>
+            <form onSubmit={handleSubmit}>
+              {eventForm?.questions.map((question, index) =>
+                renderQuestion(question, index)
+              )}
+
+              <Box
+                mt={4}
+                display="flex"
+                justifyContent="center"
+                gap={2}
+                flexWrap="wrap"
+              >
+                <Button
+                  type="button"
+                  variant="outlined"
+                  color="warning"
+                  size="large"
+                  onClick={handleClear}
+                  sx={{ minWidth: 130 }}
+                >
+                  Clear Form
+                </Button>
+
+                <Button
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  sx={{ minWidth: 130 }}
+                >
+                  Submit
+                </Button>
+              </Box>
+            </form>
+          </Paper>
+        </Container>
+      )}{" "}
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import {
   pastEventCreateController,
   pastEventDeleteControllers,
   pastEventReadController,
+  postEventRegistrationController,
   presentEventCreateController,
   presentEventDeleteControllers,
   presentEventReadController,
@@ -18,6 +19,7 @@ import {
 } from "../middlewares/eventValidation.js";
 import {
   uploadEventRegisterImage,
+  uploadEventRegisterUserImage,
   uploadPastEventImage,
   uploadPresentEventImage,
 } from "../middlewares/multerMiddleware.js";
@@ -54,4 +56,10 @@ eventRouter.get(
   "/getEventRegistrationForm",
   getEventRegistrationFormController
 );
+eventRouter.post(
+  "/postEventRegistrationForm",
+  // uploadEventRegisterImage,
+  postEventRegistrationController
+);
+
 export default eventRouter;

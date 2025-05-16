@@ -43,9 +43,15 @@ const eventRegisterStorage = new CloudinaryStorage({
   },
 });
 
+const eventRegisterUserStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "eventRegisterUser",
+    allowedFormats: ["jpg", "png", "jpeg"],
+  },
+});
 export const uploadBlogImage = multer({ storage: blogStorage }).single("image");
 export const uploadPastEventImage = multer({ storage:pastEventStorage }).single("image");
 export const uploadPresentEventImage = multer({ storage:presentEventStorage }).single("image");
 export const uploadEventRegisterImage = multer({ storage:eventRegisterStorage }).single("image");
-
-
+export const uploadEventRegisterUserImage = multer({ storage:eventRegisterUserStorage }).single("image");
