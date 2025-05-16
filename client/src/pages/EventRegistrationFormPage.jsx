@@ -188,6 +188,10 @@ const EventRegistrationFormPage = () => {
         handleError(data.message || "An error occurred");
       } else {
         handleSuccess("Registration Successful");
+        setFormData({});
+         setTimeout(() => {
+          window.close();
+        }, 1000);
       }
     } catch (error) {
       handleError(error.message || "Something went wrong");

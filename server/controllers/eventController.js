@@ -254,7 +254,27 @@ const eventRegistrationFormController = async (req, res) => {
 const postEventRegistrationController = async (req, res) => {
   try {
     const { eventTitle, eventId, responses } = req.body;
+    const emailResponse = responses.find(
+      (response) =>
+        response.question.toLowerCase().includes("email") ||
+        response.questionId.toLowerCase().includes("email")
+    );
 
+    if (!emailResponse || !emailResponse.answer) {
+      return res
+        .status(400)
+        .json({ message: "Email is required", success: false });
+    }
+    const existingForm = await eventRegistrationFormUserDataModel.findOne({
+      eventId: eventId,
+      "responses.answer": emailResponse.answer,
+    });
+
+    if (existingForm) {
+      return res
+        .status(409)
+        .json({ message: "This email is already registered!", success: false });
+    }
     if (!eventId || !eventTitle || !responses) {
       return res.status(400).json({ error: "Missing required fields" });
     }
