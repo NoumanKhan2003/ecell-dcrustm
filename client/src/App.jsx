@@ -65,7 +65,7 @@ function App() {
         <Route path="/contributors" element={<ContributorsPage />} />
         <Route path="/login" element={<UserLoginPage />} />
         <Route
-          path="/eventRegistrationForm"
+          path="/eventRegistrationForm/:id"
           element={<EventRegistrationFormPage />}
         />
 

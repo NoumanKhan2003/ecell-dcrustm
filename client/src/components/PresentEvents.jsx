@@ -179,7 +179,7 @@ const PresentEventsPage = () => {
                   href={
                     data.registrationLink
                       ? data.registrationLink
-                      : "/eventRegistration"
+                      : `/eventRegistrationForm/${data.eventId}`
                   }
                 >
                   <Button

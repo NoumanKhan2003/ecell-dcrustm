@@ -68,8 +68,15 @@ const pastEventDeleteControllers = async (req, res) => {
 
 const presentEventCreateController = async (req, res) => {
   try {
-    const { title, description, prize, registrationType, registrationLink,eventId,eventTitle } =
-      req.body;
+    const {
+      title,
+      description,
+      prize,
+      registrationType,
+      registrationLink,
+      eventId,
+      eventTitle,
+    } = req.body;
 
     const existingEvent = await presentEventModel.findOne({ title });
     if (existingEvent) {
@@ -107,7 +114,7 @@ const presentEventCreateController = async (req, res) => {
     if (prize) {
       newPresentEvent.prize = prize;
     }
-    if(eventTitle){
+    if (eventTitle) {
       newPresentEvent.eventTitle = eventTitle;
     }
 
@@ -221,12 +228,25 @@ const addEventRegisterFormController = async (req, res) => {
   }
 };
 
-const eventRegistrationForm = async (_, res) => {
+const getEventRegistrationFormController = async (_, res) => {
   try {
     const eventRegistrationForm = await eventRegisterModel.find();
     res.json(eventRegistrationForm);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch Event Registration Forms" });
+  }
+};
+
+const eventRegistrationFormController = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const form = await eventRegisterModel.findById(id);
+    if (!form) {
+      return res.status(404).json({ error: "Form not found" });
+    }
+    res.json(form);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch Event Registration Form" });
   }
 };
 
@@ -239,5 +259,6 @@ export {
   presentEventDeleteControllers,
   toggleRegistrationController,
   addEventRegisterFormController,
-  eventRegistrationForm,
+  eventRegistrationFormController,
+  getEventRegistrationFormController,
 };

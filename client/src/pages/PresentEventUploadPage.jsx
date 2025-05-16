@@ -26,7 +26,7 @@ const PresentEventForm = () => {
   const [registrationType, setRegistrationType] = useState("");
   const [externalLink, setExternalLink] = useState("");
   const [internalLink, setInternalLink] = useState([]);
-  const [selectedInternalLink, setSelectedInternalLink] = useState({
+  const [selectedInternalId, setSelectedInternalId] = useState({
     eventId: "",
     eventTitle: "",
   });
@@ -97,7 +97,7 @@ const PresentEventForm = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm`
+        `${import.meta.env.VITE_BACKEND_URL}/events/getEventRegistrationForm`
       );
       if (!response.ok) {
         return handleError("Failed to fetch Internal Forms");
@@ -151,7 +151,7 @@ const PresentEventForm = () => {
       }
     }
     if (registrationType === "internal") {
-      if (!selectedInternalLink) {
+      if (!selectedInternalId) {
         return handleError("Please select an internal registration form.");
       }
     }
@@ -172,7 +172,7 @@ const PresentEventForm = () => {
     }
 
     if (registrationType === "internal") {
-      formData.append("eventId", selectedInternalLink);
+      formData.append("eventId", selectedInternalId);
       formData.append("eventTitle", selectedEventTitle);
     }
 
@@ -464,35 +464,41 @@ const PresentEventForm = () => {
                   </Typography>
 
                   <FormControl fullWidth margin="normal">
-                    <InputLabel id="internalLink" shrink>
+                    <InputLabel id="internalLink-label" shrink sx={{ mt: 2 }}>
                       Internal Form
                     </InputLabel>
                     <Select
-                      labelId="internalLink"
+                      labelId="internalLink-label"
                       id="internalLink"
                       name="internalLink"
-                      value={JSON.stringify(selectedInternalLink)}
-                      onChange={(e) => {
-                        const selected = JSON.parse(e.target.value);
-                        setSelectedInternalLink(selected.eventId);
-                        setSelectedEventTitle(selected.eventTitle);
-                      }}
                       label="Internal Form"
+                      value={selectedInternalId || ""}
+                      onChange={(e) => {
+                        const selectedId = e.target.value;
+                        const selectedForm = internalLink.find(
+                          (form) => form._id === selectedId
+                        );
+                        setSelectedInternalId(selectedId);
+                        setSelectedEventTitle(selectedForm?.eventTitle || "");
+                      }}
                       variant="outlined"
                       displayEmpty
-                      defaultValue=""
+                      renderValue={(selected) => {
+                        if (!selected) {
+                          return <em>Select Internal Form</em>;
+                        }
+                        const selectedForm = internalLink.find(
+                          (form) => form._id === selected
+                        );
+                        return selectedForm?.eventTitle || "";
+                      }}
+                      sx={{ mt: 2 }}
                     >
                       <MenuItem value="" disabled>
                         Select Internal Form
                       </MenuItem>
-                      {internalLink.map((formLink, index) => (
-                        <MenuItem
-                          key={index}
-                          value={JSON.stringify({
-                            eventId: formLink._id,
-                            eventTitle: formLink.eventTitle,
-                          })}
-                        >
+                      {internalLink.map((formLink) => (
+                        <MenuItem key={formLink._id} value={formLink._id}>
                           {formLink.eventTitle}
                         </MenuItem>
                       ))}

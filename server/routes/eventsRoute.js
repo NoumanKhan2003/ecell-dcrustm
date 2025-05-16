@@ -1,7 +1,8 @@
 import express from "express";
 import {
   addEventRegisterFormController,
-  eventRegistrationForm,
+  eventRegistrationFormController,
+  getEventRegistrationFormController,
   pastEventCreateController,
   pastEventDeleteControllers,
   pastEventReadController,
@@ -48,6 +49,9 @@ eventRouter.post(
   eventRegisterFormCreateValidation,
   addEventRegisterFormController
 );
-eventRouter.get("/eventRegistrationForm", eventRegistrationForm);
-
+eventRouter.get("/eventRegistrationForm/:id", eventRegistrationFormController);
+eventRouter.get(
+  "/getEventRegistrationForm",
+  getEventRegistrationFormController
+);
 export default eventRouter;
