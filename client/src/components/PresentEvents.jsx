@@ -137,12 +137,13 @@ const PresentEventsPage = () => {
             </Button>
           )}
 
-          {loading ? (
+          {!loading ? (
             <Box
               sx={{
                 display: "flex",
-                gap: 5,
-                p: 5,
+                flexDirection:{md:"row",xs:"column"},
+                gap: {md:5,xs:0},
+                p: {md:5,xs:1},
                 bgcolor: "background.paper",
                 borderRadius: 2,
                 boxShadow: 1,
@@ -152,7 +153,7 @@ const PresentEventsPage = () => {
               }}
             >
               {/* Skeleton Image */}
-              <Skeleton variant="rounded" width="40%" height={450} />
+              <Skeleton variant="rounded" sx={{width:{md:"40%",xs:"100%"} , height:{md:450,xs:400}}} />
 
               {/* Skeleton Text */}
               <Stack spacing={1} flex={1}>
