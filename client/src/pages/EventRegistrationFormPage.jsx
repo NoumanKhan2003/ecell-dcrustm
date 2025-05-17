@@ -17,12 +17,18 @@ import {
 } from "@mui/material";
 import Loader from "../components/Loader";
 import { handleError, handleSuccess } from "../components/Utils";
+import Linkify from "linkify-react";
+
 const EventRegistrationFormPage = () => {
   const { id } = useParams();
   const [eventForm, setEventForm] = useState(null);
   const [formData, setFormData] = useState({});
   const [loading, setloading] = useState(false);
-
+  const options = {
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "text-black hover:text-green-800 underline",
+  };
   useEffect(() => {
     const fetchEventForm = async () => {
       const response = await fetch(
@@ -208,7 +214,7 @@ const EventRegistrationFormPage = () => {
       {loading ? (
         <Loader />
       ) : (
-        <Container maxWidth="md" sx={{ mt: 9, mb: 8 }}>
+        <Container maxWidth="lg" sx={{ mt: 9, mb: 8 }}>
           <Typography
             variant="h5"
             align="center"
@@ -260,7 +266,7 @@ const EventRegistrationFormPage = () => {
                 <Box
                   sx={{
                     flex: { xs: "0 0 100%", sm: "0 0 45%" },
-                    maxHeight: 500,
+                    maxHeight: 700,
                     overflow: "hidden",
                     borderRadius: 2,
                   }}
@@ -281,16 +287,24 @@ const EventRegistrationFormPage = () => {
 
               <Box
                 sx={{
-                  flex: { xs: "0 0 100%", sm: "0 0 55%" },
+                  // flex: { xs: "0 0 100%", sm: "0 0 55%" },
                   textAlign: { xs: "center", sm: "left" },
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
                 <Typography
                   variant="h6"
                   color="text.secondary"
-                  sx={{ maxWidth: "100%" }}
+                  sx={{
+                    maxWidth: "90%",
+                    whiteSpace: "pre-line",
+                    fontSize: { md: "1.2rem", xs: "1rem" },
+                  }}
                 >
-                  {eventForm?.eventDescription}
+                  <Linkify options={options}>
+                    {eventForm?.eventDescription}
+                  </Linkify>{" "}
                 </Typography>
               </Box>
             </Box>
