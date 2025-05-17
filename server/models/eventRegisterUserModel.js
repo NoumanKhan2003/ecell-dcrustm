@@ -20,6 +20,6 @@ const eventRegistrationDataSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-const eventRegistrationFormUserDataModel = mongoose.model("eventRegisteredUser", eventRegistrationDataSchema);
+const eventRegistrationUserModel = mongoose.model("eventRegisteredUser", eventRegistrationDataSchema);
 
-export default eventRegistrationFormUserDataModel;
+export default eventRegistrationUserModel;
