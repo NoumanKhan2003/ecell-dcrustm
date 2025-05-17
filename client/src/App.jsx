@@ -26,7 +26,7 @@ import EventRegistrationFormCreationPage from "./pages/EventRegistrationFormCrea
 import UserSignUpPage from "./pages/UserSignupPage.jsx";
 import UserEditPage from "./pages/UserEditPage.jsx";
 import UserLoginPage from "./pages/UserLoginPage.jsx";
-import EventRegistrationFormPage from "./pages/EventRegistrationFormPage";
+import EventRegistrationFormPage from "./pages/EventRegistrationFormPage.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
