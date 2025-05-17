@@ -26,15 +26,14 @@ const EventRegistrationFormPage = () => {
   const [formData, setFormData] = useState({});
   const [loading, setloading] = useState(false);
   const options = {
-    // target: "_blank",
-    // rel: "noopener noreferrer",
+    target: "_blank",
+    rel: "noopener noreferrer",
     className: "text-black hover:text-green-800 underline",
   };
   useEffect(() => {
     const fetchEventForm = async () => {
       const response = await fetch(
-        // `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm/${id}`
-       `http://13.233.122.255/events/eventRegistrationForm/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm/${id}`
       );
       console.log(response)
       const data = await response.json();
@@ -185,7 +184,7 @@ const EventRegistrationFormPage = () => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",  // todo : check it later on
+            "Content-Type": "application/json", 
           },
           body: JSON.stringify(payload),
         }

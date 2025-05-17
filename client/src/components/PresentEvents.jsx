@@ -239,12 +239,11 @@ const PresentEventsPage = () => {
 
                     {data.registrationStatus === "open" ? (
                       <a
-                        // target="_blank"
-                        // rel="noopener noreferrer"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         href={
-                          `/eventRegistrationForm/${data.eventId}`
-                          // data.registrationLink ? data.registrationLink
-                          //   : `/eventRegistrationForm/${data.eventId}`
+                          data.registrationLink ? data.registrationLink
+                            : `/eventRegistrationForm/${data.eventId}`
                         }
                       >
                         <Button
