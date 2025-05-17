@@ -1,5 +1,10 @@
 {
-    "rewrites": [
-        {
-            "source": "/(.*)", "destination": "/index.html" } ]
-}
+    "version": 2,
+    "routes": [
+      { "src": "/(.*)\\.(js|css|png|jpg|jpeg|svg|ico|json)", "dest": "/$1.$2" },
+      { "src": "/(.*)\\.(woff|woff2|ttf|otf)",            "dest": "/$1.$2" },
+      { "src": "/(.*)\\.(map)",                          "dest": "/$1.$2" },
+      { "src": "/(.*)\\.(html)",                         "dest": "/$1.$2" },
+      { "src": "/(.*)",                      "dest": "/index.html" }
+    ]
+  }
