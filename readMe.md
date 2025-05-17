@@ -38,4 +38,4 @@ The backend includes an authentication system for admin access:
 
 ## License  
 This project is build by Tech Team of E-Cell DCRUSTM(ALL RIGHT RESERVED).
-Contributors Name - Aashish Joshi, Nouman Khan.  
+Contributors Name - Nouman Khan.  
