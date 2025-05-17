@@ -247,6 +247,7 @@ const eventRegistrationFormController = async (req, res) => {
     }
     res.json(form);
   } catch (error) {
+    console.error("[eventRegistrationFormController ERROR]", error);
     res.status(500).json({ error: "Failed to fetch Event Registration Form" });
   }
 };
