@@ -20,7 +20,6 @@ import { handleError, handleSuccess } from "../components/Utils";
 import Linkify from "linkify-react";
 
 const EventRegistrationFormPage = () => {
-  console.log("in the even button register")
   const { id } = useParams();
   const [eventForm, setEventForm] = useState(null);
   const [formData, setFormData] = useState({});
@@ -35,7 +34,6 @@ const EventRegistrationFormPage = () => {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm/${id}`
       );
-      console.log(response)
       const data = await response.json();
       setEventForm(data);
     };
