@@ -34,7 +34,7 @@ const EventRegistrationFormPage = () => {
     const fetchEventForm = async () => {
       const response = await fetch(
         // `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm/${id}`
-       `https://ecell-dcrustm-api.vercel.app/events/eventRegistrationForm/${id}`
+       `http://13.233.122.255/events/eventRegistrationForm/${id}`
       );
       console.log(response)
       const data = await response.json();
