@@ -39,7 +39,7 @@ const PresentEventsPage = () => {
     } catch (error) {
       handleError(error.message || "An error occurred while fetching events");
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
 
