@@ -210,10 +210,7 @@ const EventRegistrationFormPage = () => {
   }, []);
 
   return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
+    <> 
         <Container maxWidth="lg" sx={{ mt: 9, mb: 8 }}>
           <Typography
             variant="h5"
@@ -352,7 +349,6 @@ const EventRegistrationFormPage = () => {
             </form>
           </Paper>
         </Container>
-      )}{" "}
     </>
   );
 };
