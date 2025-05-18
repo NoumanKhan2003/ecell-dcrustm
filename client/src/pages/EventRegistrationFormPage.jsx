@@ -33,7 +33,6 @@ const EventRegistrationFormPage = () => {
     const fetchEventForm = async () => {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm/${id}`
-        { method: "GET", headers: { "Accept": "application/json" } }
       );
       const data = await response.json();
       setEventForm(data);
