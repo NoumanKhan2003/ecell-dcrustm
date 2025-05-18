@@ -15,6 +15,7 @@ The frontend is designed to provide an interactive and visually appealing user e
 - **Gallery Page** – Displays images of past events.  
 - **Events Page** – Lists upcoming and past events.  
 - **Blogs Page** – Displays blog posts shared by the admin.  
+- **Event Registration System** – Fully dynamic sytem of event registration.
 
 
 ### **Backend**  
