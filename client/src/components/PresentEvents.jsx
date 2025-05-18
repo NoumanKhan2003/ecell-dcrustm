@@ -39,7 +39,7 @@ const PresentEventsPage = () => {
     } catch (error) {
       handleError(error.message || "An error occurred while fetching events");
     } finally {
-      setLoading(false);
+      setLoading(true);
     }
   };
 
@@ -113,12 +113,12 @@ const PresentEventsPage = () => {
     <Container>
       <Box sx={{ mb: 2 }}>
         <Box sx={{ mt: 2 }}>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Box sx={{ display: "flex", justifyContent: "center",alignItems:"center", flexDirection:{md:"row",xs:"column"} }}>
             {presentEvent.length > 0 && (
               <Typography
                 variant="h3"
                 sx={{ fontWeight: "bold" }}
-                className="bg-gradient-to-r from-blue-600 to-green-500 inline-block text-transparent bg-clip-text"
+                className="bg-gradient-to-r from-blue-600 to-green-500 inline-block text-transparent bg-clip-text text-center"
               >
                 Ongoing Events
               </Typography>
