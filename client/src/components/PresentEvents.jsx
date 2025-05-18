@@ -243,7 +243,7 @@ const PresentEventsPage = () => {
                         rel="noopener noreferrer"
                         href={
                           data.registrationLink ? data.registrationLink
-                            : `/eventRegistrationForm/${data.eventId}`
+                            : `/showEventRegistrationForm/${data.eventId}`
                         }
                       >
                         <Button
