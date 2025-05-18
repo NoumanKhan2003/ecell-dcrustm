@@ -31,11 +31,20 @@ const EventRegistrationFormPage = () => {
   };
   useEffect(() => {
     const fetchEventForm = async () => {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/events/eventRegistrationForm/${id}`
-      );
-      const data = await response.json();
-      setEventForm(data);
+      setloading(true);
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/events/eventRegistrationForm/${id}`
+        );
+        const data = await response.json();
+        setEventForm(data);
+      } catch (error) {
+        return handleError("Unable to fetch form");
+      } finally {
+        setloading(false);
+      }
     };
     fetchEventForm();
   }, [id]);
@@ -73,7 +82,7 @@ const EventRegistrationFormPage = () => {
     const key = `question_${index}`;
 
     return (
-      <Box key={index} mb={4}>
+      <Box key={index} mb={4} mx={3}>
         {(() => {
           switch (question.type) {
             case "short_answer":
@@ -182,21 +191,20 @@ const EventRegistrationFormPage = () => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json", 
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(payload),
         }
       );
 
       const data = await response.json();
-
       if (!response.ok) {
         handleError(data.message || "An error occurred");
       } else {
         handleSuccess("Registration Successful");
         setFormData({});
         setTimeout(() => {
-          window.close();
+          window.location.href = "/";
         }, 1000);
       }
     } catch (error) {
@@ -210,7 +218,10 @@ const EventRegistrationFormPage = () => {
   }, []);
 
   return (
-    <> 
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
         <Container maxWidth="lg" sx={{ mt: 9, mb: 8 }}>
           <Typography
             variant="h5"
@@ -229,7 +240,7 @@ const EventRegistrationFormPage = () => {
             elevation={4}
             sx={{
               p: { xs: 3, md: 3 },
-              px: { md: 5 },
+              px: { md: 3,xs:1 },
               borderRadius: 3,
               borderTop: "0.2rem solid rgb(20 76 139)",
               borderBottom: "0.2rem solid rgb(20 76 139)",
@@ -245,7 +256,7 @@ const EventRegistrationFormPage = () => {
               <Typography
                 variant="h5"
                 fontWeight="bold"
-                sx={{ mb: 2, fontSize: { md: "3rem", xs: "2rem" } }}
+                sx={{ mb: 2, fontSize: { md: "3rem", xs: "2.2rem" },textAlign:"center" }}
               >
                 {eventForm?.eventTitle?.toUpperCase() || "UNTITLED EVENT"}
               </Typography>
@@ -296,7 +307,9 @@ const EventRegistrationFormPage = () => {
                   sx={{
                     maxWidth: "90%",
                     whiteSpace: "pre-line",
+                    wordBreak: "break-word",
                     fontSize: { md: "1.2rem", xs: "1rem" },
+                    textAlign: "left",
                   }}
                 >
                   <Linkify options={options}>
@@ -309,7 +322,7 @@ const EventRegistrationFormPage = () => {
             <Divider sx={{ mb: 1 }} />
             <Typography
               variant="h4"
-              sx={{ display: "flex", justifyContent: "center", my: 2 }}
+              sx={{ display: "flex", justifyContent: "center", my: 2,textAlign:"center" }}
             >
               Fill the Form to Register for Event
             </Typography>
@@ -349,6 +362,7 @@ const EventRegistrationFormPage = () => {
             </form>
           </Paper>
         </Container>
+      )}
     </>
   );
 };

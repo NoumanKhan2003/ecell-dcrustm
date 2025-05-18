@@ -15,7 +15,7 @@ const PresentEventsPage = () => {
   const isLoggedIn = localStorage.getItem("loggedInUser");
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [presentEvent, setPresentEvent] = useState([]);
   const [registrationStatus, setRegistrationStatus] = useState(() => {
     const savedState = localStorage.getItem("registrationStatus");
@@ -114,7 +114,7 @@ const PresentEventsPage = () => {
       <Box sx={{ mb: 2 }}>
         <Box sx={{ mt: 2 }}>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
-            {presentEvent.length > 0 && !loading && (
+            {presentEvent.length > 0 && (
               <Typography
                 variant="h3"
                 sx={{ fontWeight: "bold" }}
