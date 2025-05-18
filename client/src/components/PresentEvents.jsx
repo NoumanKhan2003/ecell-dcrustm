@@ -114,7 +114,7 @@ const PresentEventsPage = () => {
       <Box sx={{ mb: 2 }}>
         <Box sx={{ mt: 2 }}>
           <Box sx={{ display: "flex", justifyContent: "center",alignItems:"center", flexDirection:{md:"row",xs:"column"} }}>
-            {presentEvent.length > 0 && (
+          
               <Typography
                 variant="h3"
                 sx={{ fontWeight: "bold" }}
@@ -122,7 +122,6 @@ const PresentEventsPage = () => {
               >
                 Ongoing Events
               </Typography>
-            )}
             {isLoggedIn && (
               <Button
                 variant="outlined"
